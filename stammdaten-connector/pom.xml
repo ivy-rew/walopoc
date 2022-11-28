@@ -71,6 +71,18 @@
               <sourceType>json</sourceType>
             </configuration>
           </execution>
+          <execution>
+            <id>generate.sc17</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <targetPackage>ch.walo.stamm.contact</targetPackage>
+              <sourceDirectory>${basedir}/src/schema/sc17-contactById.json</sourceDirectory>
+              <sourceType>json</sourceType>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
     </plugins>
