@@ -9,6 +9,7 @@
     <module>stammdaten-connector</module>
     <module>walo-msgraph-connector</module>
     <module>Walo_Lead</module>
+    <module>walo-app</module>
   </modules>
 
   <build>
