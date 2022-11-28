@@ -10,3 +10,11 @@ selectedProjectIdConnector String #field
 selectedProjectIdConnector PERSISTENT #fieldModifier
 listProjectsIds List<String> #field
 listProjectsIds PERSISTENT #fieldModifier
+listCustomerIds List<String> #field
+listCustomerIds PERSISTENT #fieldModifier
+listCustomerConnector List<ch.walo.stamm.Customer> #field
+listCustomerConnector PERSISTENT #fieldModifier
+customerSearchString String #field
+customerSearchString PERSISTENT #fieldModifier
+selectedCustomerIdConnector String #field
+selectedCustomerIdConnector PERSISTENT #fieldModifier
