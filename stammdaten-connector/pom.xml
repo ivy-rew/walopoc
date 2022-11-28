@@ -35,6 +35,18 @@
               <sourceType>json</sourceType>
             </configuration>
           </execution>
+          <execution>
+            <id>generate.sc15</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <targetPackage>ch.walo.stamm.divisions</targetPackage>
+              <sourceDirectory>${basedir}/src/schema/sc15-divisions.json</sourceDirectory>
+              <sourceType>json</sourceType>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
     </plugins>

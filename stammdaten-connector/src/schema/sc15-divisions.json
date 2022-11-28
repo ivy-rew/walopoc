@@ -1,0 +1,112 @@
+{
+    "result": [
+        {
+            "divisionData": {
+                "divisionNumber": 101,
+                "designationGerman": "Test BLP JBE",
+                "addressNumber": 101,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 102,
+                "designationGerman": "WB Zürich",
+                "addressNumber": 102,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 115,
+                "designationGerman": "WB Ostschweiz",
+                "addressNumber": 115,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 116,
+                "designationGerman": "WB Graubünden",
+                "addressNumber": 116,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 120,
+                "designationGerman": "WB Bern",
+                "addressNumber": 120,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 125,
+                "designationGerman": "WB Romandie",
+                "addressNumber": 125,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 135,
+                "designationGerman": " WB Ticino",
+                "addressNumber": 135,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 170,
+                "designationGerman": "WB Central",
+                "addressNumber": 170,
+                "tenant": 10,
+                "inactiv": true
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 180,
+                "designationGerman": "WALO Immobilien",
+                "addressNumber": 180,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 900,
+                "designationGerman": "WALO International",
+                "addressNumber": 900,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 950,
+                "designationGerman": " WALO NEU Construction",
+                "addressNumber": 950,
+                "tenant": 10,
+                "inactiv": false
+            }
+        },
+        {
+            "divisionData": {
+                "divisionNumber": 550,
+                "designationGerman": "Consortium CRGL",
+                "addressNumber": 1,
+                "tenant": 550,
+                "inactiv": false
+            }
+        }
+    ]
+}
