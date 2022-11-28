@@ -30,5 +30,8 @@ Variables:
     # you may exclude or add some, as your azure administrator allows or restricts them.
     # for sharepoint-demos, the following must be added: Sites.Read.All Files.ReadWrite
     permissions: "api://walo-stammdaten/.default"
+    
+    # the Ocp-Apim-Subscription-Key header
+    subscription: ""
 
     

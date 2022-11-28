@@ -13,3 +13,4 @@ RestClients:
       AUTH.authUri: ${ivy.var.stammdaten-connector.authUri}
       AUTH.useAppPermissions: 'true'
       AUTH.baseUri: 'https://login.microsoftonline.com/${ivy.var.stammdaten-connector.tenantId}/oauth2/v2.0'
+      AUTH.ocpSubscriptionKey: ${ivy.var.stammdaten-connector.subscription}

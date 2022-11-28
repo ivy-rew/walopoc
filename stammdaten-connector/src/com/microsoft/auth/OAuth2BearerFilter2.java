@@ -9,6 +9,7 @@ import org.apache.commons.lang3.reflect.MethodUtils;
 
 import ch.ivyteam.api.PublicAPI;
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.rest.client.FeatureConfig;
 import ch.ivyteam.ivy.rest.client.oauth2.OAuth2BearerFilter;
 import ch.ivyteam.ivy.rest.client.oauth2.OAuth2TokenRequester;
 import ch.ivyteam.ivy.rest.client.oauth2.uri.OAuth2UriProvider;
@@ -29,6 +30,7 @@ import ch.ivyteam.ivy.rest.client.oauth2.uri.OAuth2UriProvider;
 public class OAuth2BearerFilter2 extends OAuth2BearerFilter {
   private static final String AUTHORIZATION = "Authorization";
   private static final String SUBSCRIPTION = "Ocp-Apim-Subscription-Key";
+  private static final String SUBSCRIPTION_KEY = "AUTH.ocpSubscriptionKey";
 
   //private static final String BEARER = "Bearer ";
   private OAuth2UriProvider uriFactory;
@@ -57,9 +59,11 @@ public class OAuth2BearerFilter2 extends OAuth2BearerFilter {
       return;
     }
 
+    var config = new FeatureConfig(context.getConfiguration(), OAuth2BearerFilter2.class);
+
     String accessToken = getAccessTokenC(context);
     context.getHeaders().add(AUTHORIZATION, accessToken);
-    context.getHeaders().add(SUBSCRIPTION, "7e6e94f3391a4d66a845f2258940e176");
+    context.getHeaders().add(SUBSCRIPTION, config.readMandatory(SUBSCRIPTION_KEY));
   }
 
   private String getAccessTokenC(ClientRequestContext context) {
