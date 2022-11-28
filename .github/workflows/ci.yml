@@ -24,7 +24,32 @@ jobs:
         java-version: 17
         distribution: temurin
 
+    - name: maven-settings-xml-action
+      uses: whelk-io/maven-settings-xml-action@v20
+      env:
+        WUSER: ${{ secrets.WALO_USER }}
+        WPASS: ${{ secrets.WALO_PASS }}
+      with:
+        servers: >
+          [
+            {
+              "id": "walo.engine",
+              "username": "${env.WUSER}",
+              "password": "${env.WPASS}",
+              "configuration": {
+                "httpConfiguration": {
+                  "all": {
+                    "usePreemptive": "true"
+                  }
+                }
+              }
+            }
+          ]
+
     - name: Build with Maven
+      env:
+        WUSER: ${{ secrets.WALO_USER }}
+        WPASS: ${{ secrets.WALO_PASS }}
       run: mvn clean verify --batch-mode ${{ inputs.mvnArgs }} ${{ secrets.mvnArgs }}
 
     - name: Publish Unit Test Results
@@ -34,6 +59,7 @@ jobs:
         junit_files: |
           */target/*-reports/*.xml
           !*/target/*-reports/failsafe-summary.xml
+
     - name: Archive build artifact
       uses: actions/upload-artifact@v3
       with:
