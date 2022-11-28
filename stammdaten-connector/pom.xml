@@ -55,7 +55,7 @@
             </goals>
             <configuration>
               <targetPackage>ch.walo.stamm.project</targetPackage>
-              <sourceDirectory>${basedir}/src/schema/sc18-divisions.json</sourceDirectory>
+              <sourceDirectory>${basedir}/src/schema/sc18-projectById.json</sourceDirectory>
               <sourceType>json</sourceType>
             </configuration>
           </execution>
