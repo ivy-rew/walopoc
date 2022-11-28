@@ -3,3 +3,5 @@ ch.walo.poc.test #namespace
 projects java.util.List<ch.walo.stamm.project.ProjectBase> #field
 approvers java.util.List<ch.walo.stamm.approval.Approver> #field
 customers java.util.List<ch.walo.stamm.customer.Customer> #field
+items java.util.List<com.microsoft.graph.sharepoint.MicrosoftGraphListItem> #field
+items 'sharepoint items' #fieldComment

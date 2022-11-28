@@ -27,7 +27,13 @@
       "type" : "SubProcessCall",
       "name" : "msFiles",
       "config" : {
-        "processCall" : "msFiles:vorfaelle()"
+        "processCall" : "msFiles:vorfaelle()",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.items" : "result.items"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 },

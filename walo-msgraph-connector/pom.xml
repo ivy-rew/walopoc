@@ -37,6 +37,11 @@
         <artifactId>project-build-plugin</artifactId>
         <version>10.0.1</version>
         <extensions>true</extensions>
+        <configuration>
+          <!-- workaround: https://axonivy.atlassian.net/browse/XIVY-10110 -->
+          <!-- fixed with engine 10.0.2 -->
+          <skipScriptValidation>true</skipScriptValidation>
+        </configuration>
       </plugin>
     </plugins>
   </build>
