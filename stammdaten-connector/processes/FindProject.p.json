@@ -1,0 +1,26 @@
+{
+  "format" : "10.0.0",
+  "id" : "184BD9B40A6783E7",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "ch.walo.poc.stammdaten.connector.FindProjectData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "call()",
+      "config" : {
+        "callSignature" : "call"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    } ]
+}
