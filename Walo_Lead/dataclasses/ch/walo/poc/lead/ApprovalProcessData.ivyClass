@@ -9,3 +9,9 @@ actApproval PERSISTENT #fieldModifier
 anzegeLevel Number #field
 anzegeLevel 'Only to display in forms (0 vs 1)' #fieldComment
 anzegeLevel PERSISTENT #fieldModifier
+escalationCounter Number #field
+escalationCounter PERSISTENT #fieldModifier
+taskDeadLine Duration #field
+taskDeadLine PERSISTENT #fieldModifier
+taskPriority ch.ivyteam.ivy.workflow.WorkflowPriority #field
+taskPriority PERSISTENT #fieldModifier

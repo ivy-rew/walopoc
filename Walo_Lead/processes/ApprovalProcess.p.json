@@ -21,20 +21,20 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 64, "y" : 176 }
+        "at" : { "x" : 24, "y" : 248 }
       },
       "connect" : { "id" : "f17", "to" : "f16" }
     }, {
       "id" : "f1",
       "type" : "CallSubEnd",
       "visual" : {
-        "at" : { "x" : 1416, "y" : 176 }
+        "at" : { "x" : 1416, "y" : 248 }
       }
     }, {
       "id" : "f9",
       "type" : "Alternative",
       "visual" : {
-        "at" : { "x" : 320, "y" : 176 }
+        "at" : { "x" : 320, "y" : 248 }
       },
       "connect" : [
         { "id" : "f19", "to" : "f18" }
@@ -52,7 +52,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1232, "y" : 176 }
+        "at" : { "x" : 1232, "y" : 248 }
       },
       "connect" : { "id" : "f12", "to" : "f8" }
     }, {
@@ -77,7 +77,15 @@
             "<%=in.actApproval.name%>",
             "<%=in.actApproval.mail%>"
           ],
-          "category" : "Lead"
+          "category" : "Lead",
+          "priority" : "in.taskPriority.ordinal()",
+          "expiry" : {
+            "timeout" : "in.taskDeadLine",
+            "error" : "f28",
+            "responsible" : {
+              "deleteTask" : true
+            }
+          }
         },
         "call" : {
           "params" : [
@@ -92,7 +100,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 760, "y" : 176 }
+        "at" : { "x" : 760, "y" : 248 }
       },
       "connect" : { "id" : "f24", "to" : "f23" }
     }, {
@@ -113,7 +121,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 528, "y" : 176 }
+        "at" : { "x" : 528, "y" : 248 }
       },
       "connect" : { "id" : "f21", "to" : "f20" }
     }, {
@@ -134,7 +142,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 976, "y" : 176 }
+        "at" : { "x" : 976, "y" : 248 }
       },
       "connect" : { "id" : "f26", "to" : "f25" }
     }, {
@@ -145,32 +153,39 @@
         "levels?"
       ],
       "visual" : {
-        "at" : { "x" : 1344, "y" : 176 },
+        "at" : { "x" : 1344, "y" : 248 },
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [
-        { "id" : "f13", "to" : "f9", "via" : [ { "x" : 1344, "y" : 256 }, { "x" : 320, "y" : 256 } ], "condition" : "in.levelIndex<in.leadProcessData.businessObject.approvalHier.size()" },
+        { "id" : "f13", "to" : "f9", "via" : [ { "x" : 1344, "y" : 144 }, { "x" : 320, "y" : 144 } ], "condition" : "in.levelIndex<in.leadProcessData.businessObject.approvalHier.size()" },
         { "id" : "f15", "to" : "f1" }
       ]
     }, {
       "id" : "f16",
       "type" : "Script",
       "name" : [
-        "index=0",
-        "get first "
+        "index=0 get first ",
+        "Set escalation values",
+        "Prio LOW"
       ],
       "config" : {
         "output" : {
           "code" : [
+            "import ch.ivyteam.ivy.workflow.WorkflowPriority;",
             "in.levelIndex=0;",
             "in.anzegeLevel=1;",
             "in.actApproval=in.leadProcessData.businessObject.approvalHier.get(in.levelIndex);",
-            "ivy.log.info(\"Levels for Approval \"+in. leadProcessData.businessObject.approvalHier.size());"
+            "ivy.log.info(\"Levels for Approval \"+in. leadProcessData.businessObject.approvalHier.size());",
+            "",
+            "//Set some basic escalation values",
+            "in.taskDeadline = ivy.cal.getWorkDayIn(3).getDurationFromNow();",
+            "in.taskPriority=WorkflowPriority.LOW;",
+            "in.escalationCounter=0;"
           ]
         }
       },
       "visual" : {
-        "at" : { "x" : 192, "y" : 176 }
+        "at" : { "x" : 192, "y" : 248 }
       },
       "connect" : { "id" : "f10", "to" : "f9" }
     }, {
@@ -178,18 +193,18 @@
       "type" : "Alternative",
       "name" : "Pre WF?",
       "visual" : {
-        "at" : { "x" : 416, "y" : 176 },
+        "at" : { "x" : 416, "y" : 248 },
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [
         { "id" : "f4", "to" : "f3", "condition" : "in.actApproval.subWorkflowPre.size()>0" },
-        { "id" : "f22", "to" : "f20", "via" : [ { "x" : 416, "y" : 120 }, { "x" : 656, "y" : 120 } ] }
+        { "id" : "f22", "to" : "f20", "via" : [ { "x" : 416, "y" : 192 }, { "x" : 656, "y" : 192 } ] }
       ]
     }, {
       "id" : "f20",
       "type" : "Alternative",
       "visual" : {
-        "at" : { "x" : 656, "y" : 176 }
+        "at" : { "x" : 656, "y" : 248 }
       },
       "connect" : [
         { "id" : "f5", "to" : "f14" }
@@ -198,20 +213,97 @@
       "id" : "f23",
       "type" : "Alternative",
       "visual" : {
-        "at" : { "x" : 880, "y" : 176 }
+        "at" : { "x" : 880, "y" : 248 }
       },
       "connect" : [
         { "id" : "f6", "to" : "f2", "condition" : "in.actApproval.subWorkflowPost.size()>0" },
-        { "id" : "f27", "to" : "f25", "via" : [ { "x" : 880, "y" : 120 }, { "x" : 1104, "y" : 120 } ] }
+        { "id" : "f27", "to" : "f25", "via" : [ { "x" : 880, "y" : 192 }, { "x" : 1104, "y" : 192 } ] }
       ]
     }, {
       "id" : "f25",
       "type" : "Alternative",
       "visual" : {
-        "at" : { "x" : 1104, "y" : 176 }
+        "at" : { "x" : 1104, "y" : 248 }
       },
       "connect" : [
         { "id" : "f7", "to" : "f11" }
       ]
+    }, {
+      "id" : "f28",
+      "type" : "ErrorStartEvent",
+      "name" : "EscalationApprove",
+      "config" : {
+        "errorCode" : "EscalationApprove"
+      },
+      "visual" : {
+        "at" : { "x" : 832, "y" : 416 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      },
+      "connect" : { "id" : "f30", "to" : "f33" }
+    }, {
+      "id" : "f31",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 1072, "y" : 600 }
+      }
+    }, {
+      "id" : "f33",
+      "type" : "Alternative",
+      "visual" : {
+        "at" : { "x" : 904, "y" : 416 }
+      },
+      "connect" : [
+        { "id" : "f36", "to" : "f35", "label" : {
+            "name" : "Stage1"
+          }, "condition" : "in.escalationCounter<1" },
+        { "id" : "f38", "to" : "f37", "via" : [ { "x" : 904, "y" : 504 } ], "label" : {
+            "name" : "Stage2",
+            "segment" : 0.99
+          }, "condition" : "in.escalationCounter<2" },
+        { "id" : "f32", "to" : "f31", "via" : [ { "x" : 904, "y" : 600 } ], "label" : {
+            "name" : "final",
+            "segment" : 0.9
+          }, "condition" : "in.escalationCounter>2" }
+      ]
+    }, {
+      "id" : "f35",
+      "type" : "Script",
+      "name" : "Add 3 days - Prio Normal",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.ivyteam.ivy.workflow.WorkflowPriority;",
+            "",
+            "",
+            "in.taskDeadline = ivy.cal.getWorkDayIn(3).getDurationFromNow();",
+            "in.taskPriority = WorkflowPriority.HIGH;",
+            "in.escalationCounter++;"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 1056, "y" : 416 }
+      },
+      "connect" : { "id" : "f29", "to" : "f14", "via" : [ { "x" : 1168, "y" : 416 }, { "x" : 1168, "y" : 664 }, { "x" : 768, "y" : 664 } ] }
+    }, {
+      "id" : "f37",
+      "type" : "Script",
+      "name" : "Add 3 days - Prio High",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.ivyteam.ivy.workflow.WorkflowPriority;",
+            "",
+            "",
+            "in.taskDeadline = ivy.cal.getWorkDayIn(3).getDurationFromNow();",
+            "in.taskPriority = WorkflowPriority.HIGH;",
+            "in.escalationCounter++;"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 1056, "y" : 504 }
+      },
+      "connect" : { "id" : "f40", "to" : "f14", "via" : [ { "x" : 1168, "y" : 504 }, { "x" : 1168, "y" : 664 }, { "x" : 768, "y" : 664 } ] }
     } ]
 }

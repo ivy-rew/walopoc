@@ -6,3 +6,9 @@ stepindex Number #field
 stepindex PERSISTENT #fieldModifier
 steps List<String> #field
 steps PERSISTENT #fieldModifier
+tableNames List<String> #field
+tableNames PERSISTENT #fieldModifier
+tableRecords List<Recordset> #field
+tableRecords PERSISTENT #fieldModifier
+templateFileFromCMS File #field
+templateFileFromCMS PERSISTENT #fieldModifier
