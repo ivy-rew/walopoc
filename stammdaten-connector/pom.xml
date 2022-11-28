@@ -82,6 +82,18 @@
               <sourceType>json</sourceType>
             </configuration>
           </execution>
+          <execution>
+            <id>generate.sc21</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <targetPackage>ch.walo.stamm.customer</targetPackage>
+              <sourceDirectory>${basedir}/src/schema/sc21-customer.json</sourceDirectory>
+              <sourceType>json</sourceType>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
     </plugins>
