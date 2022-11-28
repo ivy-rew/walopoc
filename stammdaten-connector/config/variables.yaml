@@ -8,6 +8,6 @@
 Variables:
 #  myVariable: value
   stammdaten-connector:
-    baseUri: https://walo-test-shared-api.azure-api.net
+    host: walo-test-shared-api.azure-api.net
     
     

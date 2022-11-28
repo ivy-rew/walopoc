@@ -1,8 +1,8 @@
 RestClients:
   stammdaten:
     UUID: 7ad8fe9b-78d5-49ad-af70-e4b5daa4d239
-    Url: '{ApiBaseUrl}'
+    Url: https://{host}
     Features:
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
     Properties:
-      PATH.ApiBaseUrl: ${ivy.var.stammdaten-connector.baseUri}
+      PATH.host: ${ivy.var.stammdaten-connector.host}
