@@ -47,6 +47,18 @@
               <sourceType>json</sourceType>
             </configuration>
           </execution>
+          <execution>
+            <id>generate.sc18</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <targetPackage>ch.walo.stamm.project</targetPackage>
+              <sourceDirectory>${basedir}/src/schema/sc18-divisions.json</sourceDirectory>
+              <sourceType>json</sourceType>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
     </plugins>
