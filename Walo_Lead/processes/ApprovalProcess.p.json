@@ -137,7 +137,8 @@
         "output" : {
           "code" : [
             "in.levelIndex=0;",
-            "in.actApproval=in.leadProcessData.businessObject.approvalHier.get(in.levelIndex);"
+            "in.actApproval=in.leadProcessData.businessObject.approvalHier.get(in.levelIndex);",
+            "ivy.log.info(\"Levels for Approval \"+in. leadProcessData.businessObject.approvalHier.size());"
           ]
         }
       },

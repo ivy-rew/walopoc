@@ -1,6 +1,6 @@
 nTaskProcessHookData #class
 ch.walo.poc.lead #namespace
-approver List #field
+approver ch.walo.stamm.approval.Approver #field
 approver PERSISTENT #fieldModifier
 type String #field
 type 'post or pre' #fieldComment

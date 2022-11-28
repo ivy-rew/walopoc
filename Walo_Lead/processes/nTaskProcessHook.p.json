@@ -15,7 +15,11 @@
           "params" : [
             { "name" : "Approver", "type" : "ch.walo.stamm.approval.Approver" },
             { "name" : "type", "type" : "String", "desc" : "post or pre" }
-          ]
+          ],
+          "map" : {
+            "out.approver" : "param.Approver",
+            "out.type" : "param.type"
+          }
         }
       },
       "visual" : {
@@ -36,7 +40,8 @@
         "output" : {
           "code" : [
             "ivy.log.info(\"Sub WF Hook Type : \"+in.type);",
-            "//ivy.log.info(\"Number of activities : \"+in.approver.);"
+            "ivy.log.info(\"Number of activities pre : \"+in.approver.subWorkflowPre.size());",
+            "ivy.log.info(\"Number of activities post : \"+in.approver.subWorkflowPost.size());"
           ]
         }
       },
