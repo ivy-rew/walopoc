@@ -65,9 +65,14 @@
         "templateParams" : {
           "host" : ""
         },
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
+        "resultType" : "ch.walo.stamm.project.Sc20ProjectLookup",
         "bodyInputType" : "RAW",
-        "responseCode" : "out.matches = ch.walo.stamm.project.ProjectResultReader.convert(result);"
+        "responseCode" : [
+          "import ch.walo.stamm.project.Result;",
+          "for (Result item : result.result) {",
+          "  out.matches.add(item.projectBase);",
+          "}"
+        ]
       },
       "visual" : {
         "at" : { "x" : 248, "y" : 64 },

@@ -34,7 +34,6 @@ public class OAuth2BearerFilter2 extends OAuth2BearerFilter {
 
   //private static final String BEARER = "Bearer ";
   private OAuth2UriProvider uriFactory;
-  private OAuth2TokenRequester getToken;
 
   /**
    * @param getToken a {@link OAuth2TokenRequester} implementation that actually does the 'accessToken' call to the OAUTH2 authority
@@ -46,7 +45,6 @@ public class OAuth2BearerFilter2 extends OAuth2BearerFilter {
   public OAuth2BearerFilter2(OAuth2TokenRequester getToken, OAuth2UriProvider uriFactory) {
     super(getToken, uriFactory);
     this.uriFactory = uriFactory;
-    this.getToken = getToken;
   }
 
   @Override

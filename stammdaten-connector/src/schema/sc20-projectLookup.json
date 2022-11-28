@@ -1,0 +1,3469 @@
+{
+    "result": [
+        {
+            "projectBase": {
+                "classificationElement": [],
+                "designationElement": [
+                    {
+                        "languageCode": "de",
+                        "designation1": "Lärmschutz",
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "en",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "es",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "fr",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "it",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt_PT",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    }
+                ],
+                "projectBaseTimeAxis": [],
+                "accessRight": [],
+                "projectNote": [],
+                "costCentreElement": [],
+                "projectTeam": [],
+                "serviceCodeElement": [],
+                "deadlineElement": [],
+                "userTableData": [],
+                "projectAddressLink": [],
+                "residentIncidents": [],
+                "projectBaseDossier": [],
+                "projectNumber": 22010,
+                "projectNumber2": "22010",
+                "projectName": "Lärmschutz",
+                "referenceProject": 220,
+                "referenceProjectSpecified": true,
+                "mainProject": 0,
+                "mainProjectSpecified": true,
+                "projectType": 1,
+                "projectTypeSpecified": true,
+                "level": 4,
+                "levelSpecified": true,
+                "inactive": false,
+                "inactiveSpecified": true,
+                "group": 0,
+                "groupSpecified": true,
+                "projectName2": null,
+                "projectName3": null,
+                "customerAddressNumber": 0,
+                "customerAddressNumberSpecified": true,
+                "settlementSchema": 0,
+                "settlementSchemaSpecified": true,
+                "inventory": 0,
+                "inventorySpecified": true,
+                "type": 0,
+                "typeSpecified": true,
+                "tariff": 0,
+                "tariffSpecified": true,
+                "balanceType": 0,
+                "balanceTypeSpecified": true,
+                "settlementPeriod": 1,
+                "settlementPeriodSpecified": true,
+                "settlementRateType": 0,
+                "settlementRateTypeSpecified": true,
+                "separateInvoice": false,
+                "separateInvoiceSpecified": true,
+                "currency": "CHF",
+                "settlementDefinition": 0,
+                "settlementDefinitionSpecified": true,
+                "settlementDefinitionOnAccount": 0,
+                "settlementDefinitionOnAccountSpecified": true,
+                "personInChargeAccountReceivable": 0,
+                "personInChargeAccountReceivableSpecified": true,
+                "orderProcessingSequence": 0,
+                "orderProcessingSequenceSpecified": true,
+                "worXProcess": 0,
+                "worXProcessSpecified": true,
+                "divisionSwitch": false,
+                "divisionSwitchSpecified": true,
+                "divisionFrom": 0,
+                "divisionFromSpecified": true,
+                "divisionTo": 0,
+                "divisionToSpecified": true,
+                "statusIdentification": 1,
+                "statusIdentificationSpecified": true,
+                "status": 1,
+                "statusSpecified": true,
+                "status1Specified": false,
+                "status2Specified": false,
+                "status3Specified": false,
+                "status4Specified": false,
+                "status5Specified": false,
+                "status6Specified": false,
+                "status7Specified": false,
+                "status8Specified": false,
+                "status9Specified": false,
+                "date1Specified": false,
+                "code1": 0,
+                "code1Specified": true,
+                "textField1": null,
+                "date2Specified": false,
+                "code2": 0,
+                "code2Specified": true,
+                "textField2": null,
+                "date3Specified": false,
+                "code3": 0,
+                "code3Specified": true,
+                "textField3": null,
+                "sum1": 0,
+                "sum1Specified": true,
+                "sum2": 0,
+                "sum2Specified": true,
+                "sum3": 0,
+                "sum3Specified": true,
+                "sum4": 0,
+                "sum4Specified": true,
+                "sum5": 0,
+                "sum5Specified": true,
+                "internalContact1": 0,
+                "internalContact1Specified": true,
+                "internalContact2": 0,
+                "internalContact2Specified": true,
+                "externalContact1": 0,
+                "externalContact1Specified": true,
+                "externalContact2": 0,
+                "externalContact2Specified": true,
+                "person1": 0,
+                "person1Specified": true,
+                "person2": 0,
+                "person2Specified": true,
+                "person3": 0,
+                "person3Specified": true,
+                "person4": 0,
+                "person4Specified": true,
+                "person5": 0,
+                "person5Specified": true,
+                "person6": 0,
+                "person6Specified": true,
+                "person7": 0,
+                "person7Specified": true,
+                "contact1": 0,
+                "contact1Specified": true,
+                "contact2": 0,
+                "contact2Specified": true,
+                "contact3": 0,
+                "contact3Specified": true,
+                "contact4": 0,
+                "contact4Specified": true,
+                "contact5": 0,
+                "contact5Specified": true,
+                "contact6": 0,
+                "contact6Specified": true,
+                "contact7": 0,
+                "contact7Specified": true,
+                "onlyServiceCodes": false,
+                "onlyServiceCodesSpecified": true,
+                "employeeFromDivision": false,
+                "employeeFromDivisionSpecified": true,
+                "onlyEmployees": false,
+                "onlyEmployeesSpecified": true,
+                "invoicePerMainProject": false,
+                "invoicePerMainProjectSpecified": true,
+                "plannedRepetition": 0,
+                "plannedRepetitionSpecified": true,
+                "reminderArea": 0,
+                "reminderAreaSpecified": true,
+                "costCentreGroup": 0,
+                "costCentreGroupSpecified": true,
+                "creationDate": "2011-07-08T00:00:00.000Z",
+                "creationDateSpecified": true,
+                "modificationDate": "2021-05-31T00:00:00.000Z",
+                "modificationDateSpecified": true,
+                "modificationUser": 520,
+                "modificationUserSpecified": true,
+                "plannedFactor": 0,
+                "plannedFactorSpecified": true,
+                "invoiceAddress": 0,
+                "invoiceAddressSpecified": true,
+                "askForInvoiceReporting": false,
+                "askForInvoiceReportingSpecified": true,
+                "evaluation": 0,
+                "evaluationSpecified": true,
+                "dailySettlement": false,
+                "dailySettlementSpecified": true,
+                "hoursPerDay": 0,
+                "hoursPerDaySpecified": true,
+                "rounding": 0,
+                "roundingSpecified": true,
+                "roundingFactor": 0,
+                "roundingFactorSpecified": true,
+                "saveContractType": 0,
+                "saveContractTypeSpecified": true,
+                "repetition": 0,
+                "repetitionSpecified": true,
+                "contractEntrySwitch": false,
+                "contractEntrySwitchSpecified": true,
+                "contactInvoiceAddress": 0,
+                "contactInvoiceAddressSpecified": true,
+                "category": 0,
+                "categorySpecified": true,
+                "area": 0,
+                "areaSpecified": true,
+                "reminderProcedure": null,
+                "paymentTermNumber": 0,
+                "paymentTermNumberSpecified": true,
+                "startDateSpecified": false,
+                "endDateSpecified": false,
+                "language": null,
+                "tariffYear": -1,
+                "tariffYearSpecified": true,
+                "location": 0,
+                "locationSpecified": true,
+                "locationContact": 0,
+                "locationContactSpecified": true,
+                "noCostCentreReference": false,
+                "noCostCentreReferenceSpecified": true,
+                "costCentreProposalType": 0,
+                "costCentreProposalTypeSpecified": true,
+                "costCentreProposal": 0,
+                "costCentreProposalSpecified": true,
+                "hasSubProjects": true,
+                "hasSubProjectsSpecified": true,
+                "copiedFrom": 0,
+                "copiedFromSpecified": true,
+                "residentAddress": 0,
+                "residentAddressSpecified": true,
+                "residentEmployee": 0,
+                "residentEmployeeSpecified": true,
+                "valuationPerMainProject": false,
+                "valuationPerMainProjectSpecified": true,
+                "offerProject": false,
+                "offerProjectSpecified": true,
+                "rootCostCentre": 0,
+                "rootCostCentreSpecified": true,
+                "internalTextMandatory": false,
+                "internalTextMandatorySpecified": true,
+                "externalTextMandatory": false,
+                "externalTextMandatorySpecified": true,
+                "bookingInPayroll": false,
+                "bookingInPayrollSpecified": true,
+                "bookingInGeneralLedger": false,
+                "bookingInGeneralLedgerSpecified": true,
+                "bookingInAssetsLedger": false,
+                "bookingInAssetsLedgerSpecified": true,
+                "bookingInGeneralLedgerPlan": false,
+                "bookingInGeneralLedgerPlanSpecified": true,
+                "dateOfBirthSpecified": false,
+                "sex": null,
+                "oasiNumber": null,
+                "cantonOfDomicile": null,
+                "nationality": null,
+                "civilStatus": 0,
+                "civilStatusSpecified": true,
+                "placeOfBirthOrHometown": null,
+                "procedure": 0,
+                "procedureSpecified": true,
+                "planningExchangeRate": 100,
+                "planningExchangeRateSpecified": true,
+                "planningCurrency": "CHF",
+                "enterpriseSpecified": false,
+                "emplFromEnterpriseSpecified": false,
+                "extendedFields": {
+                    "booleanData": [
+                        {
+                            "name": "_USERFIELD5",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD7",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD8",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD9",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD10",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD11",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD12",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD28",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD31",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD32",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD58",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD59",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD60",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD61",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD62",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD63",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD64",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD65",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD66",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD67",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD68",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD71",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD73",
+                            "value": false
+                        }
+                    ],
+                    "stringData": [
+                        {
+                            "name": "_USERFIELD44",
+                            "value": "CH"
+                        }
+                    ],
+                    "intData": [
+                        {
+                            "name": "_USERFIELD13",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD29",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD30",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD76",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD87",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD89",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD91",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD93",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD95",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD97",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD99",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD101",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD103",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD105",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD107",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD109",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD111",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD113",
+                            "value": 0
+                        }
+                    ],
+                    "longData": [
+                        {
+                            "name": "_USERFIELD1",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD6",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD80",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD82",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD84",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD86",
+                            "value": 0
+                        }
+                    ],
+                    "dateData": [],
+                    "dateTimeData": [],
+                    "decimalData": [
+                        {
+                            "name": "_USERFIELD14",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD15",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD16",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD17",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD18",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD19",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD20",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD21",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD22",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD23",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD24",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD25",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD26",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD27",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD33",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD34",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD35",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD36",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD37",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD38",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD39",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD40",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD41",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD42",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD70",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD72",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD74",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD77",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD78",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD88",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD90",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD92",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD94",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD96",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD98",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD100",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD102",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD104",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD106",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD108",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD110",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD112",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD114",
+                            "value": 0
+                        }
+                    ]
+                },
+                "mode": null
+            },
+            "additionalData": null,
+            "attachment": null,
+            "timestamp": "2022-11-03T09:13:17.576Z"
+        },
+        {
+            "projectBase": {
+                "classificationElement": [
+                    {
+                        "variant": 1,
+                        "level": 4,
+                        "id": 22010,
+                        "mode": null
+                    }
+                ],
+                "designationElement": [
+                    {
+                        "languageCode": "de",
+                        "designation1": "Lärmschutzwände N04 Blegi-Rütihof",
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "en",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "es",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "fr",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "it",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt_PT",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    }
+                ],
+                "projectBaseTimeAxis": [],
+                "accessRight": [],
+                "projectNote": [],
+                "costCentreElement": [],
+                "projectTeam": [],
+                "serviceCodeElement": [],
+                "deadlineElement": [],
+                "userTableData": [],
+                "projectAddressLink": [],
+                "residentIncidents": [],
+                "projectBaseDossier": [],
+                "projectNumber": 22010608,
+                "projectNumber2": "22010608",
+                "projectName": "Lärmschutzwände N04 Blegi-Rütihof",
+                "referenceProject": 22010,
+                "referenceProjectSpecified": true,
+                "mainProject": 22010608,
+                "mainProjectSpecified": true,
+                "projectType": 2,
+                "projectTypeSpecified": true,
+                "level": 5,
+                "levelSpecified": true,
+                "inactive": true,
+                "inactiveSpecified": true,
+                "group": 0,
+                "groupSpecified": true,
+                "projectName2": "6303",
+                "projectName3": "Cham",
+                "customerAddressNumber": 220,
+                "customerAddressNumberSpecified": true,
+                "settlementSchema": 0,
+                "settlementSchemaSpecified": true,
+                "inventory": 0,
+                "inventorySpecified": true,
+                "type": 10,
+                "typeSpecified": true,
+                "tariff": 0,
+                "tariffSpecified": true,
+                "balanceType": 1,
+                "balanceTypeSpecified": true,
+                "settlementPeriod": 0,
+                "settlementPeriodSpecified": true,
+                "settlementRateType": 0,
+                "settlementRateTypeSpecified": true,
+                "separateInvoice": false,
+                "separateInvoiceSpecified": true,
+                "currency": "CHF",
+                "settlementDefinition": 0,
+                "settlementDefinitionSpecified": true,
+                "settlementDefinitionOnAccount": 0,
+                "settlementDefinitionOnAccountSpecified": true,
+                "personInChargeAccountReceivable": 0,
+                "personInChargeAccountReceivableSpecified": true,
+                "orderProcessingSequence": 0,
+                "orderProcessingSequenceSpecified": true,
+                "worXProcess": 0,
+                "worXProcessSpecified": true,
+                "divisionSwitch": true,
+                "divisionSwitchSpecified": true,
+                "divisionFrom": 102,
+                "divisionFromSpecified": true,
+                "divisionTo": 102,
+                "divisionToSpecified": true,
+                "statusIdentification": 1,
+                "statusIdentificationSpecified": true,
+                "status": 2,
+                "statusSpecified": true,
+                "status1": "2011-01-01T00:00:00.000Z",
+                "status1Specified": true,
+                "status2": "2012-12-31T00:00:00.000Z",
+                "status2Specified": true,
+                "status3Specified": false,
+                "status4Specified": false,
+                "status5Specified": false,
+                "status6Specified": false,
+                "status7Specified": false,
+                "status8Specified": false,
+                "status9Specified": false,
+                "date1Specified": false,
+                "code1": 0,
+                "code1Specified": true,
+                "textField1": null,
+                "date2Specified": false,
+                "code2": 0,
+                "code2Specified": true,
+                "textField2": null,
+                "date3Specified": false,
+                "code3": 0,
+                "code3Specified": true,
+                "textField3": null,
+                "sum1": 0,
+                "sum1Specified": true,
+                "sum2": 0,
+                "sum2Specified": true,
+                "sum3": 0,
+                "sum3Specified": true,
+                "sum4": 0,
+                "sum4Specified": true,
+                "sum5": 0,
+                "sum5Specified": true,
+                "internalContact1": 12397,
+                "internalContact1Specified": true,
+                "internalContact2": 0,
+                "internalContact2Specified": true,
+                "externalContact1": 0,
+                "externalContact1Specified": true,
+                "externalContact2": 0,
+                "externalContact2Specified": true,
+                "person1": 0,
+                "person1Specified": true,
+                "person2": 0,
+                "person2Specified": true,
+                "person3": 0,
+                "person3Specified": true,
+                "person4": 0,
+                "person4Specified": true,
+                "person5": 0,
+                "person5Specified": true,
+                "person6": 0,
+                "person6Specified": true,
+                "person7": 0,
+                "person7Specified": true,
+                "contact1": 0,
+                "contact1Specified": true,
+                "contact2": 0,
+                "contact2Specified": true,
+                "contact3": 0,
+                "contact3Specified": true,
+                "contact4": 0,
+                "contact4Specified": true,
+                "contact5": 0,
+                "contact5Specified": true,
+                "contact6": 0,
+                "contact6Specified": true,
+                "contact7": 0,
+                "contact7Specified": true,
+                "onlyServiceCodes": false,
+                "onlyServiceCodesSpecified": true,
+                "employeeFromDivision": false,
+                "employeeFromDivisionSpecified": true,
+                "onlyEmployees": false,
+                "onlyEmployeesSpecified": true,
+                "invoicePerMainProject": false,
+                "invoicePerMainProjectSpecified": true,
+                "plannedRepetition": 0,
+                "plannedRepetitionSpecified": true,
+                "reminderArea": 0,
+                "reminderAreaSpecified": true,
+                "costCentreGroup": 0,
+                "costCentreGroupSpecified": true,
+                "creationDate": "2011-12-11T00:00:00.000Z",
+                "creationDateSpecified": true,
+                "modificationDate": "2022-04-01T00:00:00.000Z",
+                "modificationDateSpecified": true,
+                "modificationUser": 619,
+                "modificationUserSpecified": true,
+                "plannedFactor": 0,
+                "plannedFactorSpecified": true,
+                "invoiceAddress": 0,
+                "invoiceAddressSpecified": true,
+                "askForInvoiceReporting": false,
+                "askForInvoiceReportingSpecified": true,
+                "evaluation": 0,
+                "evaluationSpecified": true,
+                "dailySettlement": false,
+                "dailySettlementSpecified": true,
+                "hoursPerDay": 0,
+                "hoursPerDaySpecified": true,
+                "rounding": 0,
+                "roundingSpecified": true,
+                "roundingFactor": 0,
+                "roundingFactorSpecified": true,
+                "saveContractType": 0,
+                "saveContractTypeSpecified": true,
+                "repetition": 0,
+                "repetitionSpecified": true,
+                "contractEntrySwitch": false,
+                "contractEntrySwitchSpecified": true,
+                "contactInvoiceAddress": 0,
+                "contactInvoiceAddressSpecified": true,
+                "category": 220,
+                "categorySpecified": true,
+                "area": 0,
+                "areaSpecified": true,
+                "reminderProcedure": null,
+                "paymentTermNumber": 0,
+                "paymentTermNumberSpecified": true,
+                "startDateSpecified": false,
+                "endDateSpecified": false,
+                "language": null,
+                "tariffYear": -1,
+                "tariffYearSpecified": true,
+                "location": 0,
+                "locationSpecified": true,
+                "locationContact": 0,
+                "locationContactSpecified": true,
+                "noCostCentreReference": true,
+                "noCostCentreReferenceSpecified": true,
+                "costCentreProposalType": 1,
+                "costCentreProposalTypeSpecified": true,
+                "costCentreProposal": 22010999,
+                "costCentreProposalSpecified": true,
+                "hasSubProjects": false,
+                "hasSubProjectsSpecified": true,
+                "copiedFrom": 22011043,
+                "copiedFromSpecified": true,
+                "residentAddress": 0,
+                "residentAddressSpecified": true,
+                "residentEmployee": 0,
+                "residentEmployeeSpecified": true,
+                "valuationPerMainProject": false,
+                "valuationPerMainProjectSpecified": true,
+                "offerProject": false,
+                "offerProjectSpecified": true,
+                "rootCostCentre": 0,
+                "rootCostCentreSpecified": true,
+                "internalTextMandatory": false,
+                "internalTextMandatorySpecified": true,
+                "externalTextMandatory": false,
+                "externalTextMandatorySpecified": true,
+                "bookingInPayroll": false,
+                "bookingInPayrollSpecified": true,
+                "bookingInGeneralLedger": false,
+                "bookingInGeneralLedgerSpecified": true,
+                "bookingInAssetsLedger": false,
+                "bookingInAssetsLedgerSpecified": true,
+                "bookingInGeneralLedgerPlan": false,
+                "bookingInGeneralLedgerPlanSpecified": true,
+                "dateOfBirthSpecified": false,
+                "sex": null,
+                "oasiNumber": null,
+                "cantonOfDomicile": null,
+                "nationality": null,
+                "civilStatus": 0,
+                "civilStatusSpecified": true,
+                "placeOfBirthOrHometown": null,
+                "procedure": 0,
+                "procedureSpecified": true,
+                "planningExchangeRate": 100,
+                "planningExchangeRateSpecified": true,
+                "planningCurrency": "CHF",
+                "enterpriseSpecified": false,
+                "emplFromEnterpriseSpecified": false,
+                "extendedFields": {
+                    "booleanData": [
+                        {
+                            "name": "_USERFIELD5",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD7",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD8",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD9",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD10",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD11",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD12",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD28",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD31",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD32",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD58",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD59",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD60",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD61",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD62",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD63",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD64",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD65",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD66",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD67",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD68",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD71",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD73",
+                            "value": false
+                        }
+                    ],
+                    "stringData": [
+                        {
+                            "name": "_USERFIELD2",
+                            "value": "W-BST"
+                        },
+                        {
+                            "name": "_USERFIELD43",
+                            "value": "A"
+                        },
+                        {
+                            "name": "_USERFIELD44",
+                            "value": "CH"
+                        }
+                    ],
+                    "intData": [
+                        {
+                            "name": "_USERFIELD13",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD29",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD30",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD76",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD87",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD89",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD91",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD93",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD95",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD97",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD99",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD101",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD103",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD105",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD107",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD109",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD111",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD113",
+                            "value": 0
+                        }
+                    ],
+                    "longData": [
+                        {
+                            "name": "_USERFIELD1",
+                            "value": 220
+                        },
+                        {
+                            "name": "_USERFIELD6",
+                            "value": 100
+                        },
+                        {
+                            "name": "_USERFIELD80",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD82",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD84",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD86",
+                            "value": 0
+                        }
+                    ],
+                    "dateData": [
+                        {
+                            "name": "_USERFIELD3",
+                            "value": "2012-01-01T00:00:00.000Z"
+                        },
+                        {
+                            "name": "_USERFIELD4",
+                            "value": "2012-12-31T00:00:00.000Z"
+                        }
+                    ],
+                    "dateTimeData": [],
+                    "decimalData": [
+                        {
+                            "name": "_USERFIELD14",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD15",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD16",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD17",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD18",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD19",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD20",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD21",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD22",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD23",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD24",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD25",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD26",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD27",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD33",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD34",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD35",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD36",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD37",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD38",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD39",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD40",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD41",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD42",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD70",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD72",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD74",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD77",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD78",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD88",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD90",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD92",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD94",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD96",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD98",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD100",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD102",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD104",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD106",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD108",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD110",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD112",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD114",
+                            "value": 0
+                        }
+                    ]
+                },
+                "mode": null
+            },
+            "additionalData": null,
+            "attachment": null,
+            "timestamp": "2022-11-03T09:15:01.704Z"
+        },
+        {
+            "projectBase": {
+                "classificationElement": [
+                    {
+                        "variant": 1,
+                        "level": 4,
+                        "id": 25009,
+                        "mode": null
+                    }
+                ],
+                "designationElement": [
+                    {
+                        "languageCode": "de",
+                        "designation1": "Lärmschutzwände Fünflinden, Lenzburg",
+                        "designation2": "Lenzburg K 274 Aarauerstrasse",
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "en",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "es",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "fr",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "it",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt_PT",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    }
+                ],
+                "projectBaseTimeAxis": [],
+                "accessRight": [],
+                "projectNote": [],
+                "costCentreElement": [],
+                "projectTeam": [],
+                "serviceCodeElement": [],
+                "deadlineElement": [],
+                "userTableData": [],
+                "projectAddressLink": [],
+                "residentIncidents": [],
+                "projectBaseDossier": [],
+                "projectNumber": 25015148,
+                "projectNumber2": "25015148",
+                "projectName": "Lärmschutzwände Fünflinden, Lenzburg",
+                "referenceProject": 25009,
+                "referenceProjectSpecified": true,
+                "mainProject": 25015148,
+                "mainProjectSpecified": true,
+                "projectType": 2,
+                "projectTypeSpecified": true,
+                "level": 5,
+                "levelSpecified": true,
+                "inactive": true,
+                "inactiveSpecified": true,
+                "group": 0,
+                "groupSpecified": true,
+                "projectName2": "5600",
+                "projectName3": "Lenzburg",
+                "customerAddressNumber": 14224,
+                "customerAddressNumberSpecified": true,
+                "settlementSchema": 0,
+                "settlementSchemaSpecified": true,
+                "inventory": 0,
+                "inventorySpecified": true,
+                "type": 9,
+                "typeSpecified": true,
+                "tariff": 0,
+                "tariffSpecified": true,
+                "balanceType": 0,
+                "balanceTypeSpecified": true,
+                "settlementPeriod": 0,
+                "settlementPeriodSpecified": true,
+                "settlementRateType": 0,
+                "settlementRateTypeSpecified": true,
+                "separateInvoice": false,
+                "separateInvoiceSpecified": true,
+                "currency": "CHF",
+                "settlementDefinition": 0,
+                "settlementDefinitionSpecified": true,
+                "settlementDefinitionOnAccount": 0,
+                "settlementDefinitionOnAccountSpecified": true,
+                "personInChargeAccountReceivable": 0,
+                "personInChargeAccountReceivableSpecified": true,
+                "orderProcessingSequence": 0,
+                "orderProcessingSequenceSpecified": true,
+                "worXProcess": 0,
+                "worXProcessSpecified": true,
+                "divisionSwitch": true,
+                "divisionSwitchSpecified": true,
+                "divisionFrom": 102,
+                "divisionFromSpecified": true,
+                "divisionTo": 102,
+                "divisionToSpecified": true,
+                "statusIdentification": 1,
+                "statusIdentificationSpecified": true,
+                "status": 2,
+                "statusSpecified": true,
+                "status1": "2015-10-01T00:00:00.000Z",
+                "status1Specified": true,
+                "status2": "2017-12-31T00:00:00.000Z",
+                "status2Specified": true,
+                "status3Specified": false,
+                "status4Specified": false,
+                "status5Specified": false,
+                "status6Specified": false,
+                "status7Specified": false,
+                "status8Specified": false,
+                "status9Specified": false,
+                "date1Specified": false,
+                "code1": 0,
+                "code1Specified": true,
+                "textField1": null,
+                "date2Specified": false,
+                "code2": 0,
+                "code2Specified": true,
+                "textField2": null,
+                "date3Specified": false,
+                "code3": 0,
+                "code3Specified": true,
+                "textField3": null,
+                "sum1": 0,
+                "sum1Specified": true,
+                "sum2": 0,
+                "sum2Specified": true,
+                "sum3": 0,
+                "sum3Specified": true,
+                "sum4": 0,
+                "sum4Specified": true,
+                "sum5": 0,
+                "sum5Specified": true,
+                "internalContact1": 12418,
+                "internalContact1Specified": true,
+                "internalContact2": 0,
+                "internalContact2Specified": true,
+                "externalContact1": 0,
+                "externalContact1Specified": true,
+                "externalContact2": 0,
+                "externalContact2Specified": true,
+                "person1": 0,
+                "person1Specified": true,
+                "person2": 0,
+                "person2Specified": true,
+                "person3": 0,
+                "person3Specified": true,
+                "person4": 0,
+                "person4Specified": true,
+                "person5": 0,
+                "person5Specified": true,
+                "person6": 0,
+                "person6Specified": true,
+                "person7": 0,
+                "person7Specified": true,
+                "contact1": 0,
+                "contact1Specified": true,
+                "contact2": 0,
+                "contact2Specified": true,
+                "contact3": 0,
+                "contact3Specified": true,
+                "contact4": 0,
+                "contact4Specified": true,
+                "contact5": 0,
+                "contact5Specified": true,
+                "contact6": 0,
+                "contact6Specified": true,
+                "contact7": 0,
+                "contact7Specified": true,
+                "onlyServiceCodes": false,
+                "onlyServiceCodesSpecified": true,
+                "employeeFromDivision": false,
+                "employeeFromDivisionSpecified": true,
+                "onlyEmployees": false,
+                "onlyEmployeesSpecified": true,
+                "invoicePerMainProject": false,
+                "invoicePerMainProjectSpecified": true,
+                "plannedRepetition": 0,
+                "plannedRepetitionSpecified": true,
+                "reminderArea": 0,
+                "reminderAreaSpecified": true,
+                "costCentreGroup": 0,
+                "costCentreGroupSpecified": true,
+                "creationDate": "2015-10-13T00:00:00.000Z",
+                "creationDateSpecified": true,
+                "modificationDate": "2022-04-01T00:00:00.000Z",
+                "modificationDateSpecified": true,
+                "modificationUser": 619,
+                "modificationUserSpecified": true,
+                "plannedFactor": 0,
+                "plannedFactorSpecified": true,
+                "invoiceAddress": 0,
+                "invoiceAddressSpecified": true,
+                "askForInvoiceReporting": false,
+                "askForInvoiceReportingSpecified": true,
+                "evaluation": 0,
+                "evaluationSpecified": true,
+                "dailySettlement": false,
+                "dailySettlementSpecified": true,
+                "hoursPerDay": 0,
+                "hoursPerDaySpecified": true,
+                "rounding": 0,
+                "roundingSpecified": true,
+                "roundingFactor": 0,
+                "roundingFactorSpecified": true,
+                "saveContractType": 0,
+                "saveContractTypeSpecified": true,
+                "repetition": 0,
+                "repetitionSpecified": true,
+                "contractEntrySwitch": false,
+                "contractEntrySwitchSpecified": true,
+                "contactInvoiceAddress": 0,
+                "contactInvoiceAddressSpecified": true,
+                "category": 250,
+                "categorySpecified": true,
+                "area": 0,
+                "areaSpecified": true,
+                "reminderProcedure": null,
+                "paymentTermNumber": 0,
+                "paymentTermNumberSpecified": true,
+                "startDateSpecified": false,
+                "endDateSpecified": false,
+                "language": null,
+                "tariffYear": -1,
+                "tariffYearSpecified": true,
+                "location": 0,
+                "locationSpecified": true,
+                "locationContact": 0,
+                "locationContactSpecified": true,
+                "noCostCentreReference": true,
+                "noCostCentreReferenceSpecified": true,
+                "costCentreProposalType": 1,
+                "costCentreProposalTypeSpecified": true,
+                "costCentreProposal": 25009999,
+                "costCentreProposalSpecified": true,
+                "hasSubProjects": false,
+                "hasSubProjectsSpecified": true,
+                "copiedFrom": 25015145,
+                "copiedFromSpecified": true,
+                "residentAddress": 0,
+                "residentAddressSpecified": true,
+                "residentEmployee": 0,
+                "residentEmployeeSpecified": true,
+                "valuationPerMainProject": false,
+                "valuationPerMainProjectSpecified": true,
+                "offerProject": false,
+                "offerProjectSpecified": true,
+                "rootCostCentre": 0,
+                "rootCostCentreSpecified": true,
+                "internalTextMandatory": false,
+                "internalTextMandatorySpecified": true,
+                "externalTextMandatory": false,
+                "externalTextMandatorySpecified": true,
+                "bookingInPayroll": false,
+                "bookingInPayrollSpecified": true,
+                "bookingInGeneralLedger": false,
+                "bookingInGeneralLedgerSpecified": true,
+                "bookingInAssetsLedger": false,
+                "bookingInAssetsLedgerSpecified": true,
+                "bookingInGeneralLedgerPlan": false,
+                "bookingInGeneralLedgerPlanSpecified": true,
+                "dateOfBirthSpecified": false,
+                "sex": null,
+                "oasiNumber": null,
+                "cantonOfDomicile": null,
+                "nationality": null,
+                "civilStatus": 0,
+                "civilStatusSpecified": true,
+                "placeOfBirthOrHometown": null,
+                "procedure": 0,
+                "procedureSpecified": true,
+                "planningExchangeRate": 100,
+                "planningExchangeRateSpecified": true,
+                "planningCurrency": "CHF",
+                "enterpriseSpecified": false,
+                "emplFromEnterpriseSpecified": false,
+                "extendedFields": {
+                    "booleanData": [
+                        {
+                            "name": "_USERFIELD5",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD7",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD8",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD9",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD10",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD11",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD12",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD28",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD31",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD32",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD58",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD59",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD60",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD61",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD62",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD63",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD64",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD65",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD66",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD67",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD68",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD71",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD73",
+                            "value": false
+                        }
+                    ],
+                    "stringData": [
+                        {
+                            "name": "_USERFIELD2",
+                            "value": "W-BST"
+                        },
+                        {
+                            "name": "_USERFIELD43",
+                            "value": "A"
+                        },
+                        {
+                            "name": "_USERFIELD44",
+                            "value": "CH"
+                        }
+                    ],
+                    "intData": [
+                        {
+                            "name": "_USERFIELD13",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD29",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD30",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD76",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD87",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD89",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD91",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD93",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD95",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD97",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD99",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD101",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD103",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD105",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD107",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD109",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD111",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD113",
+                            "value": 0
+                        }
+                    ],
+                    "longData": [
+                        {
+                            "name": "_USERFIELD1",
+                            "value": 250
+                        },
+                        {
+                            "name": "_USERFIELD6",
+                            "value": 100
+                        },
+                        {
+                            "name": "_USERFIELD80",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD82",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD84",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD86",
+                            "value": 0
+                        }
+                    ],
+                    "dateData": [
+                        {
+                            "name": "_USERFIELD3",
+                            "value": "2015-10-15T00:00:00.000Z"
+                        },
+                        {
+                            "name": "_USERFIELD4",
+                            "value": "2017-12-31T00:00:00.000Z"
+                        }
+                    ],
+                    "dateTimeData": [],
+                    "decimalData": [
+                        {
+                            "name": "_USERFIELD14",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD15",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD16",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD17",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD18",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD19",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD20",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD21",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD22",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD23",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD24",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD25",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD26",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD27",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD33",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD34",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD35",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD36",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD37",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD38",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD39",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD40",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD41",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD42",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD70",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD72",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD74",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD77",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD78",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD88",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD90",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD92",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD94",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD96",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD98",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD100",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD102",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD104",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD106",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD108",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD110",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD112",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD114",
+                            "value": 0
+                        }
+                    ]
+                },
+                "mode": null
+            },
+            "additionalData": null,
+            "attachment": null,
+            "timestamp": "2022-11-03T09:17:10.881Z"
+        },
+        {
+            "projectBase": {
+                "classificationElement": [
+                    {
+                        "variant": 1,
+                        "level": 4,
+                        "id": 40003,
+                        "mode": null
+                    }
+                ],
+                "designationElement": [
+                    {
+                        "languageCode": "de",
+                        "designation1": "Lärmschutzwand, Waldenburgerstr. Liestal",
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "en",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "es",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "fr",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "it",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt_PT",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    }
+                ],
+                "projectBaseTimeAxis": [],
+                "accessRight": [],
+                "projectNote": [],
+                "costCentreElement": [],
+                "projectTeam": [],
+                "serviceCodeElement": [],
+                "deadlineElement": [],
+                "userTableData": [],
+                "projectAddressLink": [],
+                "residentIncidents": [],
+                "projectBaseDossier": [],
+                "projectNumber": 40015819,
+                "projectNumber2": "40015819",
+                "projectName": "Lärmschutzwand, Waldenburgerstr. Liestal",
+                "referenceProject": 40003,
+                "referenceProjectSpecified": true,
+                "mainProject": 40015819,
+                "mainProjectSpecified": true,
+                "projectType": 2,
+                "projectTypeSpecified": true,
+                "level": 5,
+                "levelSpecified": true,
+                "inactive": true,
+                "inactiveSpecified": true,
+                "group": 0,
+                "groupSpecified": true,
+                "projectName2": "4410",
+                "projectName3": "Liestal",
+                "customerAddressNumber": 13605,
+                "customerAddressNumberSpecified": true,
+                "settlementSchema": 0,
+                "settlementSchemaSpecified": true,
+                "inventory": 0,
+                "inventorySpecified": true,
+                "type": 3,
+                "typeSpecified": true,
+                "tariff": 0,
+                "tariffSpecified": true,
+                "balanceType": 0,
+                "balanceTypeSpecified": true,
+                "settlementPeriod": 0,
+                "settlementPeriodSpecified": true,
+                "settlementRateType": 0,
+                "settlementRateTypeSpecified": true,
+                "separateInvoice": false,
+                "separateInvoiceSpecified": true,
+                "currency": "CHF",
+                "settlementDefinition": 0,
+                "settlementDefinitionSpecified": true,
+                "settlementDefinitionOnAccount": 0,
+                "settlementDefinitionOnAccountSpecified": true,
+                "personInChargeAccountReceivable": 0,
+                "personInChargeAccountReceivableSpecified": true,
+                "orderProcessingSequence": 0,
+                "orderProcessingSequenceSpecified": true,
+                "worXProcess": 0,
+                "worXProcessSpecified": true,
+                "divisionSwitch": true,
+                "divisionSwitchSpecified": true,
+                "divisionFrom": 102,
+                "divisionFromSpecified": true,
+                "divisionTo": 102,
+                "divisionToSpecified": true,
+                "statusIdentification": 1,
+                "statusIdentificationSpecified": true,
+                "status": 2,
+                "statusSpecified": true,
+                "status1": "2015-03-01T00:00:00.000Z",
+                "status1Specified": true,
+                "status2": "2015-08-31T00:00:00.000Z",
+                "status2Specified": true,
+                "status3Specified": false,
+                "status4Specified": false,
+                "status5Specified": false,
+                "status6Specified": false,
+                "status7Specified": false,
+                "status8Specified": false,
+                "status9Specified": false,
+                "date1Specified": false,
+                "code1": 0,
+                "code1Specified": true,
+                "textField1": null,
+                "date2Specified": false,
+                "code2": 0,
+                "code2Specified": true,
+                "textField2": null,
+                "date3Specified": false,
+                "code3": 0,
+                "code3Specified": true,
+                "textField3": null,
+                "sum1": 0,
+                "sum1Specified": true,
+                "sum2": 0,
+                "sum2Specified": true,
+                "sum3": 0,
+                "sum3Specified": true,
+                "sum4": 0,
+                "sum4Specified": true,
+                "sum5": 0,
+                "sum5Specified": true,
+                "internalContact1": 12544,
+                "internalContact1Specified": true,
+                "internalContact2": 0,
+                "internalContact2Specified": true,
+                "externalContact1": 0,
+                "externalContact1Specified": true,
+                "externalContact2": 0,
+                "externalContact2Specified": true,
+                "person1": 0,
+                "person1Specified": true,
+                "person2": 0,
+                "person2Specified": true,
+                "person3": 0,
+                "person3Specified": true,
+                "person4": 0,
+                "person4Specified": true,
+                "person5": 0,
+                "person5Specified": true,
+                "person6": 0,
+                "person6Specified": true,
+                "person7": 0,
+                "person7Specified": true,
+                "contact1": 0,
+                "contact1Specified": true,
+                "contact2": 0,
+                "contact2Specified": true,
+                "contact3": 0,
+                "contact3Specified": true,
+                "contact4": 0,
+                "contact4Specified": true,
+                "contact5": 0,
+                "contact5Specified": true,
+                "contact6": 0,
+                "contact6Specified": true,
+                "contact7": 0,
+                "contact7Specified": true,
+                "onlyServiceCodes": false,
+                "onlyServiceCodesSpecified": true,
+                "employeeFromDivision": false,
+                "employeeFromDivisionSpecified": true,
+                "onlyEmployees": false,
+                "onlyEmployeesSpecified": true,
+                "invoicePerMainProject": false,
+                "invoicePerMainProjectSpecified": true,
+                "plannedRepetition": 0,
+                "plannedRepetitionSpecified": true,
+                "reminderArea": 0,
+                "reminderAreaSpecified": true,
+                "costCentreGroup": 0,
+                "costCentreGroupSpecified": true,
+                "creationDate": "2014-12-04T00:00:00.000Z",
+                "creationDateSpecified": true,
+                "modificationDate": "2022-04-01T00:00:00.000Z",
+                "modificationDateSpecified": true,
+                "modificationUser": 619,
+                "modificationUserSpecified": true,
+                "plannedFactor": 0,
+                "plannedFactorSpecified": true,
+                "invoiceAddress": 0,
+                "invoiceAddressSpecified": true,
+                "askForInvoiceReporting": false,
+                "askForInvoiceReportingSpecified": true,
+                "evaluation": 0,
+                "evaluationSpecified": true,
+                "dailySettlement": false,
+                "dailySettlementSpecified": true,
+                "hoursPerDay": 0,
+                "hoursPerDaySpecified": true,
+                "rounding": 0,
+                "roundingSpecified": true,
+                "roundingFactor": 0,
+                "roundingFactorSpecified": true,
+                "saveContractType": 0,
+                "saveContractTypeSpecified": true,
+                "repetition": 0,
+                "repetitionSpecified": true,
+                "contractEntrySwitch": false,
+                "contractEntrySwitchSpecified": true,
+                "contactInvoiceAddress": 0,
+                "contactInvoiceAddressSpecified": true,
+                "category": 400,
+                "categorySpecified": true,
+                "area": 0,
+                "areaSpecified": true,
+                "reminderProcedure": null,
+                "paymentTermNumber": 0,
+                "paymentTermNumberSpecified": true,
+                "startDateSpecified": false,
+                "endDateSpecified": false,
+                "language": null,
+                "tariffYear": -1,
+                "tariffYearSpecified": true,
+                "location": 0,
+                "locationSpecified": true,
+                "locationContact": 0,
+                "locationContactSpecified": true,
+                "noCostCentreReference": true,
+                "noCostCentreReferenceSpecified": true,
+                "costCentreProposalType": 1,
+                "costCentreProposalTypeSpecified": true,
+                "costCentreProposal": 40003999,
+                "costCentreProposalSpecified": true,
+                "hasSubProjects": false,
+                "hasSubProjectsSpecified": true,
+                "copiedFrom": 40014818,
+                "copiedFromSpecified": true,
+                "residentAddress": 0,
+                "residentAddressSpecified": true,
+                "residentEmployee": 0,
+                "residentEmployeeSpecified": true,
+                "valuationPerMainProject": false,
+                "valuationPerMainProjectSpecified": true,
+                "offerProject": false,
+                "offerProjectSpecified": true,
+                "rootCostCentre": 0,
+                "rootCostCentreSpecified": true,
+                "internalTextMandatory": false,
+                "internalTextMandatorySpecified": true,
+                "externalTextMandatory": false,
+                "externalTextMandatorySpecified": true,
+                "bookingInPayroll": false,
+                "bookingInPayrollSpecified": true,
+                "bookingInGeneralLedger": false,
+                "bookingInGeneralLedgerSpecified": true,
+                "bookingInAssetsLedger": false,
+                "bookingInAssetsLedgerSpecified": true,
+                "bookingInGeneralLedgerPlan": false,
+                "bookingInGeneralLedgerPlanSpecified": true,
+                "dateOfBirthSpecified": false,
+                "sex": null,
+                "oasiNumber": null,
+                "cantonOfDomicile": null,
+                "nationality": null,
+                "civilStatus": 0,
+                "civilStatusSpecified": true,
+                "placeOfBirthOrHometown": null,
+                "procedure": 0,
+                "procedureSpecified": true,
+                "planningExchangeRate": 100,
+                "planningExchangeRateSpecified": true,
+                "planningCurrency": "CHF",
+                "enterpriseSpecified": false,
+                "emplFromEnterpriseSpecified": false,
+                "extendedFields": {
+                    "booleanData": [
+                        {
+                            "name": "_USERFIELD5",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD7",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD8",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD9",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD10",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD11",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD12",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD28",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD31",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD32",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD58",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD59",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD60",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD61",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD62",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD63",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD64",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD65",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD66",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD67",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD68",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD71",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD73",
+                            "value": false
+                        }
+                    ],
+                    "stringData": [
+                        {
+                            "name": "_USERFIELD2",
+                            "value": "W-BST"
+                        },
+                        {
+                            "name": "_USERFIELD43",
+                            "value": "A"
+                        },
+                        {
+                            "name": "_USERFIELD44",
+                            "value": "CH"
+                        }
+                    ],
+                    "intData": [
+                        {
+                            "name": "_USERFIELD13",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD29",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD30",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD76",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD87",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD89",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD91",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD93",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD95",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD97",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD99",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD101",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD103",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD105",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD107",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD109",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD111",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD113",
+                            "value": 0
+                        }
+                    ],
+                    "longData": [
+                        {
+                            "name": "_USERFIELD1",
+                            "value": 400
+                        },
+                        {
+                            "name": "_USERFIELD6",
+                            "value": 100
+                        },
+                        {
+                            "name": "_USERFIELD80",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD82",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD84",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD86",
+                            "value": 0
+                        }
+                    ],
+                    "dateData": [
+                        {
+                            "name": "_USERFIELD3",
+                            "value": "2015-03-01T00:00:00.000Z"
+                        },
+                        {
+                            "name": "_USERFIELD4",
+                            "value": "2015-08-31T00:00:00.000Z"
+                        }
+                    ],
+                    "dateTimeData": [],
+                    "decimalData": [
+                        {
+                            "name": "_USERFIELD14",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD15",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD16",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD17",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD18",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD19",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD20",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD21",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD22",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD23",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD24",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD25",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD26",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD27",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD33",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD34",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD35",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD36",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD37",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD38",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD39",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD40",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD41",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD42",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD70",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD72",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD74",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD77",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD78",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD88",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD90",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD92",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD94",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD96",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD98",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD100",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD102",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD104",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD106",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD108",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD110",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD112",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD114",
+                            "value": 0
+                        }
+                    ]
+                },
+                "mode": null
+            },
+            "additionalData": null,
+            "attachment": null,
+            "timestamp": "2022-11-03T09:31:51.490Z"
+        },
+        {
+            "projectBase": {
+                "classificationElement": [
+                    {
+                        "variant": 1,
+                        "level": 4,
+                        "id": 46001,
+                        "mode": null
+                    }
+                ],
+                "designationElement": [
+                    {
+                        "languageCode": "de",
+                        "designation1": "Lärmschutzwand Naturawall,Underem Benze",
+                        "designation2": "Nordost",
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "en",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "es",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "fr",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "it",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    },
+                    {
+                        "languageCode": "pt_PT",
+                        "designation1": null,
+                        "designation2": null,
+                        "mode": null
+                    }
+                ],
+                "projectBaseTimeAxis": [],
+                "accessRight": [],
+                "projectNote": [],
+                "costCentreElement": [],
+                "projectTeam": [],
+                "serviceCodeElement": [],
+                "deadlineElement": [],
+                "userTableData": [],
+                "projectAddressLink": [],
+                "residentIncidents": [],
+                "projectBaseDossier": [],
+                "projectNumber": 46012048,
+                "projectNumber2": "46012048",
+                "projectName": "Lärmschutzwand Naturawall,Underem Benze",
+                "referenceProject": 46001,
+                "referenceProjectSpecified": true,
+                "mainProject": 46012048,
+                "mainProjectSpecified": true,
+                "projectType": 2,
+                "projectTypeSpecified": true,
+                "level": 5,
+                "levelSpecified": true,
+                "inactive": true,
+                "inactiveSpecified": true,
+                "group": 0,
+                "groupSpecified": true,
+                "projectName2": "8222",
+                "projectName3": "Beringen",
+                "customerAddressNumber": 20543,
+                "customerAddressNumberSpecified": true,
+                "settlementSchema": 0,
+                "settlementSchemaSpecified": true,
+                "inventory": 0,
+                "inventorySpecified": true,
+                "type": 1,
+                "typeSpecified": true,
+                "tariff": 0,
+                "tariffSpecified": true,
+                "balanceType": 0,
+                "balanceTypeSpecified": true,
+                "settlementPeriod": 0,
+                "settlementPeriodSpecified": true,
+                "settlementRateType": 0,
+                "settlementRateTypeSpecified": true,
+                "separateInvoice": false,
+                "separateInvoiceSpecified": true,
+                "currency": "CHF",
+                "settlementDefinition": 0,
+                "settlementDefinitionSpecified": true,
+                "settlementDefinitionOnAccount": 0,
+                "settlementDefinitionOnAccountSpecified": true,
+                "personInChargeAccountReceivable": 0,
+                "personInChargeAccountReceivableSpecified": true,
+                "orderProcessingSequence": 0,
+                "orderProcessingSequenceSpecified": true,
+                "worXProcess": 0,
+                "worXProcessSpecified": true,
+                "divisionSwitch": true,
+                "divisionSwitchSpecified": true,
+                "divisionFrom": 102,
+                "divisionFromSpecified": true,
+                "divisionTo": 102,
+                "divisionToSpecified": true,
+                "statusIdentification": 1,
+                "statusIdentificationSpecified": true,
+                "status": 2,
+                "statusSpecified": true,
+                "status1": "2012-09-01T00:00:00.000Z",
+                "status1Specified": true,
+                "status2": "2013-10-31T00:00:00.000Z",
+                "status2Specified": true,
+                "status3Specified": false,
+                "status4Specified": false,
+                "status5Specified": false,
+                "status6Specified": false,
+                "status7Specified": false,
+                "status8Specified": false,
+                "status9Specified": false,
+                "date1Specified": false,
+                "code1": 0,
+                "code1Specified": true,
+                "textField1": null,
+                "date2Specified": false,
+                "code2": 0,
+                "code2Specified": true,
+                "textField2": null,
+                "date3Specified": false,
+                "code3": 0,
+                "code3Specified": true,
+                "textField3": null,
+                "sum1": 0,
+                "sum1Specified": true,
+                "sum2": 0,
+                "sum2Specified": true,
+                "sum3": 0,
+                "sum3Specified": true,
+                "sum4": 0,
+                "sum4Specified": true,
+                "sum5": 0,
+                "sum5Specified": true,
+                "internalContact1": 12582,
+                "internalContact1Specified": true,
+                "internalContact2": 0,
+                "internalContact2Specified": true,
+                "externalContact1": 0,
+                "externalContact1Specified": true,
+                "externalContact2": 0,
+                "externalContact2Specified": true,
+                "person1": 0,
+                "person1Specified": true,
+                "person2": 0,
+                "person2Specified": true,
+                "person3": 0,
+                "person3Specified": true,
+                "person4": 0,
+                "person4Specified": true,
+                "person5": 0,
+                "person5Specified": true,
+                "person6": 0,
+                "person6Specified": true,
+                "person7": 0,
+                "person7Specified": true,
+                "contact1": 0,
+                "contact1Specified": true,
+                "contact2": 0,
+                "contact2Specified": true,
+                "contact3": 0,
+                "contact3Specified": true,
+                "contact4": 0,
+                "contact4Specified": true,
+                "contact5": 0,
+                "contact5Specified": true,
+                "contact6": 0,
+                "contact6Specified": true,
+                "contact7": 0,
+                "contact7Specified": true,
+                "onlyServiceCodes": false,
+                "onlyServiceCodesSpecified": true,
+                "employeeFromDivision": false,
+                "employeeFromDivisionSpecified": true,
+                "onlyEmployees": false,
+                "onlyEmployeesSpecified": true,
+                "invoicePerMainProject": false,
+                "invoicePerMainProjectSpecified": true,
+                "plannedRepetition": 0,
+                "plannedRepetitionSpecified": true,
+                "reminderArea": 0,
+                "reminderAreaSpecified": true,
+                "costCentreGroup": 0,
+                "costCentreGroupSpecified": true,
+                "creationDate": "2012-09-04T00:00:00.000Z",
+                "creationDateSpecified": true,
+                "modificationDate": "2022-04-01T00:00:00.000Z",
+                "modificationDateSpecified": true,
+                "modificationUser": 619,
+                "modificationUserSpecified": true,
+                "plannedFactor": 0,
+                "plannedFactorSpecified": true,
+                "invoiceAddress": 0,
+                "invoiceAddressSpecified": true,
+                "askForInvoiceReporting": false,
+                "askForInvoiceReportingSpecified": true,
+                "evaluation": 0,
+                "evaluationSpecified": true,
+                "dailySettlement": false,
+                "dailySettlementSpecified": true,
+                "hoursPerDay": 0,
+                "hoursPerDaySpecified": true,
+                "rounding": 0,
+                "roundingSpecified": true,
+                "roundingFactor": 0,
+                "roundingFactorSpecified": true,
+                "saveContractType": 0,
+                "saveContractTypeSpecified": true,
+                "repetition": 0,
+                "repetitionSpecified": true,
+                "contractEntrySwitch": false,
+                "contractEntrySwitchSpecified": true,
+                "contactInvoiceAddress": 0,
+                "contactInvoiceAddressSpecified": true,
+                "category": 460,
+                "categorySpecified": true,
+                "area": 0,
+                "areaSpecified": true,
+                "reminderProcedure": null,
+                "paymentTermNumber": 0,
+                "paymentTermNumberSpecified": true,
+                "startDateSpecified": false,
+                "endDateSpecified": false,
+                "language": null,
+                "tariffYear": -1,
+                "tariffYearSpecified": true,
+                "location": 0,
+                "locationSpecified": true,
+                "locationContact": 0,
+                "locationContactSpecified": true,
+                "noCostCentreReference": true,
+                "noCostCentreReferenceSpecified": true,
+                "costCentreProposalType": 1,
+                "costCentreProposalTypeSpecified": true,
+                "costCentreProposal": 46001999,
+                "costCentreProposalSpecified": true,
+                "hasSubProjects": false,
+                "hasSubProjectsSpecified": true,
+                "copiedFrom": 46012203,
+                "copiedFromSpecified": true,
+                "residentAddress": 0,
+                "residentAddressSpecified": true,
+                "residentEmployee": 0,
+                "residentEmployeeSpecified": true,
+                "valuationPerMainProject": false,
+                "valuationPerMainProjectSpecified": true,
+                "offerProject": false,
+                "offerProjectSpecified": true,
+                "rootCostCentre": 0,
+                "rootCostCentreSpecified": true,
+                "internalTextMandatory": false,
+                "internalTextMandatorySpecified": true,
+                "externalTextMandatory": false,
+                "externalTextMandatorySpecified": true,
+                "bookingInPayroll": false,
+                "bookingInPayrollSpecified": true,
+                "bookingInGeneralLedger": false,
+                "bookingInGeneralLedgerSpecified": true,
+                "bookingInAssetsLedger": false,
+                "bookingInAssetsLedgerSpecified": true,
+                "bookingInGeneralLedgerPlan": false,
+                "bookingInGeneralLedgerPlanSpecified": true,
+                "dateOfBirthSpecified": false,
+                "sex": null,
+                "oasiNumber": null,
+                "cantonOfDomicile": null,
+                "nationality": null,
+                "civilStatus": 0,
+                "civilStatusSpecified": true,
+                "placeOfBirthOrHometown": null,
+                "procedure": 0,
+                "procedureSpecified": true,
+                "planningExchangeRate": 100,
+                "planningExchangeRateSpecified": true,
+                "planningCurrency": "CHF",
+                "enterpriseSpecified": false,
+                "emplFromEnterpriseSpecified": false,
+                "extendedFields": {
+                    "booleanData": [
+                        {
+                            "name": "_USERFIELD5",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD7",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD8",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD9",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD10",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD11",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD12",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD28",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD31",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD32",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD58",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD59",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD60",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD61",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD62",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD63",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD64",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD65",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD66",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD67",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD68",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD71",
+                            "value": false
+                        },
+                        {
+                            "name": "_USERFIELD73",
+                            "value": false
+                        }
+                    ],
+                    "stringData": [
+                        {
+                            "name": "_USERFIELD2",
+                            "value": "W-BST"
+                        },
+                        {
+                            "name": "_USERFIELD43",
+                            "value": "A"
+                        },
+                        {
+                            "name": "_USERFIELD44",
+                            "value": "CH"
+                        }
+                    ],
+                    "intData": [
+                        {
+                            "name": "_USERFIELD13",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD29",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD30",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD76",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD87",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD89",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD91",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD93",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD95",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD97",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD99",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD101",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD103",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD105",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD107",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD109",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD111",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD113",
+                            "value": 0
+                        }
+                    ],
+                    "longData": [
+                        {
+                            "name": "_USERFIELD1",
+                            "value": 460
+                        },
+                        {
+                            "name": "_USERFIELD6",
+                            "value": 100
+                        },
+                        {
+                            "name": "_USERFIELD80",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD82",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD84",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD86",
+                            "value": 0
+                        }
+                    ],
+                    "dateData": [
+                        {
+                            "name": "_USERFIELD3",
+                            "value": "2012-09-04T00:00:00.000Z"
+                        },
+                        {
+                            "name": "_USERFIELD4",
+                            "value": "2013-10-31T00:00:00.000Z"
+                        }
+                    ],
+                    "dateTimeData": [],
+                    "decimalData": [
+                        {
+                            "name": "_USERFIELD14",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD15",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD16",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD17",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD18",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD19",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD20",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD21",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD22",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD23",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD24",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD25",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD26",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD27",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD33",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD34",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD35",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD36",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD37",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD38",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD39",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD40",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD41",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD42",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD70",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD72",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD74",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD77",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD78",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD88",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD90",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD92",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD94",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD96",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD98",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD100",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD102",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD104",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD106",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD108",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD110",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD112",
+                            "value": 0
+                        },
+                        {
+                            "name": "_USERFIELD114",
+                            "value": 0
+                        }
+                    ]
+                },
+                "mode": null
+            },
+            "additionalData": null,
+            "attachment": null,
+            "timestamp": "2022-11-03T09:37:47.741Z"
+        }
+    ],
+    "totalCount": 7
+}
