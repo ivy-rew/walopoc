@@ -15,7 +15,6 @@ import javax.ws.rs.core.UriBuilder;
 import ch.ivyteam.ivy.bpm.error.BpmPublicErrorBuilder;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.rest.client.FeatureConfig;
-import ch.ivyteam.ivy.rest.client.oauth2.OAuth2BearerFilter;
 import ch.ivyteam.ivy.rest.client.oauth2.OAuth2RedirectErrorBuilder;
 import ch.ivyteam.ivy.rest.client.oauth2.OAuth2TokenRequester.AuthContext;
 import ch.ivyteam.ivy.rest.client.oauth2.uri.OAuth2CallbackUriBuilder;
@@ -58,7 +57,7 @@ public class OAuth2FeatureC implements Feature {
     var config = new FeatureConfig(context.getConfiguration(), OAuth2FeatureC.class);
     var graphUri = new OAuth2UriProperty(config, Property.AUTH_BASE_URI,
             Default.AUTH_URI);
-    var oauth2 = new OAuth2BearerFilter(
+    var oauth2 = new OAuth2BearerFilter2(
             ctxt -> requestToken(ctxt, graphUri),
             graphUri);
     context.register(oauth2, Priorities.AUTHORIZATION);
