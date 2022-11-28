@@ -8,3 +8,5 @@ project wrapper #fieldComment
 project PERSISTENT #fieldModifier
 projectConnect ch.walo.stamm.project.ProjectBase #field
 projectConnect PERSISTENT #fieldModifier
+approvalHier List<ch.walo.stamm.approval.Approver> #field
+approvalHier PERSISTENT #fieldModifier

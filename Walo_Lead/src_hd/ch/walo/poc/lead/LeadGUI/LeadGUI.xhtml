@@ -26,6 +26,7 @@
  
          <p:wizard >
 
+ 
 
 
          
@@ -114,7 +115,29 @@
  		   
  		  </p:tab>   
  
-   		  <p:tab id="formControls" title="FormControls">
+  		  <p:tab id="formControls" title="FormControls">
+ 		  
+ 		  <p:fieldset style="background-color: coral;" legend="Subform" toggleable="true" >
+ 		  
+ 		  
+			         <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+			          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
+			          
+			          <p:outputLabel value="Toggle"></p:outputLabel>
+			          <p:toggleSwitch value="#{data.toggle}">
+			          
+			          <p:ajax update="formControls"   ></p:ajax>
+			          </p:toggleSwitch>
+			          
+			          </p:panelGrid>
+ 		  
+ 		  <ic:com.axonivy.portal.components.UserSelection componentId="default-user-autocomplete"
+   selectedUser="#{data.selectedUserDemo}" label="Default user selection"
+   isRequired="#{data.toggle}" labelPanelStyleClass="ui-g-6 ui-md-6 ui-sm-12"
+   autoCompleteStyleClass="width-100" autoCompletePanelStyleClass="ui-g-6 ui-sm-12" />
+ 		  
+ 		  
+ 		  </p:fieldset>
  		  
  		   
  		  </p:tab>     

@@ -1,0 +1,8 @@
+ApprovalProcessData #class
+ch.walo.poc.lead #namespace
+leadProcessData ch.walo.poc.lead.LeadProcessData #field
+leadProcessData PERSISTENT #fieldModifier
+levelIndex Number #field
+levelIndex PERSISTENT #fieldModifier
+actApproval ch.walo.stamm.approval.Approver #field
+actApproval PERSISTENT #fieldModifier
