@@ -1,0 +1,5 @@
+ChatData #class
+msgraph.connector #namespace
+chats java.util.List<com.microsoft.graph.MicrosoftGraphChat> #field
+chatId String #field
+messages java.util.List<com.microsoft.graph.MicrosoftGraphChatMessage> #field

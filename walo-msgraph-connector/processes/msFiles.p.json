@@ -1,0 +1,195 @@
+{
+  "format" : "10.0.0",
+  "id" : "184A3CA3AEE93D9D",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "msgraph.connector.FilesData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "uploadFile(File,String)",
+      "config" : {
+        "callSignature" : "uploadFile",
+        "input" : {
+          "params" : [
+            { "name" : "file", "type" : "java.io.File", "desc" : "file to upload unto sharepoint site" },
+            { "name" : "siteId", "type" : "String", "desc" : "optional: GUID of a site, if empty the first site, that the user follows will be used" }
+          ],
+          "map" : {
+            "out.siteId" : "param.siteId",
+            "out.upload" : "param.#file"
+          }
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png?small"
+      },
+      "connect" : { "id" : "f6", "to" : "f5" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 632, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "RestClientCall",
+      "name" : [
+        "load followed",
+        "sites"
+      ],
+      "config" : {
+        "path" : "/me/followedSites",
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "GET",
+        "queryParams" : {
+          "$top" : "",
+          "$skip" : "",
+          "$search" : "",
+          "$filter" : "",
+          "$count" : "",
+          "$orderby" : "",
+          "$select" : "",
+          "$expand" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.sites" : "result.value"
+        },
+        "templateParams" : {
+          "drive-id" : ""
+        },
+        "resultType" : "com.microsoft.graph.MicrosoftGraphSiteCollectionResponse",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : [
+          "import com.microsoft.graph.MicrosoftGraphSite;",
+          "MicrosoftGraphSite site = out.sites.get(0);",
+          "",
+          "ivy.log.info(\"using site \"+site.displayName+\"(\"+site.id+\") for upload\");",
+          "out.siteId = site.sharepointIds.siteId;"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 168 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f8", "to" : "f7", "via" : [ { "x" : 472, "y" : 168 } ] }
+    }, {
+      "id" : "f5",
+      "type" : "Alternative",
+      "name" : "siteId?",
+      "visual" : {
+        "at" : { "x" : 192, "y" : 64 },
+        "labelOffset" : { "x" : 16, "y" : -16 }
+      },
+      "connect" : [
+        { "id" : "f4", "to" : "f3", "via" : [ { "x" : 192, "y" : 168 } ], "label" : {
+            "name" : "no",
+            "segment" : 1.08
+          }, "condition" : "in.siteId.isBlank()" },
+        { "id" : "f9", "to" : "f7", "label" : {
+            "name" : "yes"
+          } }
+      ]
+    }, {
+      "id" : "f7",
+      "type" : "RestClientCall",
+      "name" : "upload",
+      "config" : {
+        "bodyObjectMapping" : {
+          "param" : "in.upload"
+        },
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "method" : "POST",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "bodyObjectType" : "java.io.File",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : "ivy.log.info(\"upload done \"+result);",
+        "path" : "/sites/{site-id}/drive/items/{parent-id}:/{filename}:/content",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "templateParams" : {
+          "site-id" : "in.siteId",
+          "parent-id" : "\"root\"",
+          "filename" : "in.upload.getName()"
+        },
+        "resultType" : "com.microsoft.graph.MicrosoftGraphDriveItem",
+        "bodyMediaType" : "application/octet-stream"
+      },
+      "visual" : {
+        "at" : { "x" : 472, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f10",
+      "type" : "CallSubStart",
+      "name" : "uploadFile(File)",
+      "config" : {
+        "callSignature" : "uploadFile",
+        "input" : {
+          "params" : [
+            { "name" : "file", "type" : "java.io.File", "desc" : "file to upload unto sharepoint site" }
+          ],
+          "map" : {
+            "out.upload" : "param.#file"
+          }
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 168 },
+        "icon" : "res:/webContent/icons/microsoft.png?small"
+      },
+      "connect" : { "id" : "f11", "to" : "f3" }
+    }, {
+      "id" : "f12",
+      "type" : "CallSubStart",
+      "name" : "myRecentFiles()",
+      "config" : {
+        "callSignature" : "myRecentFiles",
+        "result" : {
+          "params" : [
+            { "name" : "items", "type" : "java.util.List<com.microsoft.graph.MicrosoftGraphDriveItem>", "desc" : "recently used items" }
+          ],
+          "map" : {
+            "result.items" : "in.items"
+          }
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 280 },
+        "icon" : "res:/webContent/icons/microsoft.png?small"
+      },
+      "connect" : { "id" : "f14", "to" : "f13" }
+    }, {
+      "id" : "f13",
+      "type" : "RestClientCall",
+      "name" : "drive/recent",
+      "config" : {
+        "path" : "/me/drive/recent",
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.items" : "result.value"
+        },
+        "resultType" : "com.microsoft.graph.MicrosoftGraphDriveItemCollectionResponse"
+      },
+      "visual" : {
+        "at" : { "x" : 296, "y" : 280 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f16", "to" : "f15" }
+    }, {
+      "id" : "f15",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 472, "y" : 280 }
+      }
+    } ]
+}

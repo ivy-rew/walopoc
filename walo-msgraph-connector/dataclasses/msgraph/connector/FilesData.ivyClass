@@ -1,0 +1,7 @@
+FilesData #class
+msgraph.connector #namespace
+upload java.io.File #field
+sites java.util.List<com.microsoft.graph.MicrosoftGraphSite> #field
+siteId String #field
+siteId GUID #fieldComment
+items java.util.List<com.microsoft.graph.MicrosoftGraphDriveItem> #field

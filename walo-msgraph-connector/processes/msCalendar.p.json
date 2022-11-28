@@ -1,0 +1,252 @@
+{
+  "format" : "10.0.0",
+  "id" : "1783A266998C4015",
+  "kind" : "CALLABLE_SUB",
+  "description" : "Reads events from your calendar and creates new ones.",
+  "config" : {
+    "data" : "msgraph.connector.CalendarData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "upcomingEvents()",
+      "config" : {
+        "callSignature" : "upcomingEvents",
+        "result" : {
+          "params" : [
+            { "name" : "myEvents", "type" : "java.util.List<com.microsoft.graph.MicrosoftGraphEvent>", "desc" : "List with upcoming events from your calendar" }
+          ],
+          "map" : {
+            "result.myEvents" : "in.events"
+          }
+        },
+        "tags" : "CONNECTOR"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : 21, "y" : 38 },
+        "description" : "Reads upcoming events from your calendar.",
+        "icon" : "res:/webContent/icons/microsoft.png?small"
+      },
+      "connect" : { "id" : "f8", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 608, "y" : 64 }
+      }
+    }, {
+      "id" : "f7",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "adjust time filters ",
+        "start-/endDateTime",
+        "to control amount of events"
+      ],
+      "visual" : {
+        "at" : { "x" : 456, "y" : 168 },
+        "size" : { "width" : 192, "height" : 60 }
+      },
+      "connect" : { "id" : "f4", "to" : "f5" }
+    }, {
+      "id" : "f5",
+      "type" : "RestClientCall",
+      "name" : [
+        "My Events",
+        "Next week"
+      ],
+      "config" : {
+        "path" : "/users/{user-id}/calendar/calendarView",
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "startDateTime" : "java.time.OffsetDateTime.now().toString()",
+          "endDateTime" : "java.time.OffsetDateTime.now().plusWeeks(1).toString()",
+          "$top" : "",
+          "$skip" : "",
+          "$search" : "",
+          "$filter" : "",
+          "$count" : "",
+          "$orderby" : "",
+          "$select" : "",
+          "$expand" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.events" : "result.value"
+        },
+        "templateParams" : {
+          "user-id" : "in.user.getId()"
+        },
+        "resultType" : "com.microsoft.graph.MicrosoftGraphEventCollectionResponse"
+      },
+      "visual" : {
+        "at" : { "x" : 456, "y" : 64 },
+        "size" : { "width" : 112, "height" : 48 },
+        "description" : "requires scope: calendars.read"
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f3",
+      "type" : "RestClientCall",
+      "name" : [
+        "My AD",
+        "User Info"
+      ],
+      "config" : {
+        "path" : "/me",
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.user" : "result"
+        },
+        "resultType" : "com.microsoft.graph.MicrosoftGraphUser",
+        "responseCode" : "ivy.log.info(result);"
+      },
+      "visual" : {
+        "at" : { "x" : 296, "y" : 64 }
+      },
+      "connect" : { "id" : "f6", "to" : "f5" }
+    }, {
+      "id" : "f14",
+      "type" : "RestClientCall",
+      "name" : [
+        "Demo: Myself",
+        "as attendee"
+      ],
+      "config" : {
+        "path" : "/me",
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.user" : "result"
+        },
+        "resultType" : "com.microsoft.graph.MicrosoftGraphUser",
+        "responseCode" : [
+          "com.microsoft.graph.MicrosoftGraphAttendee me;",
+          "me.emailAddress.setAddress(result.getMail());",
+          "out.attendees.add(me);"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 288 }
+      },
+      "connect" : { "id" : "f13", "to" : "f12" }
+    }, {
+      "id" : "f12",
+      "type" : "RestClientCall",
+      "name" : [
+        "Get meeting",
+        "suggestions"
+      ],
+      "config" : {
+        "path" : "/me/microsoft.graph.findMeetingTimes",
+        "bodyObjectMapping" : {
+          "param.attendees" : "in.attendees"
+        },
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "POST",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.meetTimes" : "result.meetingTimeSuggestions"
+        },
+        "bodyObjectType" : "com.microsoft.graph.MeMicrosoftGraphFindMeetingTimesBody",
+        "resultType" : "com.microsoft.graph.MicrosoftGraphMeetingTimeSuggestionsResult",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : "ivy.log.info(result.meetingTimeSuggestions);"
+      },
+      "visual" : {
+        "at" : { "x" : 384, "y" : 288 }
+      },
+      "connect" : { "id" : "f17", "to" : "f16" }
+    }, {
+      "id" : "f18",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Creates a personal meeting:",
+        "**check your calendar!**"
+      ],
+      "visual" : {
+        "at" : { "x" : 544, "y" : 368 },
+        "size" : { "width" : 192, "height" : 44 }
+      },
+      "connect" : { "id" : "f11", "to" : "f16" }
+    }, {
+      "id" : "f16",
+      "type" : "RestClientCall",
+      "name" : "Create meeting",
+      "config" : {
+        "path" : "/users/{user-id}/calendar/events",
+        "bodyObjectMapping" : {
+          "param" : "in.newEvent"
+        },
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "POST",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.newEvent" : "result"
+        },
+        "bodyObjectType" : "com.microsoft.graph.MicrosoftGraphEvent",
+        "templateParams" : {
+          "user-id" : "in.user.getId()"
+        },
+        "resultType" : "com.microsoft.graph.MicrosoftGraphEvent",
+        "bodyInputType" : "ENTITY"
+      },
+      "visual" : {
+        "at" : { "x" : 544, "y" : 288 }
+      },
+      "connect" : { "id" : "f19", "to" : "f15" }
+    }, {
+      "id" : "f9",
+      "type" : "CallSubStart",
+      "name" : "createMeeting(NewEvent)",
+      "config" : {
+        "callSignature" : "createMeeting",
+        "input" : {
+          "params" : [
+            { "name" : "evt", "type" : "msgraph.connector.NewEvent", "desc" : "The new event that should be created in your calendar" }
+          ],
+          "map" : {
+            "out.newEvent.body.content" : "param.evt.description",
+            "out.newEvent.body.contentType" : "com.microsoft.graph.MicrosoftGraphBodyType.TEXT",
+            "out.newEvent.subject" : "param.evt.subject"
+          },
+          "code" : [
+            "for(String participant : param.evt.participants)",
+            "{",
+            "  com.microsoft.graph.MicrosoftGraphAttendee attendee;",
+            "  attendee.emailAddress.setAddress(participant);",
+            "  out.newEvent.attendees.add(attendee);",
+            "}"
+          ]
+        },
+        "result" : {
+          "params" : [
+            { "name" : "meeting", "type" : "com.microsoft.graph.MicrosoftGraphEvent", "desc" : "The event that was created in your calendar" }
+          ],
+          "map" : {
+            "result.meeting" : "in.newEvent"
+          }
+        },
+        "tags" : "CONNECTOR"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 288 },
+        "labelOffset" : { "x" : 47, "y" : 40 },
+        "description" : "Creates a new meeting in your your calendar.",
+        "icon" : "res:/webContent/icons/microsoft.png?small"
+      },
+      "connect" : { "id" : "f10", "to" : "f14" }
+    }, {
+      "id" : "f15",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 672, "y" : 288 }
+      }
+    } ]
+}

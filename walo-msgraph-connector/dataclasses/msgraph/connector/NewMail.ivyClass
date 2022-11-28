@@ -1,0 +1,5 @@
+NewMail #class
+msgraph.connector #namespace
+receivers java.util.List<String> #field
+subject String #field
+body String #field

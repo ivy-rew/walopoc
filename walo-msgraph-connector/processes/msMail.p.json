@@ -1,0 +1,100 @@
+{
+  "format" : "10.0.0",
+  "id" : "1783B782896F7AC3",
+  "kind" : "CALLABLE_SUB",
+  "description" : "Sends mails.",
+  "config" : {
+    "data" : "msgraph.connector.MailData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "writeMail(NewMail)",
+      "config" : {
+        "callSignature" : "writeMail",
+        "input" : {
+          "params" : [
+            { "name" : "mail", "type" : "msgraph.connector.NewMail", "desc" : "The mail to send" }
+          ],
+          "map" : {
+            "out.mail" : "param.mail",
+            "out.message.body.content" : "param.mail.body",
+            "out.message.body.contentType" : "com.microsoft.graph.MicrosoftGraphBodyType.TEXT",
+            "out.message.subject" : "param.mail.subject"
+          },
+          "code" : [
+            "for(String recipient : param.mail.receivers)",
+            "{",
+            "  com.microsoft.graph.MicrosoftGraphRecipient r;",
+            "  r.emailAddress.address = recipient;",
+            "  out.message.toRecipients.add(r);",
+            "}"
+          ]
+        },
+        "result" : {
+          "params" : [
+            { "name" : "message", "type" : "com.microsoft.graph.MicrosoftGraphMessage", "desc" : "The message that was sent" }
+          ],
+          "map" : {
+            "result.message" : "in.message"
+          }
+        },
+        "tags" : "CONNECTOR"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : 25, "y" : 37 },
+        "description" : "Sends a mail.",
+        "icon" : "res:/webContent/icons/microsoft.png?small"
+      },
+      "connect" : { "id" : "f2", "to" : "f7" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 64 }
+      }
+    }, {
+      "id" : "f7",
+      "type" : "RestClientCall",
+      "name" : "My User Info",
+      "config" : {
+        "path" : "/me",
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "resultType" : "com.microsoft.graph.MicrosoftGraphUser",
+        "responseCode" : [
+          "com.microsoft.graph.MicrosoftGraphRecipient me;",
+          "me.emailAddress.address = result.mail;",
+          "out.message.ccRecipients.add(me);"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : { "id" : "f8", "to" : "f6" }
+    }, {
+      "id" : "f6",
+      "type" : "RestClientCall",
+      "name" : [
+        "Write a Mail",
+        "on my behalf"
+      ],
+      "config" : {
+        "path" : "/me/microsoft.graph.sendMail",
+        "bodyObjectMapping" : {
+          "param.message" : "in.message",
+          "param.saveToSentItems" : "true"
+        },
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "method" : "POST",
+        "bodyObjectType" : "com.microsoft.graph.MeMicrosoftGraphSendMailBody",
+        "bodyInputType" : "ENTITY"
+      },
+      "visual" : {
+        "at" : { "x" : 384, "y" : 64 }
+      },
+      "connect" : { "id" : "f3", "to" : "f1" }
+    } ]
+}

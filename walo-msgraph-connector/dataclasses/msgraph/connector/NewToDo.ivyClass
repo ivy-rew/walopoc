@@ -1,0 +1,4 @@
+NewToDo #class
+msgraph.connector #namespace
+title String #field
+content String #field

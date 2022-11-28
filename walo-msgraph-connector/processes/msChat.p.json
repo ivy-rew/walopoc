@@ -1,0 +1,92 @@
+{
+  "format" : "10.0.0",
+  "id" : "184A9D4A92C26C8E",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "msgraph.connector.ChatData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "recentMessages()",
+      "config" : {
+        "callSignature" : "recentMessages",
+        "result" : {
+          "params" : [
+            { "name" : "messages", "type" : "java.util.List<com.microsoft.graph.MicrosoftGraphChatMessage>" }
+          ],
+          "map" : {
+            "result.messages" : "in.messages"
+          }
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png?small"
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 536, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "RestClientCall",
+      "name" : "my chats",
+      "config" : {
+        "path" : "/me/chats",
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "GET",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.chats" : "result.value"
+        },
+        "resultType" : "com.microsoft.graph.MicrosoftGraphChatCollectionResponse",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : "out.chatId = out.chats.get(0).id;"
+      },
+      "visual" : {
+        "at" : { "x" : 248, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f6", "to" : "f5" }
+    }, {
+      "id" : "f5",
+      "type" : "RestClientCall",
+      "name" : "messages",
+      "config" : {
+        "path" : "/me/chats/{chat-id}/messages",
+        "clientId" : "007036dc-72d1-429f-88a7-ba5d5cf5ae58",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "GET",
+        "queryParams" : {
+          "$top" : "",
+          "$skip" : "",
+          "$search" : "",
+          "$filter" : "",
+          "$count" : "",
+          "$orderby" : "",
+          "$select" : "",
+          "$expand" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.messages" : "result.value"
+        },
+        "templateParams" : {
+          "chat-id" : "in.chatId"
+        },
+        "resultType" : "com.microsoft.graph.MicrosoftGraphChatMessageCollectionResponse",
+        "bodyInputType" : "ENTITY"
+      },
+      "visual" : {
+        "at" : { "x" : 408, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}

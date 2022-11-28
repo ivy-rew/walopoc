@@ -1,0 +1,5 @@
+NewEvent #class
+msgraph.connector #namespace
+participants java.util.List<String> #field
+subject String #field
+description String #field
