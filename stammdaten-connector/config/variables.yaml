@@ -10,4 +10,25 @@ Variables:
   stammdaten-connector:
     host: walo-test-shared-api.azure-api.net
     
+     # Your Azure Application (client) ID
+    appId: ""
+
+    # Secret key from your applications "certificates & secrets"
+    # [password]
+    secretKey: ""
+    
+    # work with app permissions rather than in delegate of a user
+    # set to 'true' if no user consent should be accuired and adjust the 'tenantId' below.
+    useAppPermissions: "true"
+    
+    # tenant to use for OAUTH2 request.
+    # the default 'common' fits for user delegate requests.
+    # set the Azure Directory (tenant) ID, for application requests.
+    tenantId: "common"
+
+    # permissions to request access to.
+    # you may exclude or add some, as your azure administrator allows or restricts them.
+    # for sharepoint-demos, the following must be added: Sites.Read.All Files.ReadWrite
+    permissions: "api://walo-stammdaten/.default"
+
     

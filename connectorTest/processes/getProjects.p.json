@@ -27,7 +27,12 @@
       "type" : "SubProcessCall",
       "name" : "FindProject",
       "config" : {
-        "processCall" : "FindProject:call()"
+        "processCall" : "FindProject:findProject(String)",
+        "call" : {
+          "params" : [
+            { "name" : "name", "type" : "String" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }

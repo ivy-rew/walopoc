@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.walo.poc</groupId>
   <artifactId>stammdaten-connector</artifactId>
@@ -14,7 +13,7 @@
         <version>10.0.1</version>
         <extensions>true</extensions>
       </plugin>
-       <plugin>
+      <plugin>
         <groupId>org.jsonschema2pojo</groupId>
         <artifactId>jsonschema2pojo-maven-plugin</artifactId>
         <version>1.1.2</version>
@@ -87,4 +86,20 @@
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <id>maven.axonivy.com</id>
+      <url>https://maven.axonivy.com</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <!--<dependencies>
+    <dependency>
+      <groupId>com.axonivy.connector.msgraph</groupId>
+      <artifactId>msgraph-oauth-feature</artifactId>
+      <version>10.0.0</version>
+    </dependency>
+  </dependencies>-->
 </project>
