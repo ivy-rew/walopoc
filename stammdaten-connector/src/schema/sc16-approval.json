@@ -1,0 +1,41 @@
+{
+    "approvers": [
+        {
+            "id": 1,
+            "prename": "PZ",
+            "name": "Leiter",
+            "mail": "test.user2@walotest.onmicrosoft.com",
+            "function": "PZ Leiter",
+            "profitCenterId": 1,
+            "level": 1,
+            "companyId": 1,
+            "projectId": 1000001,
+            "amount": 0,
+            "procurementStructureId": 1,
+            "subWorkflowPre": [
+                {
+                    "id": 1,
+                    "name": "subCustomer",
+                    "level": 1
+                },
+                {
+                    "id": 2,
+                    "name": "specialapproval",
+                    "level": 2
+                }
+            ],
+            "subWorkflowPost": [
+                {
+                    "id": 1,
+                    "name": "subCustomer",
+                    "level": 1
+                },
+                {
+                    "id": 2,
+                    "name": "specialapproval",
+                    "level": 3
+                }
+            ]
+        }
+    ]
+}

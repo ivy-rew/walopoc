@@ -59,6 +59,18 @@
               <sourceType>json</sourceType>
             </configuration>
           </execution>
+          <execution>
+            <id>generate.sc16</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <targetPackage>ch.walo.stamm.approval</targetPackage>
+              <sourceDirectory>${basedir}/src/schema/sc16-approval.json</sourceDirectory>
+              <sourceType>json</sourceType>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
     </plugins>
