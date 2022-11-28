@@ -1,2 +1,4 @@
 LeadProcessData #class
 ch.walo.poc.lead #namespace
+businessObject ch.walo.poc.lead.BusinessObject #field
+businessObject PERSISTENT #fieldModifier

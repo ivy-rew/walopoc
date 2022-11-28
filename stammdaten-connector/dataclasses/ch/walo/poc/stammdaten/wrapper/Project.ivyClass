@@ -1,0 +1,12 @@
+Project #class
+ch.walo.poc.stammdaten.wrapper #namespace
+projectConnect ch.walo.stamm.project.ProjectBase #field
+projectConnect PERSISTENT #fieldModifier
+budget Number #field
+budget PERSISTENT #fieldModifier
+projectStart Date #field
+projectStart PERSISTENT #fieldModifier
+projectDetails String #field
+projectDetails PERSISTENT #fieldModifier
+geschaeftsBereich String #field
+geschaeftsBereich PERSISTENT #fieldModifier

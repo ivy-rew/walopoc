@@ -1,0 +1,12 @@
+LeadGUIData #class
+ch.walo.poc.lead.LeadGUI #namespace
+leadProcessData ch.walo.poc.lead.LeadProcessData #field
+leadProcessData PERSISTENT #fieldModifier
+projectSearchString String #field
+projectSearchString PERSISTENT #fieldModifier
+listProjectsConnector List<ch.walo.stamm.project.ProjectBase> #field
+listProjectsConnector PERSISTENT #fieldModifier
+selectedProjectIdConnector String #field
+selectedProjectIdConnector PERSISTENT #fieldModifier
+listProjectsIds List<String> #field
+listProjectsIds PERSISTENT #fieldModifier

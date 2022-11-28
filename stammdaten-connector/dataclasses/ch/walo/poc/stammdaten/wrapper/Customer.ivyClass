@@ -1,0 +1,4 @@
+Customer #class
+ch.walo.poc.stammdaten.wrapper #namespace
+customerConnect ch.walo.stamm.Customer #field
+customerConnect PERSISTENT #fieldModifier

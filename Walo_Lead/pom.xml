@@ -6,6 +6,14 @@
   <artifactId>walo-lead</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>iar</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>ch.walo.poc</groupId>
+      <artifactId>stammdaten-connector</artifactId>
+      <version>${project.version}</version>
+      <type>iar</type>
+    </dependency>
+  </dependencies>
   <build>
     <plugins>
       <plugin>

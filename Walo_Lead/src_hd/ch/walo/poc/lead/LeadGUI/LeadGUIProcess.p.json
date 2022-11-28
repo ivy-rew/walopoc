@@ -1,0 +1,393 @@
+{
+  "format" : "10.0.0",
+  "id" : "184BD8C1050AC405",
+  "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "ch.walo.poc.lead.LeadGUI.LeadGUIData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start(LeadProcessData)",
+      "config" : {
+        "callSignature" : "start",
+        "result" : {
+          "params" : [
+            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+          ],
+          "map" : {
+            "result.leadProcessData" : "in.leadProcessData"
+          }
+        },
+        "input" : {
+          "params" : [
+            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+          ],
+          "map" : {
+            "out.leadProcessData" : "param.leadProcessData"
+          }
+        },
+        "guid" : "184BD8C105137FC9"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogEventStart",
+      "name" : "close",
+      "config" : {
+        "guid" : "184BD8C1052654AB"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 }
+      },
+      "connect" : { "id" : "f5", "to" : "f4" }
+    }, {
+      "id" : "f4",
+      "type" : "HtmlDialogExit",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 160 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "HtmlDialogEventStart",
+      "name" : "searchProjects",
+      "config" : {
+        "guid" : "184BDA477054C475"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 224 }
+      },
+      "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f7",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 224 }
+      }
+    }, {
+      "id" : "f9",
+      "type" : "SubProcessCall",
+      "name" : "FindProject",
+      "config" : {
+        "processCall" : "FindProject:findProject(String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.listProjectsConnector" : "result.projects"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "name", "type" : "String" }
+          ],
+          "map" : {
+            "param.name" : "in.projectSearchString"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 224 }
+      },
+      "connect" : { "id" : "f8", "to" : "f7" }
+    }, {
+      "id" : "f11",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "searchProjectsACOLD(String)",
+      "config" : {
+        "callSignature" : "searchProjectsACOLD",
+        "result" : {
+          "params" : [
+            { "name" : "objects", "type" : "List<ch.walo.stamm.project.ProjectBase>" }
+          ],
+          "map" : {
+            "result.objects" : "in.listProjectsConnector"
+          }
+        },
+        "input" : {
+          "params" : [
+            { "name" : "searchString", "type" : "String" }
+          ],
+          "map" : {
+            "out.projectSearchString" : "param.searchString"
+          }
+        },
+        "guid" : "184BDAEE64AEB425"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 320 }
+      },
+      "connect" : { "id" : "f15", "to" : "f14" }
+    }, {
+      "id" : "f12",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 320 }
+      }
+    }, {
+      "id" : "f14",
+      "type" : "SubProcessCall",
+      "name" : "FindProject",
+      "config" : {
+        "processCall" : "FindProject:findProject(String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.listProjectsConnector" : "result.projects"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "name", "type" : "String" }
+          ],
+          "map" : {
+            "param.name" : "in.projectSearchString"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 320 }
+      },
+      "boundaries" : [ {
+          "id" : "f18",
+          "type" : "ErrorBoundaryEvent",
+          "visual" : {
+            "at" : { "x" : 256, "y" : 360 }
+          },
+          "connect" : { "id" : "f21", "to" : "f20" }
+        } ],
+      "connect" : { "id" : "f13", "to" : "f12" }
+    }, {
+      "id" : "f16",
+      "type" : "ProcessAnnotation",
+      "name" : "To DO - Map to Project",
+      "visual" : {
+        "at" : { "x" : 256, "y" : 472 }
+      },
+      "connect" : { "id" : "f17", "to" : "f14" }
+    }, {
+      "id" : "f20",
+      "type" : "Script",
+      "name" : "Test Data",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.walo.stamm.project.ProjectBase;",
+            "",
+            "",
+            "ProjectBase x = new ProjectBase();",
+            "x.projectName=\"Testprojekt Name\";",
+            "",
+            "in.listProjectsConnector.add(x);",
+            "",
+            "in.listProjectsConnector.add(x);",
+            "",
+            "//Will be displayed in Element!",
+            "in.setSelectedProjectIdConnector(x.projectName);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 384, "y" : 368 }
+      },
+      "connect" : { "id" : "f19", "to" : "f12", "via" : [ { "x" : 512, "y" : 368 } ] }
+    }, {
+      "id" : "f22",
+      "type" : "HtmlDialogEventStart",
+      "name" : "projectSelected",
+      "config" : {
+        "guid" : "0184BDD6B5A72818"
+      },
+      "visual" : {
+        "at" : { "x" : 88, "y" : 960 }
+      },
+      "connect" : { "id" : "f40", "to" : "f39" }
+    }, {
+      "id" : "f23",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 344, "y" : 960 }
+      }
+    }, {
+      "id" : "f25",
+      "type" : "HtmlDialogEventStart",
+      "name" : "searchProjectsACId",
+      "config" : {
+        "guid" : "184BE0A7C7D2AA12"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 640 }
+      },
+      "connect" : { "id" : "f27", "to" : "f26" }
+    }, {
+      "id" : "f26",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 640 }
+      }
+    }, {
+      "id" : "f28",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "searchProjectsACId(String)",
+      "config" : {
+        "callSignature" : "searchProjectsACId",
+        "result" : {
+          "params" : [
+            { "name" : "listIds", "type" : "List<String>" }
+          ],
+          "map" : {
+            "result.listIds" : "in.listProjectsIds"
+          }
+        },
+        "input" : {
+          "params" : [
+            { "name" : "searchString", "type" : "String" }
+          ],
+          "map" : {
+            "out.projectSearchString" : "param.searchString"
+          }
+        },
+        "guid" : "184BE0AAAC16B23B"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 752 }
+      },
+      "connect" : { "id" : "f33", "to" : "f29" }
+    }, {
+      "id" : "f29",
+      "type" : "SubProcessCall",
+      "name" : "FindProject",
+      "config" : {
+        "processCall" : "FindProject:findProject(String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.listProjectsConnector" : "result.projects"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "name", "type" : "String" }
+          ],
+          "map" : {
+            "param.name" : "in.projectSearchString"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 248, "y" : 752 }
+      },
+      "boundaries" : [ {
+          "id" : "f30",
+          "type" : "ErrorBoundaryEvent",
+          "visual" : {
+            "at" : { "x" : 280, "y" : 792 }
+          },
+          "connect" : { "id" : "f32", "to" : "f31" }
+        } ],
+      "connect" : { "id" : "f36", "to" : "f34" }
+    }, {
+      "id" : "f31",
+      "type" : "Script",
+      "name" : "Test Data",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.walo.stamm.project.ProjectBase;",
+            "",
+            "",
+            "ProjectBase x = new ProjectBase();",
+            "x.projectName=\"Testprojekt Name\";",
+            "",
+            "in.listProjectsConnector.add(x);",
+            "",
+            "in.listProjectsConnector.add(x);",
+            "",
+            "//Will be displayed in Element!",
+            "in.listProjectsIds.add(x.projectName);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 424, "y" : 864 }
+      },
+      "connect" : { "id" : "f35", "to" : "f34" }
+    }, {
+      "id" : "f34",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 592, "y" : 760 }
+      }
+    }, {
+      "id" : "f37",
+      "type" : "ProcessAnnotation",
+      "name" : "Convert to my List!",
+      "visual" : {
+        "at" : { "x" : 424, "y" : 680 }
+      },
+      "connect" : { "id" : "f38", "to" : "f29" }
+    }, {
+      "id" : "f39",
+      "type" : "Script",
+      "name" : [
+        "Search selected in List",
+        "and save in project Wrapper"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.walo.poc.stammdaten.wrapper.Project;",
+            "import ch.walo.stamm.project.ProjectBase;",
+            "",
+            "",
+            "for (ProjectBase project : in.listProjectsConnector) {",
+            "",
+            "   if(project.projectName.equalsIgnoreCase(in.selectedProjectIdConnector)) {",
+            "   ",
+            "   ",
+            "   in.leadProcessData.businessObject.project=new Project();",
+            "   in.leadProcessData.businessObject.project.projectConnect=project;",
+            "   in.leadProcessData.businessObject.project.geschaeftsBereich=\"Insert\";",
+            "   //Further initial attributes",
+            "   ",
+            "   ",
+            "   ",
+            "   ",
+            "   ",
+            "   }",
+            "",
+            "}"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 216, "y" : 960 }
+      },
+      "connect" : { "id" : "f24", "to" : "f23" }
+    }, {
+      "id" : "f41",
+      "type" : "HtmlDialogEventStart",
+      "name" : "addProject",
+      "config" : {
+        "guid" : "184BE1BF5CF2A0C8"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 1056 }
+      },
+      "connect" : { "id" : "f43", "to" : "f42" }
+    }, {
+      "id" : "f42",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 1056 }
+      }
+    } ]
+}

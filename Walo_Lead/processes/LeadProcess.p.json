@@ -10,17 +10,85 @@
       "name" : "start.ivp",
       "config" : {
         "callSignature" : "start",
-        "outLink" : "start.ivp"
+        "outLink" : "start.ivp",
+        "startName" : "<%=ivy.cms.co(\"/process/ProcessName\")%>"
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 64 }
+        "at" : { "x" : 32, "y" : 112 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : { "id" : "f4", "to" : "f3" }
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 352, "y" : 64 }
+        "at" : { "x" : 360, "y" : 112 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : "Lead erfassen",
+      "config" : {
+        "dialogId" : "ch.walo.poc.lead.LeadGUI",
+        "startMethod" : "start(ch.walo.poc.lead.LeadProcessData)",
+        "output" : {
+          "map" : {
+            "out" : [
+              "in",
+              "result.leadProcessData"
+            ]
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+          ],
+          "map" : {
+            "param.leadProcessData" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 232, "y" : 112 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "RequestStart",
+      "name" : "start2.ivp",
+      "config" : {
+        "callSignature" : "start2",
+        "outLink" : "start2.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 56, "y" : 264 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    }, {
+      "id" : "f6",
+      "type" : "DialogCall",
+      "name" : "Test2",
+      "config" : {
+        "dialogId" : "ch.walo.poc.lead.Test2",
+        "startMethod" : "start(ch.walo.poc.lead.LeadProcessData)",
+        "output" : {
+          "map" : {
+            "out" : [
+              "in",
+              "result.leadProcessData"
+            ]
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+          ],
+          "map" : {
+            "param.leadProcessData" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 248, "y" : 264 }
       }
     } ]
 }

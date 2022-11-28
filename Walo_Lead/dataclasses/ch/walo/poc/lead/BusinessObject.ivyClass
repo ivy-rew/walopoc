@@ -1,0 +1,10 @@
+BusinessObject #class
+ch.walo.poc.lead #namespace
+customer ch.walo.poc.stammdaten.wrapper.Customer #field
+customer wrapper #fieldComment
+customer PERSISTENT #fieldModifier
+project ch.walo.poc.stammdaten.wrapper.Project #field
+project wrapper #fieldComment
+project PERSISTENT #fieldModifier
+projectConnect ch.walo.stamm.project.ProjectBase #field
+projectConnect PERSISTENT #fieldModifier
