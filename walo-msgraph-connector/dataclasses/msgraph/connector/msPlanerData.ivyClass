@@ -1,0 +1,6 @@
+msPlanerData #class
+msgraph.connector #namespace
+tasks java.util.List<com.microsoft.graph.planer.MicrosoftGraphPlannerTask> #field
+ivyTask ch.ivyteam.ivy.workflow.ITask #field
+plannerTask com.microsoft.graph.planer.MicrosoftGraphPlannerTask #field
+taskDetails com.microsoft.graph.planer.MicrosoftGraphPlannerTaskDetails #field

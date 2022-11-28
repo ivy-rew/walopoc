@@ -1,0 +1,189 @@
+{
+  "format" : "10.0.0",
+  "id" : "184C0096C0F3E50A",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "msgraph.connector.msPlanerData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "getTasks()",
+      "config" : {
+        "callSignature" : "getTasks",
+        "result" : {
+          "params" : [
+            { "name" : "tasks", "type" : "java.util.List<com.microsoft.graph.planer.MicrosoftGraphPlannerTask>" }
+          ],
+          "map" : {
+            "result.tasks" : "in.tasks"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "RestClientCall",
+      "config" : {
+        "path" : "/planner/plans/{plannerPlan-id}/tasks",
+        "clientId" : "a5083585-1c54-480b-a5fa-24211ffd91c7",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "$top" : "",
+          "$skip" : "",
+          "$search" : "",
+          "$filter" : "",
+          "$count" : "",
+          "$orderby" : "",
+          "$select" : "",
+          "$expand" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.tasks" : "result.value"
+        },
+        "templateParams" : {
+          "plannerPlan-id" : "\"DZbuRHazR0yFxcyB8DyRKJgAGF33\""
+        },
+        "resultType" : "com.microsoft.graph.planer.MicrosoftGraphPlannerTaskCollectionResponse"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "CallSubStart",
+      "name" : "createTask(Long)",
+      "config" : {
+        "callSignature" : "createTask",
+        "input" : {
+          "params" : [
+            { "name" : "taskId", "type" : "Long", "desc" : "ivy-task id" }
+          ],
+          "code" : "out.ivyTask = ivy.wf.findTask(param.taskId);"
+        },
+        "result" : {
+          "params" : [
+            { "name" : "plannerTask", "type" : "com.microsoft.graph.planer.MicrosoftGraphPlannerTask" }
+          ],
+          "map" : {
+            "result.plannerTask" : "in.plannerTask"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 168 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    }, {
+      "id" : "f6",
+      "type" : "RestClientCall",
+      "config" : {
+        "path" : "/planner/tasks",
+        "bodyObjectMapping" : {
+          "param.bucketId" : "\"YF8ekbxvAkmAoXX4hfGlpJgANIh4\"",
+          "param.details.description" : "in.ivyTask.description + \"<br/> \"+ in.ivyTask.getStartLink().getAbsolute()",
+          "param.planId" : "\"DZbuRHazR0yFxcyB8DyRKJgAGF33\"",
+          "param.title" : "in.ivyTask.name"
+        },
+        "clientId" : "a5083585-1c54-480b-a5fa-24211ffd91c7",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "POST",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.tasks" : "[result]"
+        },
+        "bodyObjectType" : "com.microsoft.graph.planer.MicrosoftGraphPlannerTask",
+        "bodyObjectCode" : [
+          "import com.microsoft.graph.planer.MsGraphAssins.PlanerAssignment;",
+          "import com.microsoft.graph.planer.MicrosoftGraphPlannerAssignments;",
+          "MicrosoftGraphPlannerAssignments assignments;",
+          "PlanerAssignment assign;",
+          "",
+          "assignments.put(\"f626c06e-b450-4eeb-8062-534984fbac20\", assign);"
+        ],
+        "resultType" : "com.microsoft.graph.planer.MicrosoftGraphPlannerTask",
+        "bodyInputType" : "ENTITY"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 168 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f9", "to" : "f8" }
+    }, {
+      "id" : "f8",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 168 }
+      }
+    }, {
+      "id" : "f10",
+      "type" : "CallSubStart",
+      "name" : "getDetails(String)",
+      "config" : {
+        "callSignature" : "getDetails",
+        "input" : {
+          "params" : [
+            { "name" : "plannerTaskId", "type" : "String" }
+          ],
+          "map" : {
+            "out.plannerTask.id" : "param.plannerTaskId"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "details", "type" : "com.microsoft.graph.planer.MicrosoftGraphPlannerTaskDetails" }
+          ],
+          "map" : {
+            "result.details" : "in.taskDetails"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 264 }
+      },
+      "connect" : { "id" : "f12", "to" : "f11" }
+    }, {
+      "id" : "f11",
+      "type" : "RestClientCall",
+      "config" : {
+        "path" : "/planner/tasks/{plannerTask-id}/details",
+        "clientId" : "a5083585-1c54-480b-a5fa-24211ffd91c7",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "$select" : "",
+          "$expand" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.taskDetails" : "result"
+        },
+        "templateParams" : {
+          "plannerTask-id" : "in.plannerTask.id"
+        },
+        "resultType" : "com.microsoft.graph.planer.MicrosoftGraphPlannerTaskDetails"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 264 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f14", "to" : "f13" }
+    }, {
+      "id" : "f13",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 264 }
+      }
+    } ]
+}

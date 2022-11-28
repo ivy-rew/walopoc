@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <role>
     <identifier>Everybody</identifier>
+    <role>
+        <identifier>CEO</identifier>
+    </role>
+    <role>
+        <identifier>PZ Leiter</identifier>
+    </role>
+    <role>
+        <identifier>Direktor</identifier>
+    </role>
+    <role>
+        <identifier>Baufuehrer</identifier>
+        <displayName>Bauführer</displayName>
+    </role>
 </role>

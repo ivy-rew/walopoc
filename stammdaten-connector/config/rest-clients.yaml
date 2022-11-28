@@ -8,10 +8,10 @@ RestClients:
     - com.microsoft.auth.OAuth2FeatureC
     Properties:
       PATH.host: ${ivy.var.stammdaten-connector.host}
-      AUTH.appId: ${ivy.var.stammdaten-connector.appId}
-      AUTH.secretKey: ${ivy.var.stammdaten-connector.secretKey}
+      AUTH.appId: ${ivy.var.azure.appId}
+      AUTH.secretKey: ${ivy.var.azure.secretKey}
       AUTH.scope: ${ivy.var.stammdaten-connector.permissions}
       AUTH.authUri: ${ivy.var.stammdaten-connector.authUri}
       AUTH.useAppPermissions: 'true'
-      AUTH.baseUri: https://login.microsoftonline.com/${ivy.var.stammdaten-connector.tenantId}/oauth2/v2.0
+      AUTH.baseUri: https://login.microsoftonline.com/${ivy.var.azure.tenantId}/oauth2/v2.0
       AUTH.ocpSubscriptionKey: ${ivy.var.stammdaten-connector.subscription}
