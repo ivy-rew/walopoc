@@ -203,7 +203,7 @@
  		  <p:spacer></p:spacer>
     <p:fieldset legend="Approval" rendered="#{data.bvisApproval}">
     
-					<ic:ch.walo.poc.lead.component.Approver approver="#{data.leadProcessData.businessObject.approvalHier.get(data.approvalLevelIndex)}"  />
+					<ic:ch.walo.poc.lead.component.Approver approver="#{data.leadProcessData.businessObject.approvalHier[data.approvalLevelIndex]}"  />
 
 	</p:fieldset>		        
         

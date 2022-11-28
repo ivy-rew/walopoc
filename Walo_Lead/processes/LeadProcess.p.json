@@ -10,6 +10,10 @@
       "name" : "start.ivp",
       "config" : {
         "callSignature" : "start",
+        "case" : {
+          "name" : "Lead Prozess",
+          "category" : "Lead"
+        },
         "outLink" : "start.ivp",
         "startName" : "<%=ivy.cms.co(\"/process/ProcessName\")%>"
       },
@@ -48,51 +52,13 @@
       },
       "connect" : { "id" : "f1", "to" : "f9" }
     }, {
-      "id" : "f5",
-      "type" : "RequestStart",
-      "name" : "start2.ivp",
-      "config" : {
-        "callSignature" : "start2",
-        "outLink" : "start2.ivp"
-      },
-      "visual" : {
-        "at" : { "x" : 56, "y" : 264 }
-      },
-      "connect" : { "id" : "f7", "to" : "f6" }
-    }, {
-      "id" : "f6",
-      "type" : "DialogCall",
-      "name" : "Test2",
-      "config" : {
-        "dialogId" : "ch.walo.poc.lead.Test2",
-        "startMethod" : "start(ch.walo.poc.lead.LeadProcessData)",
-        "output" : {
-          "map" : {
-            "out" : [
-              "in",
-              "result.leadProcessData"
-            ]
-          }
-        },
-        "call" : {
-          "params" : [
-            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
-          ],
-          "map" : {
-            "param.leadProcessData" : "in"
-          }
-        }
-      },
-      "visual" : {
-        "at" : { "x" : 248, "y" : 264 }
-      }
-    }, {
       "id" : "f8",
       "type" : "RequestStart",
       "name" : "Deve Start",
       "config" : {
         "callSignature" : "start3",
-        "outLink" : "start3.ivp"
+        "outLink" : "start3.ivp",
+        "showInStartList" : false
       },
       "visual" : {
         "at" : { "x" : 352, "y" : 192 }

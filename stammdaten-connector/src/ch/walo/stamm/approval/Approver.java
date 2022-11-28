@@ -32,6 +32,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @Generated("jsonschema2pojo")
 public class Approver {
 
+	private String signature;
+	private Boolean decisionStatus;
+	private String kommentar;
     @JsonProperty("id")
     private Integer id;
     @JsonProperty("prename")
@@ -268,5 +271,29 @@ public class Approver {
         }
         return sb.toString();
     }
+
+	public Boolean getDecisionStatus() {
+		return decisionStatus;
+	}
+
+	public void setDecisionStatus(Boolean decisionStatus) {
+		this.decisionStatus = decisionStatus;
+	}
+
+	public String getKommentar() {
+		return kommentar;
+	}
+
+	public void setKommentar(String kommentar) {
+		this.kommentar = kommentar;
+	}
+
+	public String getSignature() {
+		return signature;
+	}
+
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
 
 }

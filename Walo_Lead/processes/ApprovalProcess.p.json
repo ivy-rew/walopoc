@@ -45,7 +45,10 @@
       "name" : "index ++",
       "config" : {
         "output" : {
-          "code" : "in.levelIndex++;"
+          "code" : [
+            "in.levelIndex++;",
+            "in.anzegeLevel++;"
+          ]
         }
       },
       "visual" : {
@@ -59,8 +62,12 @@
       "config" : {
         "dialogId" : "ch.walo.poc.lead.LeadGUI",
         "startMethod" : "start(ch.walo.poc.lead.LeadProcessData,Number)",
+        "case" : {
+          "category" : "Lead"
+        },
         "output" : {
           "map" : {
+            "out" : "in",
             "out.leadProcessData" : "result.leadProcessData"
           }
         },
@@ -69,7 +76,8 @@
           "description" : [
             "<%=in.actApproval.name%>",
             "<%=in.actApproval.mail%>"
-          ]
+          ],
+          "category" : "Lead"
         },
         "call" : {
           "params" : [
