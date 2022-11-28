@@ -1,0 +1,5 @@
+FindCustomerData #class
+ch.walo.poc.stammdaten.connector #namespace
+search String #field
+fallback String #field
+customers java.util.List<ch.walo.stamm.customer.Customer> #field

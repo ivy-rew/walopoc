@@ -1,0 +1,88 @@
+{
+  "format" : "10.0.0",
+  "id" : "184BE30C713CAA4C",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "ch.walo.poc.stammdaten.connector.FindCustomerData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "findCustomer(String,String)",
+      "config" : {
+        "callSignature" : "findCustomer",
+        "input" : {
+          "params" : [
+            { "name" : "name", "type" : "String" },
+            { "name" : "fallback", "type" : "String", "desc" : "optional" }
+          ],
+          "map" : {
+            "out.fallback" : "param.fallback",
+            "out.search" : "param.name"
+          },
+          "code" : [
+            "if (out.fallback.isBlank()) {",
+            "  out.fallback = \"10026\";",
+            "}"
+          ]
+        },
+        "result" : {
+          "params" : [
+            { "name" : "customers", "type" : "java.util.List<ch.walo.stamm.customer.Customer>" }
+          ],
+          "map" : {
+            "result.customers" : "in.customers"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "RestClientCall",
+      "config" : {
+        "bodyRaw" : [
+          "{",
+          "    \"selector\":{\"$or\": [{\"customer.customerNumber\":{\"$eq\":<%=in.fallback%>}}, { \"customer.codeName\": { \"$regex\": \"(?i)^<%=in.search%>(?-i)\", \"$options\": \"m\" } }]},",
+          "    \"limit\":5,",
+          "    \"skip\":0,",
+          "    \"index\":true,",
+          "    \"includeTotalCount\":true",
+          "}"
+        ],
+        "path" : "stammdaten/customer/2015_00/find",
+        "clientId" : "7ad8fe9b-78d5-49ad-af70-e4b5daa4d239",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "POST",
+        "queryParams" : {
+          "tenant" : "\"10\""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "templateParams" : {
+          "host" : ""
+        },
+        "resultType" : "ch.walo.stamm.customer.Sc21Customer",
+        "bodyInputType" : "RAW",
+        "responseCode" : [
+          "import ch.walo.stamm.customer.Result;",
+          "",
+          "for(Result r : result.result) {",
+          "   out.customers.add(r.customer);",
+          "}"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 232, "y" : 64 },
+        "icon" : "res:/webContent/logo/WALO_Logo_Pantone_C.png"
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}
