@@ -61,5 +61,70 @@
         "icon" : "res:/webContent/icons/microsoft.png"
       },
       "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "CallSubStart",
+      "name" : "createTask(Long)",
+      "config" : {
+        "callSignature" : "createTask",
+        "input" : {
+          "params" : [
+            { "name" : "taskId", "type" : "Long", "desc" : "ivy-task id" }
+          ],
+          "code" : "out.ivyTask = ivy.wf.findTask(param.taskId);"
+        },
+        "result" : {
+          "params" : [
+            { "name" : "plannerTask", "type" : "com.microsoft.graph.planer.MicrosoftGraphPlannerTask" }
+          ],
+          "map" : {
+            "result.plannerTask" : "in.plannerTask"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 168 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    }, {
+      "id" : "f6",
+      "type" : "RestClientCall",
+      "config" : {
+        "path" : "/planner/tasks",
+        "bodyObjectMapping" : {
+          "param.bucketId" : "\"YF8ekbxvAkmAoXX4hfGlpJgANIh4\"",
+          "param.planId" : "\"DZbuRHazR0yFxcyB8DyRKJgAGF33\"",
+          "param.title" : "in.ivyTask.name"
+        },
+        "clientId" : "a5083585-1c54-480b-a5fa-24211ffd91c7",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "POST",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.tasks" : "[result]"
+        },
+        "bodyObjectType" : "com.microsoft.graph.planer.MicrosoftGraphPlannerTask",
+        "bodyObjectCode" : [
+          "import com.microsoft.graph.planer.MsGraphAssins.PlanerAssignment;",
+          "import com.microsoft.graph.planer.MicrosoftGraphPlannerAssignments;",
+          "MicrosoftGraphPlannerAssignments assignments;",
+          "PlanerAssignment assign;",
+          "",
+          "assignments.put(\"f626c06e-b450-4eeb-8062-534984fbac20\", assign);"
+        ],
+        "resultType" : "com.microsoft.graph.planer.MicrosoftGraphPlannerTask",
+        "bodyInputType" : "ENTITY"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 168 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f9", "to" : "f8" }
+    }, {
+      "id" : "f8",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 168 }
+      }
     } ]
 }
