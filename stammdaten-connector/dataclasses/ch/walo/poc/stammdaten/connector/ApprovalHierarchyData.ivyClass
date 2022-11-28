@@ -2,3 +2,4 @@ ApprovalHierarchyData #class
 ch.walo.poc.stammdaten.connector #namespace
 amount Integer #field
 procurementStructureId String #field
+approvers java.util.List<ch.walo.stamm.approval.Approver> #field

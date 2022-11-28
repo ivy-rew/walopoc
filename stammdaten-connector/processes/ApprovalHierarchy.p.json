@@ -24,7 +24,10 @@
         "result" : {
           "params" : [
             { "name" : "approvers", "type" : "java.util.List<ch.walo.stamm.approval.Approver>" }
-          ]
+          ],
+          "map" : {
+            "result.approvers" : "in.approvers"
+          }
         }
       },
       "visual" : {
@@ -49,6 +52,9 @@
           "approvalAmount" : "in.amount"
         },
         "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.approvers" : "result.approvers"
+        },
         "templateParams" : {
           "companyId" : "1",
           "host" : "",

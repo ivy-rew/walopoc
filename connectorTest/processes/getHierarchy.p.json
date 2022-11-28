@@ -28,6 +28,12 @@
       "name" : "ApprovalHierarchy",
       "config" : {
         "processCall" : "ApprovalHierarchy:hierarchy(Integer,String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.approvers" : "result.approvers"
+          }
+        },
         "call" : {
           "params" : [
             { "name" : "amount", "type" : "Integer" },

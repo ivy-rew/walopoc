@@ -1,3 +1,4 @@
 Data #class
 ch.walo.poc.test #namespace
 projects java.util.List<ch.walo.stamm.project.ProjectBase> #field
+approvers java.util.List<ch.walo.stamm.approval.Approver> #field
