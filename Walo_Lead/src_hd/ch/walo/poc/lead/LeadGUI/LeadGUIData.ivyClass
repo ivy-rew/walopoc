@@ -18,3 +18,7 @@ customerSearchString String #field
 customerSearchString PERSISTENT #fieldModifier
 selectedCustomerIdConnector String #field
 selectedCustomerIdConnector PERSISTENT #fieldModifier
+toggle Boolean #field
+toggle PERSISTENT #fieldModifier
+selectedUserDemo com.axonivy.portal.components.dto.UserDTO #field
+selectedUserDemo PERSISTENT #fieldModifier

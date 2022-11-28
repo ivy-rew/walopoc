@@ -1,0 +1,53 @@
+{
+  "format" : "10.0.0",
+  "id" : "184BE866340FA42A",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "ch.walo.poc.lead.nTaskProcessHookData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "call(Approver,String)",
+      "config" : {
+        "callSignature" : "call",
+        "input" : {
+          "params" : [
+            { "name" : "Approver", "type" : "ch.walo.stamm.approval.Approver" },
+            { "name" : "type", "type" : "String", "desc" : "post or pre" }
+          ],
+          "map" : {
+            "out.approver" : "param.Approver",
+            "out.type" : "param.type"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 464, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "Script",
+      "name" : "start n wf hooks",
+      "config" : {
+        "output" : {
+          "code" : [
+            "ivy.log.info(\"Sub WF Hook Type : \"+in.type);",
+            "ivy.log.info(\"Number of activities pre : \"+in.approver.subWorkflowPre.size());",
+            "ivy.log.info(\"Number of activities post : \"+in.approver.subWorkflowPost.size());"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 280, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}

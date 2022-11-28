@@ -1,0 +1,190 @@
+{
+  "format" : "10.0.0",
+  "id" : "184BE7F32E22B552",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "ch.walo.poc.lead.ApprovalProcessData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "call(LeadProcessData)",
+      "config" : {
+        "callSignature" : "call",
+        "input" : {
+          "params" : [
+            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+          ],
+          "map" : {
+            "out.leadProcessData" : "param.leadProcessData"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 64, "y" : 176 }
+      },
+      "connect" : { "id" : "f17", "to" : "f16" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 1416, "y" : 176 }
+      }
+    }, {
+      "id" : "f9",
+      "type" : "Alternative",
+      "visual" : {
+        "at" : { "x" : 320, "y" : 176 }
+      },
+      "connect" : [
+        { "id" : "f19", "to" : "f18" }
+      ]
+    }, {
+      "id" : "f11",
+      "type" : "Script",
+      "name" : "index ++",
+      "config" : {
+        "output" : {
+          "code" : "in.levelIndex++;"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 1232, "y" : 176 }
+      },
+      "connect" : { "id" : "f12", "to" : "f8" }
+    }, {
+      "id" : "f14",
+      "type" : "UserTask",
+      "name" : "Task",
+      "config" : {
+        "task" : {
+          "name" : "Approval Task (Level <%=in.levelIndex%>)",
+          "description" : [
+            "<%=in.actApproval.name%>",
+            "<%=in.actApproval.mail%>"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 760, "y" : 176 }
+      },
+      "connect" : { "id" : "f24", "to" : "f23" }
+    }, {
+      "id" : "f3",
+      "type" : "SubProcessCall",
+      "name" : "nTaskProcessHook",
+      "config" : {
+        "processCall" : "nTaskProcessHook:call(ch.walo.stamm.approval.Approver,String)",
+        "call" : {
+          "params" : [
+            { "name" : "Approver", "type" : "ch.walo.stamm.approval.Approver" },
+            { "name" : "type", "type" : "String" }
+          ],
+          "map" : {
+            "param.Approver" : "in.actApproval",
+            "param.type" : "\"pre\""
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 528, "y" : 176 }
+      },
+      "connect" : { "id" : "f21", "to" : "f20" }
+    }, {
+      "id" : "f2",
+      "type" : "SubProcessCall",
+      "name" : "nTaskProcessHook",
+      "config" : {
+        "processCall" : "nTaskProcessHook:call(ch.walo.stamm.approval.Approver,String)",
+        "call" : {
+          "params" : [
+            { "name" : "Approver", "type" : "ch.walo.stamm.approval.Approver" },
+            { "name" : "type", "type" : "String" }
+          ],
+          "map" : {
+            "param.Approver" : "in.actApproval",
+            "param.type" : "\"post\""
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 976, "y" : 176 }
+      },
+      "connect" : { "id" : "f26", "to" : "f25" }
+    }, {
+      "id" : "f8",
+      "type" : "Alternative",
+      "name" : [
+        "More Approval",
+        "levels?"
+      ],
+      "visual" : {
+        "at" : { "x" : 1344, "y" : 176 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f13", "to" : "f9", "via" : [ { "x" : 1344, "y" : 256 }, { "x" : 320, "y" : 256 } ], "condition" : "in.levelIndex<in.leadProcessData.businessObject.approvalHier.size()" },
+        { "id" : "f15", "to" : "f1" }
+      ]
+    }, {
+      "id" : "f16",
+      "type" : "Script",
+      "name" : [
+        "index=0",
+        "get first "
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "in.levelIndex=0;",
+            "in.actApproval=in.leadProcessData.businessObject.approvalHier.get(in.levelIndex);",
+            "ivy.log.info(\"Levels for Approval \"+in. leadProcessData.businessObject.approvalHier.size());"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 192, "y" : 176 }
+      },
+      "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f18",
+      "type" : "Alternative",
+      "name" : "Pre WF?",
+      "visual" : {
+        "at" : { "x" : 416, "y" : 176 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f4", "to" : "f3", "condition" : "in.actApproval.subWorkflowPre.size()>0" },
+        { "id" : "f22", "to" : "f20", "via" : [ { "x" : 416, "y" : 120 }, { "x" : 656, "y" : 120 } ] }
+      ]
+    }, {
+      "id" : "f20",
+      "type" : "Alternative",
+      "visual" : {
+        "at" : { "x" : 656, "y" : 176 }
+      },
+      "connect" : [
+        { "id" : "f5", "to" : "f14" }
+      ]
+    }, {
+      "id" : "f23",
+      "type" : "Alternative",
+      "visual" : {
+        "at" : { "x" : 880, "y" : 176 }
+      },
+      "connect" : [
+        { "id" : "f6", "to" : "f2", "condition" : "in.actApproval.subWorkflowPost.size()>0" },
+        { "id" : "f27", "to" : "f25", "via" : [ { "x" : 880, "y" : 120 }, { "x" : 1104, "y" : 120 } ] }
+      ]
+    }, {
+      "id" : "f25",
+      "type" : "Alternative",
+      "visual" : {
+        "at" : { "x" : 1104, "y" : 176 }
+      },
+      "connect" : [
+        { "id" : "f7", "to" : "f11" }
+      ]
+    } ]
+}

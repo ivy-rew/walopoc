@@ -2,8 +2,35 @@
 # 
 # You can define here your project Variables.
 # If you want to define/override a Variable for a specific Environment, 
-# add an additional ‘variables.yaml’ file in a subdirectory in the ‘Config’ folder: 
+# add an additional ?variables.yaml? file in a subdirectory in the ?Config? folder: 
 # '<project>/Config/_<environment>/variables.yaml
 #
 Variables:
 #  myVariable: value
+  stammdaten-connector:
+    host: "walo-test-shared-api.azure-api.net"
+    
+     # Your Azure Application (client) ID
+    appId: "6a448554-20fb-4ceb-8406-8ecfc9f25234" 
+
+    # Secret key from your applications "certificates & secrets"
+    # [password]
+    secretKey: "4lV8Q~vJJ7h9CZYAHzYTm6AfTboZgQ4zNYtPGaFh"
+    
+    # work with app permissions rather than in delegate of a user
+    # set to 'true' if no user consent should be accuired and adjust the 'tenantId' below.
+    useAppPermissions: "true"
+    
+    # tenant to use for OAUTH2 request.
+    # the default 'common' fits for user delegate requests.
+    # set the Azure Directory (tenant) ID, for application requests.
+    tenantId: "977ec66c-e72e-4040-aff4-cf3d72b3d9cd"
+
+    # permissions to request access to.
+    # you may exclude or add some, as your azure administrator allows or restricts them.
+    # for sharepoint-demos, the following must be added: Sites.Read.All Files.ReadWrite
+    permissions: "api://walo-stammdaten/.default"
+    
+    subscription: "7e6e94f3391a4d66a845f2258940e176"
+
+    

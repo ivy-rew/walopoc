@@ -192,10 +192,10 @@
             "",
             "for (ProjectBase project : result.projects) {",
             "",
-            "   if(project.projectName.equalsIgnoreCase(in.selectedProjectIdConnector)) {",
+            "  ",
             "   ",
             "   in.listProjectsIds.add(project.projectName);",
-            "   }",
+            " ",
             "",
             "}",
             "",
@@ -487,7 +487,7 @@
     }, {
       "id" : "f53",
       "type" : "HtmlDialogEventStart",
-      "name" : "addProject",
+      "name" : "addCustomer",
       "config" : {
         "guid" : "184BE29430C42B48"
       },
