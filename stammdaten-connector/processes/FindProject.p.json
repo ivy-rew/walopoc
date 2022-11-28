@@ -51,9 +51,15 @@
           "    \"includeTotalCount\":true",
           "} "
         ],
-        "path" : "stammdaten/project/2014_00/find?tenant=10",
+        "path" : "stammdaten/project/2014_00/find",
         "clientId" : "7ad8fe9b-78d5-49ad-af70-e4b5daa4d239",
         "method" : "POST",
+        "queryParams" : {
+          "tenant" : "\"10\""
+        },
+        "templateParams" : {
+          "host" : ""
+        },
         "bodyInputType" : "RAW"
       },
       "visual" : {
