@@ -1,0 +1,8 @@
+Misc #class
+ch.walo.poc.lead #namespace
+actualstep String #field
+actualstep PERSISTENT #fieldModifier
+stepindex Number #field
+stepindex PERSISTENT #fieldModifier
+steps List<String> #field
+steps PERSISTENT #fieldModifier

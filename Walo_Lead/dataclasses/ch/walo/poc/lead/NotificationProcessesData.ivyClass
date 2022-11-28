@@ -1,0 +1,4 @@
+NotificationProcessesData #class
+ch.walo.poc.lead #namespace
+leadProcessData ch.walo.poc.lead.LeadProcessData #field
+leadProcessData PERSISTENT #fieldModifier

@@ -57,12 +57,30 @@
       "type" : "UserTask",
       "name" : "Task",
       "config" : {
+        "dialogId" : "ch.walo.poc.lead.LeadGUI",
+        "startMethod" : "start(ch.walo.poc.lead.LeadProcessData,Number)",
+        "output" : {
+          "map" : {
+            "out.leadProcessData" : "result.leadProcessData"
+          }
+        },
         "task" : {
-          "name" : "Approval Task (Level <%=in.levelIndex%>)",
+          "name" : "Approval Task (Level <%=in.anzegeLevel%>)",
           "description" : [
             "<%=in.actApproval.name%>",
             "<%=in.actApproval.mail%>"
           ]
+        },
+        "call" : {
+          "params" : [
+            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" },
+            { "name" : "approvalLevelIndex", "type" : "Number" }
+          ],
+          "map" : {
+            "param.leadProcessData" : "in.leadProcessData",
+            "param.leadProcessData.misc.actualstep" : "\"freigeben\"",
+            "param.approvalLevelIndex" : "in.levelIndex"
+          }
         }
       },
       "visual" : {
@@ -137,6 +155,7 @@
         "output" : {
           "code" : [
             "in.levelIndex=0;",
+            "in.anzegeLevel=1;",
             "in.actApproval=in.leadProcessData.businessObject.approvalHier.get(in.levelIndex);",
             "ivy.log.info(\"Levels for Approval \"+in. leadProcessData.businessObject.approvalHier.size());"
           ]

@@ -1,0 +1,73 @@
+{
+  "format" : "10.0.0",
+  "id" : "184BEA9ACE26F45F",
+  "config" : {
+    "data" : "ch.walo.poc.lead.LeadProcessData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "outLink" : "start.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "SignalStartEvent",
+      "name" : "preWFactivitySignal",
+      "config" : {
+        "signalCode" : "preWFactivitySignal",
+        "output" : {
+          "code" : [
+            "import ch.walo.stamm.approval.SubWorkflowPre;",
+            "out.subWorkflowPre=signal.getSignalData() as SubWorkflowPre;"
+          ]
+        },
+        "attachToBusinessCase" : "false"
+      },
+      "visual" : {
+        "at" : { "x" : 88, "y" : 192 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      },
+      "connect" : { "id" : "f5", "to" : "f4" }
+    }, {
+      "id" : "f4",
+      "type" : "EMail",
+      "name" : "Send Info info Mail for a Approval Pre",
+      "config" : {
+        "headers" : {
+          "emailSubject" : "Example Signal Email for PreStep",
+          "emailFrom" : "engine@axonivy.com",
+          "emailTo" : "test@test.com"
+        },
+        "message" : [
+          "",
+          "Some fields:",
+          "<%=in.subWorkflowPre.id%>",
+          "<%=in.subWorkflowPre.level%>",
+          "<%=in.subWorkflowPre.name%>"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 280, "y" : 192 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    }, {
+      "id" : "f6",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 472, "y" : 192 }
+      }
+    } ]
+}

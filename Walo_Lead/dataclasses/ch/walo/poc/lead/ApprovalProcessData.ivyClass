@@ -6,3 +6,6 @@ levelIndex Number #field
 levelIndex PERSISTENT #fieldModifier
 actApproval ch.walo.stamm.approval.Approver #field
 actApproval PERSISTENT #fieldModifier
+anzegeLevel Number #field
+anzegeLevel 'Only to display in forms (0 vs 1)' #fieldComment
+anzegeLevel PERSISTENT #fieldModifier

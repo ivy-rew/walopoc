@@ -2,3 +2,9 @@ LeadProcessData #class
 ch.walo.poc.lead #namespace
 businessObject ch.walo.poc.lead.BusinessObject #field
 businessObject PERSISTENT #fieldModifier
+subWorkflowPre ch.walo.stamm.approval.SubWorkflowPre #field
+subWorkflowPre PERSISTENT #fieldModifier
+subWorkflowPost ch.walo.stamm.approval.SubWorkflowPost #field
+subWorkflowPost PERSISTENT #fieldModifier
+misc ch.walo.poc.lead.Misc #field
+misc PERSISTENT #fieldModifier

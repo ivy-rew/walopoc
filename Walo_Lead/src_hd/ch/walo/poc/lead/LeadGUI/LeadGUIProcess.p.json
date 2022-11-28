@@ -8,7 +8,7 @@
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",
-      "name" : "start(LeadProcessData)",
+      "name" : "start(LeadProcessData,Number)",
       "config" : {
         "callSignature" : "start",
         "result" : {
@@ -21,9 +21,11 @@
         },
         "input" : {
           "params" : [
-            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" },
+            { "name" : "approvalLevelIndex", "type" : "Number" }
           ],
           "map" : {
+            "out.approvalLevelIndex" : "param.approvalLevelIndex",
             "out.leadProcessData" : "param.leadProcessData"
           }
         },
@@ -32,12 +34,12 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : { "id" : "f12", "to" : "f11" }
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 }
+        "at" : { "x" : 352, "y" : 64 }
       }
     }, {
       "id" : "f3",
@@ -368,18 +370,35 @@
     }, {
       "id" : "f47",
       "type" : "SubProcessCall",
-      "name" : "FindProject",
+      "name" : "FindCustomer",
       "config" : {
-        "processCall" : "FindProject:findProject(String)",
+        "processCall" : "FindCustomer:findCustomer(String,String)",
         "output" : {
           "map" : {
             "out" : "in",
-            "out.listProjectsConnector" : "result.projects"
-          }
+            "out.listCustomerConnector" : "result.customers"
+          },
+          "code" : [
+            "import ch.walo.stamm.customer.Customer;",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "for (Customer customer : result.customers) {",
+            "",
+            "  ",
+            "   ",
+            "   in.listCustomerIds.add(customer.codeName);",
+            " ",
+            "",
+            "}"
+          ]
         },
         "call" : {
           "params" : [
-            { "name" : "name", "type" : "String" }
+            { "name" : "name", "type" : "String" },
+            { "name" : "fallback", "type" : "String" }
           ],
           "map" : {
             "param.name" : "in.projectSearchString"
@@ -407,7 +426,7 @@
       "config" : {
         "output" : {
           "code" : [
-            "import ch.walo.stamm.Customer;",
+            "import ch.walo.stamm.customer.Customer;",
             "",
             "",
             "",
@@ -445,7 +464,7 @@
       "type" : "Script",
       "name" : [
         "Search selected in List",
-        "and save in project Wrapper"
+        "and save in customer Wrapper"
       ],
       "config" : {
         "output" : {
@@ -457,10 +476,9 @@
             "",
             "",
             "",
-            "import ch.walo.stamm.project.ProjectBase;",
             "",
             "",
-            "for (ch.walo.stamm.Customer customer : in.listCustomerConnector) {",
+            "for (ch.walo.stamm.customer.Customer customer : in.listCustomerConnector) {",
             "",
             "   if(customer.codeName.equalsIgnoreCase(in.selectedCustomerIdConnector)) {",
             "   ",
@@ -501,6 +519,38 @@
       "visual" : {
         "at" : { "x" : 856, "y" : 1144 }
       }
+    }, {
+      "id" : "f11",
+      "type" : "Script",
+      "name" : "set vis",
+      "config" : {
+        "output" : {
+          "code" : [
+            "",
+            "//Set based on step",
+            "",
+            "if(in.leadProcessData.misc.actualstep.equalsIgnoreCase(\"erfassen\")) {",
+            "",
+            "in.bvisSearch=true;",
+            "in.bvisApproval=false;",
+            "",
+            "",
+            "}",
+            "",
+            "if(in.leadProcessData.misc.actualstep.equalsIgnoreCase(\"freigeben\")) {",
+            "",
+            "in.bvisSearch=false;",
+            "in.bvisApproval=true;",
+            "",
+            "",
+            "}"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
     } ],
   "layout" : {
     "colors" : {

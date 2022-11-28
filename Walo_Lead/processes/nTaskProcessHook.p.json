@@ -39,9 +39,21 @@
       "config" : {
         "output" : {
           "code" : [
+            "import ch.walo.stamm.approval.SubWorkflowPre;",
+            "import ch.ivyteam.ivy.process.model.value.SignalCode;",
             "ivy.log.info(\"Sub WF Hook Type : \"+in.type);",
             "ivy.log.info(\"Number of activities pre : \"+in.approver.subWorkflowPre.size());",
-            "ivy.log.info(\"Number of activities post : \"+in.approver.subWorkflowPost.size());"
+            "ivy.log.info(\"Number of activities post : \"+in.approver.subWorkflowPost.size());",
+            "",
+            "//Send Signal for Pre preWFactivitySignal",
+            "",
+            "",
+            "//Send Signal ",
+            "for(SubWorkflowPre activity : in.approver.subWorkflowPre) {",
+            "",
+            "ivy.wf.signals().send(new SignalCode(\"preWFactivitySignal\"), activity);",
+            "",
+            "}"
           ]
         }
       },
