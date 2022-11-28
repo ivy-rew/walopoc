@@ -1,0 +1,4 @@
+ApprovalHierarchyData #class
+ch.walo.poc.stammdaten.connector #namespace
+amount Integer #field
+procurementStructureId String #field

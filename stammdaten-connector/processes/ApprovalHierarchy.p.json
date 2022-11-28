@@ -1,0 +1,65 @@
+{
+  "format" : "10.0.0",
+  "id" : "184BE68E171343A8",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "ch.walo.poc.stammdaten.connector.ApprovalHierarchyData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "hierarchy(Integer,String)",
+      "config" : {
+        "callSignature" : "hierarchy",
+        "input" : {
+          "params" : [
+            { "name" : "amount", "type" : "Integer" },
+            { "name" : "procurementStructureId", "type" : "String" }
+          ],
+          "map" : {
+            "out.amount" : "param.amount",
+            "out.procurementStructureId" : "param.procurementStructureId"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "approvers", "type" : "java.util.List<ch.walo.stamm.approval.Approver>" }
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "RestClientCall",
+      "config" : {
+        "path" : "walo-test-playground/list/{companyId}/{pCId}",
+        "clientId" : "7ad8fe9b-78d5-49ad-af70-e4b5daa4d239",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "procurementStructureId" : "in.procurementStructureId",
+          "approvalAmount" : "in.amount"
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "templateParams" : {
+          "companyId" : "1",
+          "host" : "",
+          "pCId" : "1"
+        },
+        "resultType" : "ch.walo.stamm.approval.Sc16Approval"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 },
+        "icon" : "res:/webContent/logo/WALO_Logo_Pantone_C.png"
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}
