@@ -1,5 +1,8 @@
 Variables:
 
+  sharepoint-connector:
+    permissions: "https://graph.microsoft.com/.default"
+
   microsoft-connector:
 
     # Your Azure Application (client) ID

@@ -1,0 +1,49 @@
+{
+  "format" : "10.0.0",
+  "id" : "184BEE1807066C16",
+  "config" : {
+    "data" : "ch.walo.poc.test.Data"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "vorfaelle.ivp",
+      "config" : {
+        "callSignature" : "vorfaelle",
+        "outLink" : "vorfaelle.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "SubProcessCall",
+      "name" : "msFiles",
+      "config" : {
+        "processCall" : "msFiles:vorfaelle()"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "RequestStart",
+      "name" : "shareList.ivp",
+      "config" : {
+        "callSignature" : "shareList",
+        "outLink" : "shareList.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 176 }
+      }
+    } ]
+}

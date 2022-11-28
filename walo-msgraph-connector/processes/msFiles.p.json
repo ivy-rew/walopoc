@@ -191,5 +191,42 @@
       "visual" : {
         "at" : { "x" : 472, "y" : 280 }
       }
+    }, {
+      "id" : "f17",
+      "type" : "CallSubStart",
+      "name" : "vorfaelle()",
+      "config" : {
+        "callSignature" : "vorfaelle"
+      },
+      "visual" : {
+        "at" : { "x" : 104, "y" : 400 },
+        "icon" : "res:/webContent/icons/microsoft.png?small"
+      },
+      "connect" : { "id" : "f19", "to" : "f18" }
+    }, {
+      "id" : "f18",
+      "type" : "RestClientCall",
+      "config" : {
+        "path" : "groups/{group-id}/sites/root/lists/{list-id}/items",
+        "clientId" : "f628d7ad-5d13-4eeb-9820-ca0e7f0ae2eb",
+        "queryParams" : {
+          "$expand" : "\"fields\""
+        },
+        "templateParams" : {
+          "group-id" : "\"1a742eac-fd98-458d-855d-6a92ff42d4a5\"",
+          "list-id" : "\"9f78b0cd-2a0d-4538-8286-5e213312fd47\""
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 296, "y" : 400 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f21", "to" : "f20" }
+    }, {
+      "id" : "f20",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 488, "y" : 400 }
+      }
     } ]
 }
