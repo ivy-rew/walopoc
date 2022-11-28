@@ -31,5 +31,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="lib" path="lib/generated/rest/jaxRsClient_007036dc-72d1-429f-88a7-ba5d5cf5ae58.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/generated/rest/jaxRsClient_f628d7ad-5d13-4eeb-9820-ca0e7f0ae2eb.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/generated/rest/jaxRsClient_a5083585-1c54-480b-a5fa-24211ffd91c7.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

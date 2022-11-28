@@ -1,0 +1,3 @@
+msPlanerData #class
+msgraph.connector #namespace
+tasks java.util.List<com.microsoft.graph.planer.MicrosoftGraphPlannerTask> #field

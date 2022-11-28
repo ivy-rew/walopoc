@@ -5,3 +5,4 @@ approvers java.util.List<ch.walo.stamm.approval.Approver> #field
 customers java.util.List<ch.walo.stamm.customer.Customer> #field
 items java.util.List<com.microsoft.graph.sharepoint.MicrosoftGraphListItem> #field
 items 'sharepoint items' #fieldComment
+tasks java.util.List<com.microsoft.graph.planer.MicrosoftGraphPlannerTask> #field

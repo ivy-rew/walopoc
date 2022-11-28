@@ -1,0 +1,43 @@
+{
+  "format" : "10.0.0",
+  "id" : "184C00F5222EE4FB",
+  "config" : {
+    "data" : "ch.walo.poc.test.Data"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "getTasks.ivp",
+      "config" : {
+        "callSignature" : "getTasks",
+        "outLink" : "getTasks.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f3", "to" : "f2" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 }
+      }
+    }, {
+      "id" : "f2",
+      "type" : "SubProcessCall",
+      "name" : "msPlaner",
+      "config" : {
+        "processCall" : "msPlaner:getTasks()",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.tasks" : "result.tasks"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 216, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f1" }
+    } ]
+}
