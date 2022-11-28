@@ -8,9 +8,19 @@
   "elements" : [ {
       "id" : "f0",
       "type" : "CallSubStart",
-      "name" : "call()",
+      "name" : "findProject(String)",
       "config" : {
-        "callSignature" : "call"
+        "callSignature" : "findProject",
+        "result" : {
+          "params" : [
+            { "name" : "projects", "type" : "java.util.List<ch.walo.stamm.project.ProjectBase>" }
+          ]
+        },
+        "input" : {
+          "params" : [
+            { "name" : "name", "type" : "String" }
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
