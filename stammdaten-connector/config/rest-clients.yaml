@@ -2,6 +2,7 @@ RestClients:
   stammdaten:
     UUID: 7ad8fe9b-78d5-49ad-af70-e4b5daa4d239
     Url: https://{host}
+    Icon: res:/webContent/logo/WALO_Logo_Pantone_C.png
     Features:
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
     - com.microsoft.auth.OAuth2FeatureC
@@ -12,5 +13,5 @@ RestClients:
       AUTH.scope: ${ivy.var.stammdaten-connector.permissions}
       AUTH.authUri: ${ivy.var.stammdaten-connector.authUri}
       AUTH.useAppPermissions: 'true'
-      AUTH.baseUri: 'https://login.microsoftonline.com/${ivy.var.stammdaten-connector.tenantId}/oauth2/v2.0'
+      AUTH.baseUri: https://login.microsoftonline.com/${ivy.var.stammdaten-connector.tenantId}/oauth2/v2.0
       AUTH.ocpSubscriptionKey: ${ivy.var.stammdaten-connector.subscription}

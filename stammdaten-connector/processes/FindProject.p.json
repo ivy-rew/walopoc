@@ -11,19 +11,25 @@
       "name" : "findProject(String)",
       "config" : {
         "callSignature" : "findProject",
+        "input" : {
+          "params" : [
+            { "name" : "name", "type" : "String" }
+          ],
+          "map" : {
+            "out.fallback" : "\"20011406\"",
+            "out.search" : "param.name"
+          }
+        },
         "result" : {
           "params" : [
             { "name" : "projects", "type" : "java.util.List<ch.walo.stamm.project.ProjectBase>" }
           ]
         },
-        "input" : {
-          "params" : [
-            { "name" : "name", "type" : "String" }
-          ]
-        }
+        "tags" : "connector"
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 64 }
+        "at" : { "x" : 96, "y" : 64 },
+        "icon" : "res:/webContent/logo/WALO_Logo_Pantone_C.png?small"
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {
@@ -36,12 +42,52 @@
       "id" : "f3",
       "type" : "RestClientCall",
       "config" : {
+        "bodyRaw" : [
+          "{",
+          "    \"selector\":{\"$or\": [{\"projectBase.projectNumber\":{\"$eq\":<%=in.fallback%>}}, { \"projectBase.projectName\": { \"$regex\": \"(?i)^<%=in.search%>(?-i)\", \"$options\": \"m\" } }]},",
+          "    \"limit\":5,",
+          "    \"skip\":0,",
+          "    \"index\":true,",
+          "    \"includeTotalCount\":true",
+          "} "
+        ],
         "path" : "stammdaten/project/2014_00/find?tenant=10",
-        "clientId" : "7ad8fe9b-78d5-49ad-af70-e4b5daa4d239"
+        "clientId" : "7ad8fe9b-78d5-49ad-af70-e4b5daa4d239",
+        "method" : "POST",
+        "bodyInputType" : "RAW"
       },
       "visual" : {
-        "at" : { "x" : 240, "y" : 64 }
+        "at" : { "x" : 240, "y" : 64 },
+        "icon" : "res:/webContent/logo/WALO_Logo_Pantone_C.png"
       },
       "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "CallSubStart",
+      "name" : "findProject(String,String)",
+      "config" : {
+        "callSignature" : "findProject",
+        "input" : {
+          "params" : [
+            { "name" : "name", "type" : "String" },
+            { "name" : "fallbackId", "type" : "String" }
+          ],
+          "map" : {
+            "out.fallback" : "param.fallbackId",
+            "out.search" : "param.name"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "projects", "type" : "java.util.List<ch.walo.stamm.project.ProjectBase>" }
+          ]
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 144 },
+        "icon" : "res:/webContent/logo/WALO_Logo_Pantone_C.png?small"
+      },
+      "connect" : { "id" : "f6", "to" : "f3" }
     } ]
 }

@@ -1,2 +1,5 @@
 FindProjectData #class
 ch.walo.poc.stammdaten.connector #namespace
+search String #field
+fallback String #field
+fallback 'project id' #fieldComment
