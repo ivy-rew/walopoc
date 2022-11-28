@@ -23,7 +23,10 @@
         "result" : {
           "params" : [
             { "name" : "projects", "type" : "java.util.List<ch.walo.stamm.project.ProjectBase>" }
-          ]
+          ],
+          "map" : {
+            "result.projects" : "in.matches"
+          }
         },
         "tags" : "connector"
       },
@@ -59,17 +62,15 @@
           "tenant" : "\"10\""
         },
         "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.matches" : "[result.projectBase]"
-        },
         "templateParams" : {
           "host" : ""
         },
-        "resultType" : "ch.walo.stamm.project.Result",
-        "bodyInputType" : "RAW"
+        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
+        "bodyInputType" : "RAW",
+        "responseCode" : "out.matches = ch.walo.stamm.project.ProjectResultReader.convert(result);"
       },
       "visual" : {
-        "at" : { "x" : 240, "y" : 64 },
+        "at" : { "x" : 248, "y" : 64 },
         "icon" : "res:/webContent/logo/WALO_Logo_Pantone_C.png"
       },
       "connect" : { "id" : "f2", "to" : "f1" }
@@ -92,7 +93,10 @@
         "result" : {
           "params" : [
             { "name" : "projects", "type" : "java.util.List<ch.walo.stamm.project.ProjectBase>" }
-          ]
+          ],
+          "map" : {
+            "result.projects" : "in.matches"
+          }
         },
         "tags" : "connector"
       },
