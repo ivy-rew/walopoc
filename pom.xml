@@ -5,6 +5,12 @@
   <version>10.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <modules>
+    <module>stammdaten-connector</module>
+    <module>walo-msgraph-connector</module>
+    <module>Walo_Lead</module>
+  </modules>
+
   <build>
     <pluginManagement>
       <plugins>
