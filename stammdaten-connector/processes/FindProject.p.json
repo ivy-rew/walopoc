@@ -53,13 +53,19 @@
         ],
         "path" : "stammdaten/project/2014_00/find",
         "clientId" : "7ad8fe9b-78d5-49ad-af70-e4b5daa4d239",
+        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "POST",
         "queryParams" : {
           "tenant" : "\"10\""
         },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.matches" : "[result.projectBase]"
+        },
         "templateParams" : {
           "host" : ""
         },
+        "resultType" : "ch.walo.stamm.project.Result",
         "bodyInputType" : "RAW"
       },
       "visual" : {

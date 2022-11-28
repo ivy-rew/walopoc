@@ -28,10 +28,19 @@
       "name" : "FindProject",
       "config" : {
         "processCall" : "FindProject:findProject(String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.projects" : "result.projects"
+          }
+        },
         "call" : {
           "params" : [
             { "name" : "name", "type" : "String" }
-          ]
+          ],
+          "map" : {
+            "param.name" : "\"lärm\""
+          }
         }
       },
       "visual" : {
