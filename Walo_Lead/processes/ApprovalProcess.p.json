@@ -90,6 +90,7 @@
             "import ch.walo.poc.lead.SignalWrapperEmailApproval;",
             "",
             "SignalWrapperEmailApproval signalData;",
+            "signalData.tasklink=task.getStartLink().getAbsolute();",
             "signalData.approver=in.actApproval;",
             "signalData.leadProcessData=in.leadProcessData;",
             "",

@@ -254,7 +254,7 @@
         "ApprovalHierarchy"
       ],
       "config" : {
-        "processCall" : "ApprovalHierarchy:hierarchy(Integer,String)",
+        "processCall" : "ApprovalHierarchy:hierarchy(Number,String)",
         "output" : {
           "map" : {
             "out" : "in",
@@ -263,7 +263,7 @@
         },
         "call" : {
           "params" : [
-            { "name" : "amount", "type" : "Integer" },
+            { "name" : "amount", "type" : "Number" },
             { "name" : "procurementStructureId", "type" : "String" }
           ],
           "map" : {
@@ -326,7 +326,9 @@
         "output" : {
           "code" : [
             "import ch.walo.poc.lead.api.LeadService.LeadInit;",
-            "out.misc.leadInit=signal.getSignalData() as LeadInit;"
+            "out.misc.leadInit=signal.getSignalData() as LeadInit;",
+            "",
+            "out.businessObject.project.budget=out.misc.leadInit.budget;"
           ]
         }
       },
@@ -338,19 +340,57 @@
     }, {
       "id" : "f15",
       "type" : "SubProcessCall",
-      "name" : "get Project",
+      "name" : "get first Project",
+      "config" : {
+        "processCall" : "FindProject:findProject(String)",
+        "call" : {
+          "params" : [
+            { "name" : "name", "type" : "String" }
+          ],
+          "map" : {
+            "param.name" : "in.misc.leadInit.projectName"
+          }
+        },
+        "output" : {
+          "code" : "out.businessObject.project.projectConnect=result.projects.get(0);"
+        }
+      },
       "visual" : {
-        "at" : { "x" : 352, "y" : 72 }
+        "at" : { "x" : 352, "y" : 72 },
+        "icon" : "res:/webContent/logo/WALO_Logo_Pantone_C.png"
       },
       "connect" : { "id" : "f18", "to" : "f17" }
     }, {
       "id" : "f17",
       "type" : "SubProcessCall",
-      "name" : "get Customer",
+      "name" : "get first Customer",
+      "config" : {
+        "processCall" : "FindCustomer:findCustomer(String,String)",
+        "call" : {
+          "params" : [
+            { "name" : "name", "type" : "String" },
+            { "name" : "fallback", "type" : "String" }
+          ],
+          "map" : {
+            "param.name" : "in.misc.leadInit.customerName"
+          }
+        },
+        "output" : {
+          "code" : "out.businessObject.customer.customerConnect=result.customers.get(0);"
+        }
+      },
       "visual" : {
         "at" : { "x" : 520, "y" : 72 }
       },
       "connect" : { "id" : "f19", "to" : "f9" }
+    }, {
+      "id" : "f20",
+      "type" : "ProcessAnnotation",
+      "name" : "Budget darf nur Int sein! Noch nicht gemappt!",
+      "visual" : {
+        "at" : { "x" : 152, "y" : 152 }
+      },
+      "connect" : { "id" : "f21", "to" : "f6" }
     } ],
   "layout" : {
     "lanes" : [ {

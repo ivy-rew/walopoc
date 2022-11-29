@@ -84,7 +84,9 @@
             "out.businessObject.approvalHier.clear();",
             "",
             "//Put actual apporver as first object",
-            "out.businessObject.approvalHier.add(temp.approver);"
+            "out.businessObject.approvalHier.add(temp.approver);",
+            "",
+            "out.misc.actualstep=temp.tasklink;"
           ]
         }
       },
@@ -105,7 +107,10 @@
             "",
             "in.misc.params.add(in.businessObject.project.projectConnect.projectName);",
             "in.misc.params.add(in.businessObject.customer.customerConnect.codeName);",
-            "in.misc.params.add(\"https://walo.ivyteam.io/portal\");",
+            "",
+            "//Abused actual step! Should be task link",
+            "in.misc.params.add(out.misc.actualstep);",
+            "",
             "",
             "",
             "//User is here",
@@ -130,7 +135,11 @@
           "emailSubject" : "<%=ivy.cms.co(\"/process/Tasks/approvalTaskName\")%>",
           "emailTo" : "<%=in.businessObject.approvalHier.get(0).mail%>"
         },
-        "message" : "<%=ivy.cms.co(\"/process/Tasks/approvalNotificationTemplate\",in.misc.params)%>"
+        "message" : [
+          "",
+          "<%=ivy.cms.co(\"/process/Tasks/approvalNotificationTemplate\",in.misc.params)%>"
+        ],
+        "contentType" : "text/html"
       },
       "visual" : {
         "at" : { "x" : 424, "y" : 360 }

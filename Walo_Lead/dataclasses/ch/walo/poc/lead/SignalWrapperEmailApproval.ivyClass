@@ -4,3 +4,5 @@ leadProcessData ch.walo.poc.lead.LeadProcessData #field
 leadProcessData PERSISTENT #fieldModifier
 approver ch.walo.stamm.approval.Approver #field
 approver PERSISTENT #fieldModifier
+tasklink String #field
+tasklink PERSISTENT #fieldModifier
