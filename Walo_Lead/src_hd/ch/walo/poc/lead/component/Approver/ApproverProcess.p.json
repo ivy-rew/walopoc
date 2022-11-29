@@ -1,33 +1,33 @@
 {
   "format" : "10.0.0",
-  "id" : "184BDC029F0DCDFF",
+  "id" : "184BEF0B2B61D70F",
   "kind" : "HTML_DIALOG",
   "config" : {
-    "data" : "ch.walo.poc.lead.Test2.Test2Data"
+    "data" : "ch.walo.poc.lead.component.Approver.ApproverData"
   },
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",
-      "name" : "start(LeadProcessData)",
+      "name" : "start(Approver)",
       "config" : {
         "callSignature" : "start",
         "result" : {
           "params" : [
-            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+            { "name" : "approver", "type" : "ch.walo.stamm.approval.Approver" }
           ],
           "map" : {
-            "result.leadProcessData" : "in.leadProcessData"
+            "result.approver" : "in.approver"
           }
         },
         "input" : {
           "params" : [
-            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+            { "name" : "approver", "type" : "ch.walo.stamm.approval.Approver" }
           ],
           "map" : {
-            "out.leadProcessData" : "param.leadProcessData"
+            "out.approver" : "param.approver"
           }
         },
-        "guid" : "184BDC029F050D81"
+        "guid" : "184BEF0B2B9ACC48"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
@@ -44,7 +44,7 @@
       "type" : "HtmlDialogEventStart",
       "name" : "close",
       "config" : {
-        "guid" : "184BDC029F1EE021"
+        "guid" : "184BEF0B2BDCC33C"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 160 }

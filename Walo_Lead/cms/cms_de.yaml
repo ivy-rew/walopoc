@@ -1,0 +1,16 @@
+Dialogs:
+  ch:
+    walo:
+      poc:
+        lead:
+          LeadGUI:
+            Modell: Modell
+Labels:
+  FormControls: "Formularsteuerungen\r\n"
+  Kunde: Kunde
+  Projekt: Projekt
+  Suche: Suche
+process:
+  Tasks:
+    approvalNotificationTemplate: "Sie haben eine neue Freigabe für den Lead Projekt: {0} und Kunde: {1}\r\nKlicken sie auf den folgenden Link um die Freigabe zu bearbeiten: {2}\r\n\r\n\r\n"
+    approvalTaskName: Freigabe für Leade Projekt

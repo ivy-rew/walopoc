@@ -8,7 +8,7 @@
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",
-      "name" : "start(LeadProcessData)",
+      "name" : "start(LeadProcessData,Number)",
       "config" : {
         "callSignature" : "start",
         "result" : {
@@ -21,9 +21,11 @@
         },
         "input" : {
           "params" : [
-            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" },
+            { "name" : "approvalLevelIndex", "type" : "Number" }
           ],
           "map" : {
+            "out.approvalLevelIndex" : "param.approvalLevelIndex",
             "out.leadProcessData" : "param.leadProcessData"
           }
         },
@@ -32,12 +34,12 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : { "id" : "f12", "to" : "f11" }
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 }
+        "at" : { "x" : 672, "y" : 64 }
       }
     }, {
       "id" : "f3",
@@ -368,18 +370,35 @@
     }, {
       "id" : "f47",
       "type" : "SubProcessCall",
-      "name" : "FindProject",
+      "name" : "FindCustomer",
       "config" : {
-        "processCall" : "FindProject:findProject(String)",
+        "processCall" : "FindCustomer:findCustomer(String,String)",
         "output" : {
           "map" : {
             "out" : "in",
-            "out.listProjectsConnector" : "result.projects"
-          }
+            "out.listCustomerConnector" : "result.customers"
+          },
+          "code" : [
+            "import ch.walo.stamm.customer.Customer;",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "for (Customer customer : result.customers) {",
+            "",
+            "  ",
+            "   ",
+            "   in.listCustomerIds.add(customer.codeName);",
+            " ",
+            "",
+            "}"
+          ]
         },
         "call" : {
           "params" : [
-            { "name" : "name", "type" : "String" }
+            { "name" : "name", "type" : "String" },
+            { "name" : "fallback", "type" : "String" }
           ],
           "map" : {
             "param.name" : "in.projectSearchString"
@@ -407,7 +426,7 @@
       "config" : {
         "output" : {
           "code" : [
-            "import ch.walo.stamm.Customer;",
+            "import ch.walo.stamm.customer.Customer;",
             "",
             "",
             "",
@@ -445,7 +464,7 @@
       "type" : "Script",
       "name" : [
         "Search selected in List",
-        "and save in project Wrapper"
+        "and save in customer Wrapper"
       ],
       "config" : {
         "output" : {
@@ -457,10 +476,9 @@
             "",
             "",
             "",
-            "import ch.walo.stamm.project.ProjectBase;",
             "",
             "",
-            "for (ch.walo.stamm.Customer customer : in.listCustomerConnector) {",
+            "for (ch.walo.stamm.customer.Customer customer : in.listCustomerConnector) {",
             "",
             "   if(customer.codeName.equalsIgnoreCase(in.selectedCustomerIdConnector)) {",
             "   ",
@@ -500,6 +518,118 @@
       "type" : "HtmlDialogEnd",
       "visual" : {
         "at" : { "x" : 856, "y" : 1144 }
+      }
+    }, {
+      "id" : "f11",
+      "type" : "Script",
+      "name" : "set vis",
+      "config" : {
+        "output" : {
+          "code" : [
+            "",
+            "//Set based on step",
+            "",
+            "if(in.leadProcessData.misc.actualstep.equalsIgnoreCase(\"erfassen\")) {",
+            "",
+            "in.bvisSearch=true;",
+            "in.bvisApproval=false;",
+            "",
+            "",
+            "}",
+            "",
+            "if(in.leadProcessData.misc.actualstep.equalsIgnoreCase(\"freigeben\")) {",
+            "",
+            "in.bvisSearch=false;",
+            "in.bvisApproval=true;",
+            "",
+            "",
+            "}"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : { "id" : "f17", "to" : "f15" }
+    }, {
+      "id" : "f13",
+      "type" : "SubProcessCall",
+      "name" : "msFiles",
+      "config" : {
+        "processCall" : "msFiles:vorfaelle()",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.listVorgaengeMS" : "in.listVorgaengeMS"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 544, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f15",
+      "type" : "Script",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.microsoft.graph.MicrosoftGraphListItem;",
+            "MicrosoftGraphListItem test= new MicrosoftGraphListItem();",
+            "test.description=\"Test 1\";",
+            "",
+            "in.listVorgaengeMS.add(test);",
+            "",
+            "in.listVorgaengeMS.add(test);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 384, "y" : 64 }
+      },
+      "connect" : { "id" : "f18", "to" : "f1" }
+    }, {
+      "id" : "f14",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "handleNavigation(SelectLevelEvent)",
+      "config" : {
+        "callSignature" : "handleNavigation",
+        "input" : {
+          "params" : [
+            { "name" : "selectLevelEvent", "type" : "org.primefaces.extensions.component.masterdetail.SelectLevelEvent" }
+          ],
+          "code" : [
+            "ivy.log.info(param.selectLevelEvent.getCurrentLevel());",
+            "if(param.selectLevelEvent.getCurrentLevel()==1) {",
+            "  out.levelToGoTo=2;",
+            "}",
+            "else",
+            "{",
+            "  out.levelToGoTo=1;",
+            "}"
+          ]
+        },
+        "result" : {
+          "params" : [
+            { "name" : "goToLevel", "type" : "Integer" }
+          ],
+          "code" : [
+            "",
+            "result.goToLevel=in.levelToGoTo;"
+          ]
+        },
+        "guid" : "184C0B12C9CA7DBA"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 1280 }
+      },
+      "connect" : { "id" : "f20", "to" : "f19" }
+    }, {
+      "id" : "f19",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 1280 }
       }
     } ],
   "layout" : {

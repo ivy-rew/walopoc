@@ -6,15 +6,6 @@
   <artifactId>walo-lead</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>iar</packaging>
-  <repositories>
-    <repository>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <id>maven.axonivy.com</id>
-      <url>https://maven.axonivy.com</url>
-    </repository>
-  </repositories>
   <dependencies>
     <dependency>
       <groupId>ch.walo.poc</groupId>
@@ -28,7 +19,28 @@
       <version>10.0.1.1</version>
       <type>iar</type>
     </dependency>
+    <dependency>
+      <groupId>com.axonivy.utils.docfactory</groupId>
+      <artifactId>doc-factory</artifactId>
+      <version>10.0.1-SNAPSHOT</version>
+      <type>iar</type>
+    </dependency>
+    <dependency>
+      <groupId>com.axonivy.connector.office365</groupId>
+      <artifactId>walo-msgraph-connector</artifactId>
+      <version>10.0.0-SNAPSHOT</version>
+      <type>iar</type>
+    </dependency>
   </dependencies>
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>maven.axonivy.com</id>
+      <url>https://maven.axonivy.com</url>
+    </repository>
+  </repositories>
   <build>
     <plugins>
       <plugin>

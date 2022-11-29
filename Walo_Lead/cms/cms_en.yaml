@@ -1,2 +1,17 @@
+Dialogs:
+  ch:
+    walo:
+      poc:
+        lead:
+          LeadGUI:
+            Modell: Model
+Labels:
+  FormControls: "Form controls\r\n"
+  Kunde: Customer
+  Projekt: Project
+  Suche: Search
 process:
   ProcessName: Create Lead
+  Tasks:
+    approvalNotificationTemplate: "You have a new Approval for a lead project: {0} and customer: {1}. \r\nClick on the folling link to process the approval:\r\n{2}\r\n\r\n"
+    approvalTaskName: New approval for a lead project

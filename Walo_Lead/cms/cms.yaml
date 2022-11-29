@@ -1,0 +1,12 @@
+Dialogs:
+  ch:
+    walo:
+      poc:
+        lead:
+          LeadGUI:
+            Modell: Modell
+Labels:
+  FormControls: FormControls
+  Kunde: Kunde
+  Projekt: Projekt
+  Suche: ''

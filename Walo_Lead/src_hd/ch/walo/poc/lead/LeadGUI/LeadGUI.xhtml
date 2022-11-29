@@ -26,27 +26,30 @@
  
          <p:wizard >
 
- 
 
 
          
          
-            <p:tab id="project" title="Projekt">
+            <p:tab id="project" title="#{ivy.cms.co('/Labels/Projekt')}">
   
           <p:panel header="Projektauswahl">
                     <p:messages/>
-			         <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+			         <p:panelGrid rendered="#{data.bvisSearch}" columns="4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
 			          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
 					
 <!--                			 <p:autoComplete id="acMinLength" minQueryLength="3" var="proj" value="#{data.leadProcessData.businessObject.projectConnect}"  -->
 <!--                                 completeMethod="#{logic.searchProjectsAC}" effect="fade" scrollHeight="250" itemLabel="#{proj.projectName}"  itemValue="#{proj}" > -->
 <!--                           <p:ajax listener="#{logic.projectSelected}" process="@this"  update="form"></p:ajax>        -->
 <!--                          </p:autoComplete>						 -->
-                          <p:outputLabel value="Suche"></p:outputLabel>
+                          <p:outputLabel value="#{ivy.cms.co('/Labels/Suche')}"></p:outputLabel>
                			 <p:autoComplete id="acMinLength" minQueryLength="3"  value="#{data.selectedProjectIdConnector}"  
                                completeMethod="#{logic.searchProjectsACId}" effect="fade" scrollHeight="250"   > 
                            <p:ajax listener="#{logic.projectSelected}" process="@this"  update="form"></p:ajax>        
-                          </p:autoComplete>									
+                          </p:autoComplete>		
+                           <br></br>
+                           <p:commandButton id="createProject" actionListener="#{logic.addProject}" value="Neues Projekt anlegen" update="form" icon="fa-solid fa-plus-square" /> 
+                           
+                          							
 
 
 					</p:panelGrid>
@@ -62,60 +65,113 @@
 
 
           <p:outputLabel for="leadProcessDataBusinessObjectProjectBudget" value="Budget" />
-          <p:inputText id="leadProcessDataBusinessObjectProjectBudget" value="#{data.leadProcessData.businessObject.project.budget}"></p:inputText>
+<!--           <p:inputText id="leadProcessDataBusinessObjectProjectBudget" value="#{data.leadProcessData.businessObject.project.budget}"></p:inputText> -->
+
+                <p:inputNumber id="leadProcessDataBusinessObjectProjectBudget" value="#{data.leadProcessData.businessObject.project.budget}" symbol=" CHF"
+                                symbolPosition="s" decimalSeparator="," thousandSeparator="." /> 
+ 
+ 
+ 
+ 
           
           <p:outputLabel for="leadProcessDataBusinessObjectProjectGeschaeftsBereich" value="Geschaefts Bereich" />
           <p:inputText id="leadProcessDataBusinessObjectProjectGeschaeftsBereich" value="#{data.leadProcessData.businessObject.project.geschaeftsBereich}"></p:inputText>
           
-          <p:outputLabel for="leadProcessDataBusinessObjectProjectProjectDetails" value="Project Details" />
-          <p:inputText id="leadProcessDataBusinessObjectProjectProjectDetails" value="#{data.leadProcessData.businessObject.project.projectDetails}"></p:inputText>
-          
+
           <p:outputLabel for="leadProcessDataBusinessObjectProjectProjectStart" value="Project Start" />
           <p:datePicker id="leadProcessDataBusinessObjectProjectProjectStart" value="#{data.leadProcessData.businessObject.project.projectStart}" pattern="dd.MM.yyyy">
             <f:convertDateTime pattern="dd.MM.yyyy" />
           </p:datePicker>
           
-          <p:commandButton id="createProject" actionListener="#{logic.addProject}" value="Neues Projekt erzeugen" update="form" icon="pi pi-check" /> 
+         
 
         </p:panelGrid>
-			          
-			          
-			          
-			                    
-                    
-                    
-                    
 
-                </p:panel>
+
+<!--           <p:outputLabel for="leadProcessDataBusinessObjectProjectProjectDetails" value="Project Details" /> -->
+<!--           <p:inputText id="leadProcessDataBusinessObjectProjectProjectDetails" value="#{data.leadProcessData.businessObject.project.projectDetails}"></p:inputText> -->
+          <p:textEditor placeholder="Projekt Details"  id="leadProcessDataBusinessObjectProjectProjectDetails" widgetVar="editor1" value="#{data.leadProcessData.businessObject.project.projectDetails}" height="200"  />
+
+        
+		<ic:com.axonivy.portal.components.DocumentTable typeColumnRendered="false" />
+
+
+
+
+						</p:panel>
             </p:tab>       
  
  
-  		  <p:tab id="kunde" title="Kunde">
- 
+  		  <p:tab id="kunde" title="#{ivy.cms.co('/Labels/Kunde')}">
+           <p:panel header="Kundensuche" rendered="#{data.bvisSearch}">
  			         <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
 			          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
 					
 					
                           <p:outputLabel value="Suche"></p:outputLabel>
-               			 <p:autoComplete id="acCustomer" minQueryLength="3"  value="#{data.selectedPCustomerIdConnector}"  
+               			 <p:autoComplete id="acCustomer" minQueryLength="3"  value="#{data.selectedCustomerIdConnector}"  
                                completeMethod="#{logic.searchCustomerACId}" effect="fade" scrollHeight="250"   > 
                            <p:ajax listener="#{logic.customerSelected}" process="@this"  update="form"></p:ajax>        
                           </p:autoComplete>									
 
 
 					</p:panelGrid>
+          </p:panel>
+          <p:panel header="Details">
+        <p:panelGrid columns="4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
+  
+        <p:outputLabel for="codeName" value="Name" />
+        <p:inputText id="codeName" value="#{data.leadProcessData.businessObject.customer.customerConnect.codeName}"></p:inputText>
+        
+        </p:panelGrid>
+ 
+         <p:panelGrid columns="4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+          columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
+          
+<!--           #{data.leadProcessData.businessObject.customer.customerConnect.addressData[0].codeName} -->
+         <p:repeat var="address" value="#{data.leadProcessData.businessObject.customer.customerConnect.addressData}">
+        
+         <h:panelGroup>
+         <p:panel header="Addresse ">
+          <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+          columnClasses="ui-g-12 ui-md-6 ui-lg-6, ui-g-12 ui-md-6 ui-lg-6, ui-g-12 ui-md-6 ui-lg-2, ui-g-12 ui-md-6 ui-lg-4">
+      
+         <p:outputLabel value="Email"></p:outputLabel>
+         <p:outputLabel value="#{address.email}" ></p:outputLabel>
+         <p:outputLabel value="Line 1"></p:outputLabel>
+         <p:outputLabel value="#{address.line1}" ></p:outputLabel>
+         <p:outputLabel value="Line 2"></p:outputLabel>
+         <p:outputLabel value="#{address.additionalLine}" ></p:outputLabel>
+         <p:outputLabel value="City"></p:outputLabel>
+         <p:outputLabel value="#{address.city}"></p:outputLabel>
+         </p:panelGrid>
+         </p:panel>
+         </h:panelGroup>
+         
+         </p:repeat>
+ 
+ 
+ 
+           
+<!-- 			<ic:ch.walo.poc.lead.component.Address addressDatum="#{data.leadProcessData.businessObject.customer.customerConnect.addressData[0]}" /> -->
+
+		</p:panelGrid>
+          
+                 
+    </p:panel>
  		  
  		   
  		  </p:tab>                 
    
  
-  		  <p:tab id="model" title="Modell">
+  		  <p:tab id="model" title="#{ivy.cms.co('/Dialogs/ch/walo/poc/lead/LeadGUI/Modell')}">
  		  
  		  <iframe scrolling="no" src="https://fqteamsplattformhosting.z6.web.core.windows.net/" title="Demo"></iframe>
  		   
  		  </p:tab>   
- 
-  		  <p:tab id="formControls" title="FormControls">
+
+   		  <p:tab id="formControls" title="#{ivy.cms.co('/Labels/FormControls')}">
  		  
  		  <p:fieldset style="background-color: coral;" legend="Subform" toggleable="true" >
  		  
@@ -139,15 +195,144 @@
  		  
  		  </p:fieldset>
  		  
+ 		  <p:panel header="Weitere Beispiele">
+ 
+ 	      <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+			          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
+			          		  
+ 		  <p:inputText value="#{data.inputRegex}" validatorMessage="Reg Ex (Email) wurde nicht erfüllt!" >
+ 		  <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+ 		  </p:inputText>
+ 		  
+ 		  </p:panelGrid>
+ 		  </p:panel>
+ 		  
+       <p:panel header="Master Detail">
+
+		<pe:masterDetail id="masterDetail" selectLevelListener="#{logic.handleNavigation}" showAllBreadcrumbItems="true">
+		    <f:facet name="header">
+        	<p:messages showDetail="false" showSummary="true"/>
+    		</f:facet>
+
+			    <pe:masterDetailLevel level="1"  >
+		        <f:facet name="label">
+		            <h:outputFormat value="Overview {0}">
+		                <f:param value="Vorfaelle"/>
+		            </h:outputFormat>
+		        </f:facet>
+
+					<p:dataTable border="1" var="row" value="#{data.listVorgaengeMS}">
+
+		            <p:column headerText="Description">
+		                <p:commandLink value="#{row.description}">
+		                    <pe:selectDetailLevel contextValue="#{row}"/>
+		                </p:commandLink>
+		            </p:column>	
+
+						<p:column headerText="Analytics">
+							<h:outputText value="#{row.analytics}"></h:outputText>
+						</p:column>
+						<p:column headerText="ContentType">
+							<h:outputText value="#{row.contentType}"></h:outputText>
+						</p:column>
+						<p:column headerText="CreatedBy">
+							<h:outputText value="#{row.createdBy}"></h:outputText>
+						</p:column>
+						<p:column headerText="CreatedByUser">
+							<h:outputText value="#{row.createdByUser}"></h:outputText>
+						</p:column>
+						<p:column headerText="CreatedDateTime">
+							<h:outputText value="#{row.createdDateTime}"></h:outputText>
+						</p:column>
+
+						<p:column headerText="DocumentSetVersions">
+							<h:outputText value="#{row.documentSetVersions}"></h:outputText>
+						</p:column>
+						<p:column headerText="DriveItem">
+							<h:outputText value="#{row.driveItem}"></h:outputText>
+						</p:column>
+						<p:column headerText="ETag">
+							<h:outputText value="#{row.eTag}"></h:outputText>
+						</p:column>
+						<p:column headerText="Fields">
+							<h:outputText value="#{row.fields}"></h:outputText>
+						</p:column>
+						<p:column headerText="Id">
+							<h:outputText value="#{row.id}"></h:outputText>
+						</p:column>
+						<p:column headerText="LastModifiedBy">
+							<h:outputText value="#{row.lastModifiedBy}"></h:outputText>
+						</p:column>
+						<p:column headerText="LastModifiedByUser">
+							<h:outputText value="#{row.lastModifiedByUser}"></h:outputText>
+						</p:column>
+						<p:column headerText="LastModifiedDateTime">
+							<h:outputText value="#{row.lastModifiedDateTime}"></h:outputText>
+						</p:column>
+						<p:column headerText="Name">
+							<h:outputText value="#{row.name}"></h:outputText>
+						</p:column>
+						<p:column headerText="ParentReference">
+							<h:outputText value="#{row.parentReference}"></h:outputText>
+						</p:column>
+						<p:column headerText="SharepointIds">
+							<h:outputText value="#{row.sharepointIds}"></h:outputText>
+						</p:column>
+						<p:column headerText="Versions">
+							<h:outputText value="#{row.versions}"></h:outputText>
+						</p:column>
+						<p:column headerText="WebUrl">
+							<h:outputText value="#{row.webUrl}"></h:outputText>
+						</p:column>
+					</p:dataTable>
+
+				</pe:masterDetailLevel>
+
+			    <pe:masterDetailLevel level="2" contextVar="vorgang" levelLabel="Detail" > 
+			    
+					  <p:panelGrid id="DetailView" columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+			          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
+			          <p:outputLabel for="detailDesc" value="Description" />
+			          <p:inputText id="detailDesc" value="#{vorgang.description}"></p:inputText>
+			          
+<!-- 			          <p:outputLabel for="demosDataOrderItem1" value="Item" /> -->
+<!-- 			          <p:inputText id="demosDataOrderItem1" value="#{order.item}"></p:inputText> -->
+					</p:panelGrid>      
+					
+<!-- 			 		 <p:commandButton actionListener="#{logic.save}" process="OrderView" immediate="false"   value="save"> -->
+<!-- 						<pe:selectDetailLevel level="1"></pe:selectDetailLevel> -->
+<!-- 			 		 </p:commandButton>   -->
+			 		   
+				</pe:masterDetailLevel>					
+		
+		</pe:masterDetail>
+
+
+							
+
+
+				</p:panel>
+       
+       
+       		  
+ 		  
+ 		  
+ 		  
  		   
- 		  </p:tab>     
+ 		  </p:tab>   
+
+  
  		  
  		  </p:wizard>
- 		  
- 		        
+ 		  <p:spacer></p:spacer>
+    <p:fieldset legend="Approval" rendered="#{data.bvisApproval}">
+    
+					<ic:ch.walo.poc.lead.component.Approver approver="#{data.leadProcessData.businessObject.approvalHier[data.approvalLevelIndex]}"  />
+
+	</p:fieldset>		        
         
-        <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
-          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
+<!--         <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid"  -->
+<!--           columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4"> -->
 
           <!-- No 'form field [java.util.List<ch.walo.stamm.AddressDatum>]' template found for field 'leadProcessData.businessObject.customer.addressData'. -->
           
@@ -155,13 +340,18 @@
           
           <!-- No 'form field [Integer]' template found for field 'leadProcessData.businessObject.customer.customerNumber'. -->
 
-        </p:panelGrid>
+<!--         </p:panelGrid> -->
         <br />
         <div class="command-btns">
           <p:commandLink id="cancel" actionListener="#{ivyWorkflowView.cancel()}" value="Cancel" />
           <p:commandButton id="proceed" actionListener="#{logic.close}" value="Proceed" update="form" icon="pi pi-check" />
         </div>
-      </h:form>
+
+
+
+
+
+			</h:form>
 
     </ui:define>
   </ui:composition>

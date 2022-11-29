@@ -1,0 +1,17 @@
+Misc #class
+ch.walo.poc.lead #namespace
+actualstep String #field
+actualstep PERSISTENT #fieldModifier
+stepindex Number #field
+stepindex PERSISTENT #fieldModifier
+steps List<String> #field
+steps PERSISTENT #fieldModifier
+tableNames List<String> #field
+tableNames PERSISTENT #fieldModifier
+tableRecords List<Recordset> #field
+tableRecords PERSISTENT #fieldModifier
+templateFileFromCMS File #field
+templateFileFromCMS PERSISTENT #fieldModifier
+params List<java.lang.Object> #field
+params 'to fill up CMS Templates' #fieldComment
+params PERSISTENT #fieldModifier

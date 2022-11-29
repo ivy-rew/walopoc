@@ -1,0 +1,4 @@
+ApproverData #class
+ch.walo.poc.lead.component.Approver #namespace
+approver ch.walo.stamm.approval.Approver #field
+approver PERSISTENT #fieldModifier

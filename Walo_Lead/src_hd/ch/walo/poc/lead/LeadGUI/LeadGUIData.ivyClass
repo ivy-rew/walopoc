@@ -12,7 +12,7 @@ listProjectsIds List<String> #field
 listProjectsIds PERSISTENT #fieldModifier
 listCustomerIds List<String> #field
 listCustomerIds PERSISTENT #fieldModifier
-listCustomerConnector List<ch.walo.stamm.Customer> #field
+listCustomerConnector List<ch.walo.stamm.customer.Customer> #field
 listCustomerConnector PERSISTENT #fieldModifier
 customerSearchString String #field
 customerSearchString PERSISTENT #fieldModifier
@@ -22,3 +22,18 @@ toggle Boolean #field
 toggle PERSISTENT #fieldModifier
 selectedUserDemo com.axonivy.portal.components.dto.UserDTO #field
 selectedUserDemo PERSISTENT #fieldModifier
+bvisApproval Boolean #field
+bvisApproval PERSISTENT #fieldModifier
+bvisSearch Boolean #field
+bvisSearch PERSISTENT #fieldModifier
+actualApprover ch.walo.stamm.approval.Approver #field
+actualApprover PERSISTENT #fieldModifier
+approvalLevelIndex Number #field
+approvalLevelIndex 'To show correct approval' #fieldComment
+approvalLevelIndex PERSISTENT #fieldModifier
+inputRegex String #field
+inputRegex PERSISTENT #fieldModifier
+listVorgaengeMS List<com.microsoft.graph.MicrosoftGraphListItem> #field
+listVorgaengeMS PERSISTENT #fieldModifier
+levelToGoTo Integer #field
+levelToGoTo PERSISTENT #fieldModifier

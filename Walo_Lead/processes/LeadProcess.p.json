@@ -5,11 +5,192 @@
     "data" : "ch.walo.poc.lead.LeadProcessData"
   },
   "elements" : [ {
+      "id" : "S10",
+      "type" : "EmbeddedProcess",
+      "name" : [
+        "Create Audit",
+        "Trail PDF"
+      ],
+      "elements" : [ {
+          "id" : "S10-f395",
+          "type" : "Script",
+          "name" : [
+            "Get Audit Trail",
+            "Put in Record Set",
+            "for TableMerge"
+          ],
+          "config" : {
+            "output" : {
+              "code" : [
+                "import ch.ivyteam.ivy.workflow.TaskState;",
+                "import ch.ivyteam.ivy.workflow.INote;",
+                "import ch.ivyteam.ivy.workflow.ITask;",
+                "",
+                "//import vat.Company;",
+                "",
+                "List<ITask> tasks;",
+                "",
+                "",
+                "List <String> name;",
+                "List <String> activator;",
+                "List <String> endTimeStamp;",
+                "List <String> id;",
+                "",
+                "",
+                "//Get relevant tasks",
+                "for (ITask t : ivy.case.tasks().all()) {",
+                "      if (t.getState() != TaskState.DESTROYED",
+                "                && t.getState() != TaskState.FAILED) {",
+                "    name.add(t.getName());",
+                "    activator.add(t.getActivatorName());",
+                "    endTimeStamp.add(t.getEndTimestamp().toString());",
+                "    id.add(t.getId().toString());",
+                "    }",
+                "",
+                "}",
+                "",
+                "Recordset rsTask = new Recordset();",
+                "rsTask.addColumn(\"name\",name);",
+                "rsTask.addColumn(\"activator\",activator);",
+                "rsTask.addColumn(\"endTimeStamp\",endTimeStamp);",
+                "rsTask.addColumn(\"id\",id);",
+                "",
+                "in.misc.tableNames.add(\"tasks\");",
+                "in.misc.tableRecords.add(rsTask);",
+                "",
+                "",
+                "List <String> writername;",
+                "List <String> creationTimestamp;",
+                "List <String> message;",
+                "",
+                "",
+                "for (INote inote: ivy.case.getNotes()) {",
+                "",
+                "  creationTimestamp.add(inote.getCreationTimestamp().toString());",
+                "  writername.add(inote.getWritterName());",
+                "  message.add(inote.getMessage());",
+                "",
+                "}",
+                "",
+                "Recordset notes = new Recordset();",
+                "notes.addColumn(\"writername\",writername);",
+                "notes.addColumn(\"message\",message);",
+                "notes.addColumn(\"creationTimestamp\",creationTimestamp);",
+                "",
+                "",
+                "in.misc.tableRecords.add(notes);",
+                "in.misc.tableNames.add(\"notes\");"
+              ]
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 360, "y" : 160 }
+          },
+          "connect" : { "id" : "S10-f399", "to" : "S10-f398" }
+        }, {
+          "id" : "S10-f398",
+          "type" : "SubProcessCall",
+          "name" : [
+            "Create Document",
+            "with Table"
+          ],
+          "config" : {
+            "call" : {
+              "params" : [
+                { "name" : "listOfTemplateMergeFields", "type" : "List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField>" },
+                { "name" : "optionalOutputpath", "type" : "String" },
+                { "name" : "optionalLetterName", "type" : "String" },
+                { "name" : "optionalOutputFormat", "type" : "String" },
+                { "name" : "templatePath", "type" : "String" },
+                { "name" : "tableNamesList", "type" : "List<String>" },
+                { "name" : "recordsetsList", "type" : "List<Recordset>" }
+              ],
+              "map" : {
+                "param.optionalLetterName" : "\"DocWithTable\"",
+                "param.optionalOutputFormat" : "\"pdf\"",
+                "param.templatePath" : "in.misc.templateFileFromCMS.getAbsolutePath()",
+                "param.tableNamesList" : "in.misc.tableNames",
+                "param.recordsetsList" : "in.misc.tableRecords"
+              },
+              "code" : [
+                "",
+                "",
+                "// \"c:\\\\temp\\\\AuditTrailExport.doc\""
+              ]
+            },
+            "processCall" : "Functional Processes/writeSerialLetterToOneCorrespondent:writeDocumentWithMailMergeTable(List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField>,String,String,String,String,List<String>,List<Recordset>)",
+            "output" : {
+              "code" : [
+                "//import ch.ivyteam.ivy.docFactoryExamples.Util.FilesUtil;",
+                "//in.templateFile.delete();",
+                "",
+                "//FilesUtil.setFileRef(result.fileOperationMessage.files.get(0));",
+                "//ivy.case.documents().add(\"Report.pdf\").write().withContentFrom(result.fileOperationMessage.getFiles().get(0)).read().asIvyFile();",
+                "ivy.case.documents().add(\"AuditTrail.pdf\").write().withContentFrom(result.fileOperationMessage.files.get(0)).read().asIvyFile();"
+              ]
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 512, "y" : 160 },
+            "icon" : "res:/webContent/icons/doc-factory-logo.png"
+          },
+          "connect" : { "id" : "S10-f1", "to" : "S10-g1" }
+        }, {
+          "id" : "S10-f393",
+          "type" : "Script",
+          "name" : [
+            "Get template from",
+            "CMS"
+          ],
+          "config" : {
+            "output" : {
+              "code" : [
+                "//Create a ile that will hold the template - true makes it temporary -> aut. deleted",
+                "in.misc.templateFileFromCMS = new File(\"template.doc\",true);",
+                "//Save result in java File of ivy File",
+                "ivy.cms.getContentObjectValue(\"/templates/templateAuditTable\",ivy.session.contentLocale).exportContentToFile(in.misc.templateFileFromCMS.getJavaFile(),null);",
+                "",
+                "//ivy.cms.getContentObject(\"/Language/Misc/template_service\").getValues().get(0).exportContentToFile(in.misc.filehelper.templateFile.getJavaFile(),null);"
+              ]
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 200, "y" : 160 },
+            "size" : { "width" : 128, "height" : 60 }
+          },
+          "connect" : { "id" : "S10-f2", "to" : "S10-f395" }
+        }, {
+          "id" : "S10-g0",
+          "type" : "EmbeddedStart",
+          "name" : "in 1",
+          "visual" : {
+            "at" : { "x" : 64, "y" : 160 }
+          },
+          "parentConnector" : "f7",
+          "connect" : { "id" : "S10-f0", "to" : "S10-f393" }
+        }, {
+          "id" : "S10-g1",
+          "type" : "EmbeddedEnd",
+          "name" : "out 1",
+          "visual" : {
+            "at" : { "x" : 640, "y" : 160 }
+          },
+          "parentConnector" : "f14"
+        } ],
+      "visual" : {
+        "at" : { "x" : 816, "y" : 112 }
+      },
+      "connect" : { "id" : "f14", "to" : "f13" }
+    }, {
       "id" : "f0",
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
         "callSignature" : "start",
+        "case" : {
+          "name" : "Lead Prozess",
+          "category" : "Lead"
+        },
         "outLink" : "start.ivp",
         "startName" : "<%=ivy.cms.co(\"/process/ProcessName\")%>"
       },
@@ -18,18 +199,12 @@
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {
-      "id" : "f1",
-      "type" : "TaskEnd",
-      "visual" : {
-        "at" : { "x" : 360, "y" : 112 }
-      }
-    }, {
       "id" : "f3",
       "type" : "DialogCall",
       "name" : "Lead erfassen",
       "config" : {
         "dialogId" : "ch.walo.poc.lead.LeadGUI",
-        "startMethod" : "start(ch.walo.poc.lead.LeadProcessData)",
+        "startMethod" : "start(ch.walo.poc.lead.LeadProcessData,Number)",
         "output" : {
           "map" : {
             "out" : [
@@ -40,66 +215,35 @@
         },
         "call" : {
           "params" : [
-            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
+            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" },
+            { "name" : "approvalLevelIndex", "type" : "Number" }
           ],
           "map" : {
-            "param.leadProcessData" : "in"
+            "param.leadProcessData" : "in",
+            "param.leadProcessData.misc.actualstep" : "\"erfassen\""
           }
         }
       },
       "visual" : {
         "at" : { "x" : 184, "y" : 112 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
-    }, {
-      "id" : "f5",
-      "type" : "RequestStart",
-      "name" : "start2.ivp",
-      "config" : {
-        "callSignature" : "start2",
-        "outLink" : "start2.ivp"
-      },
-      "visual" : {
-        "at" : { "x" : 56, "y" : 264 }
-      },
-      "connect" : { "id" : "f7", "to" : "f6" }
-    }, {
-      "id" : "f6",
-      "type" : "DialogCall",
-      "name" : "Test2",
-      "config" : {
-        "dialogId" : "ch.walo.poc.lead.Test2",
-        "startMethod" : "start(ch.walo.poc.lead.LeadProcessData)",
-        "output" : {
-          "map" : {
-            "out" : [
-              "in",
-              "result.leadProcessData"
-            ]
-          }
-        },
-        "call" : {
-          "params" : [
-            { "name" : "leadProcessData", "type" : "ch.walo.poc.lead.LeadProcessData" }
-          ],
-          "map" : {
-            "param.leadProcessData" : "in"
-          }
-        }
-      },
-      "visual" : {
-        "at" : { "x" : 248, "y" : 264 }
-      }
+      "connect" : { "id" : "f1", "to" : "f9" }
     }, {
       "id" : "f8",
       "type" : "RequestStart",
-      "name" : "start3.ivp",
+      "name" : "Dev-Start",
       "config" : {
         "callSignature" : "start3",
-        "outLink" : "start3.ivp"
+        "input" : {
+          "map" : {
+            "out.businessObject.project.budget" : "40000"
+          }
+        },
+        "outLink" : "start3.ivp",
+        "showInStartList" : false
       },
       "visual" : {
-        "at" : { "x" : 528, "y" : 136 }
+        "at" : { "x" : 352, "y" : 192 }
       },
       "connect" : { "id" : "f10", "to" : "f9" }
     }, {
@@ -123,13 +267,13 @@
             { "name" : "procurementStructureId", "type" : "String" }
           ],
           "map" : {
-            "param.amount" : "1000001",
+            "param.amount" : "in.businessObject.project.budget",
             "param.procurementStructureId" : "\"1\""
           }
         }
       },
       "visual" : {
-        "at" : { "x" : 720, "y" : 136 }
+        "at" : { "x" : 352, "y" : 112 }
       },
       "connect" : { "id" : "f12", "to" : "f11" }
     }, {
@@ -148,14 +292,14 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 896, "y" : 136 }
+        "at" : { "x" : 504, "y" : 112 }
       },
-      "connect" : { "id" : "f14", "to" : "f13" }
+      "connect" : { "id" : "f7", "to" : "S10" }
     }, {
       "id" : "f13",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 1088, "y" : 136 }
+        "at" : { "x" : 1072, "y" : 112 }
       }
     } ]
 }
