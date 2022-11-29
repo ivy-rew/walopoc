@@ -74,7 +74,21 @@
       "type" : "SignalStartEvent",
       "name" : "newApprovalTask",
       "config" : {
-        "signalCode" : "newApprovalTask"
+        "signalCode" : "newApprovalTask",
+        "output" : {
+          "code" : [
+            "import ch.walo.poc.lead.SignalWrapperEmailApproval;",
+            "",
+            "SignalWrapperEmailApproval temp=signal.getSignalData() as SignalWrapperEmailApproval;",
+            "out.businessObject=temp.leadProcessData.businessObject;",
+            "out.businessObject.approvalHier.clear();",
+            "",
+            "//Put actual apporver as first object",
+            "out.businessObject.approvalHier.add(temp.approver);",
+            "",
+            "out.misc.actualstep=temp.tasklink;"
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 88, "y" : 360 },
@@ -88,9 +102,23 @@
       "config" : {
         "output" : {
           "code" : [
-            "in.misc.params.add(\"Param1\");",
-            "in.misc.params.add(\"Param2\");",
-            "in.misc.params.add(\"Param3\");"
+            "",
+            "",
+            "",
+            "in.misc.params.add(in.businessObject.project.projectConnect.projectName);",
+            "in.misc.params.add(in.businessObject.customer.customerConnect.codeName);",
+            "",
+            "//Abused actual step! Should be task link",
+            "in.misc.params.add(out.misc.actualstep);",
+            "",
+            "",
+            "",
+            "//User is here",
+            "in.businessObject.approvalHier.get(0).name;",
+            "in.businessObject.approvalHier.get(0).mail;",
+            "",
+            "ivy.log.info(\"Mail of approver \"+in.businessObject.approvalHier.get(0).mail);",
+            "ivy.log.info(\"Name of approver \"+in.businessObject.approvalHier.get(0).name);"
           ]
         }
       },
@@ -104,10 +132,14 @@
       "name" : "Send task mail",
       "config" : {
         "headers" : {
-          "emailSubject" : "New Task Mail",
-          "emailTo" : "demouser@demo.com"
+          "emailSubject" : "<%=ivy.cms.co(\"/process/Tasks/approvalTaskName\")%>",
+          "emailTo" : "<%=in.businessObject.approvalHier.get(0).mail%>"
         },
-        "message" : "<%=ivy.cms.co(\"/process/Tasks/approvalNotificationTemplate\",in.misc.params)%>"
+        "message" : [
+          "",
+          "<%=ivy.cms.co(\"/process/Tasks/approvalNotificationTemplate\",in.misc.params)%>"
+        ],
+        "contentType" : "text/html"
       },
       "visual" : {
         "at" : { "x" : 424, "y" : 360 }

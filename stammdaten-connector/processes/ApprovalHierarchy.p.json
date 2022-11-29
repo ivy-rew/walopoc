@@ -8,12 +8,12 @@
   "elements" : [ {
       "id" : "f0",
       "type" : "CallSubStart",
-      "name" : "hierarchy(Integer,String)",
+      "name" : "hierarchy(Number,String)",
       "config" : {
         "callSignature" : "hierarchy",
         "input" : {
           "params" : [
-            { "name" : "amount", "type" : "Integer" },
+            { "name" : "amount", "type" : "Number" },
             { "name" : "procurementStructureId", "type" : "String" }
           ],
           "map" : {
