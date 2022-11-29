@@ -96,6 +96,27 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+       <!-- <version>3.2.0</version> -->
+        <executions>
+          <execution>
+            <id>cleanup.original.approval</id>
+            <phase>generate-sources</phase>
+            <goals><goal>clean</goal></goals>
+            <configuration>
+              <filesets>
+                <fileset>
+                  <directory>${basedir}/src_generated/ch/walo/stamm/approval</directory>
+                  <includes>
+                    <include>Approver.java</include>
+                  </includes>
+                </fileset>
+              </filesets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   <repositories>
