@@ -82,7 +82,10 @@
             "param.doc = myText.getJavaFile();"
           ]
         },
-        "processCall" : "msFiles:uploadProtocol(java.io.File)"
+        "processCall" : "msFiles:uploadProtocol(java.io.File)",
+        "output" : {
+          "code" : "ivy.log.info(result.dlLink);"
+        }
       },
       "visual" : {
         "at" : { "x" : 232, "y" : 272 },

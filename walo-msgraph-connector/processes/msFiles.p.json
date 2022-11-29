@@ -264,6 +264,14 @@
             "out.groupId" : "\"5b0a7d4c-d507-47bf-8e38-f681832f1c73\"",
             "out.upload" : "param.doc"
           }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "dlLink", "type" : "String" }
+          ],
+          "map" : {
+            "result.dlLink" : "in.docLink"
+          }
         }
       },
       "visual" : {
@@ -352,19 +360,25 @@
       "type" : "RestClientCall",
       "name" : "upload",
       "config" : {
-        "path" : "groups/{group-id}/drive/items/{item-id}:/{file-name}:/content",
         "bodyObjectMapping" : {
           "param" : "in.upload"
         },
         "clientId" : "f628d7ad-5d13-4eeb-9820-ca0e7f0ae2eb",
         "method" : "PUT",
+        "statusErrorCode" : "ivy:error:rest:client",
         "bodyObjectType" : "java.io.File",
+        "bodyInputType" : "ENTITY",
+        "path" : "groups/{group-id}/drive/items/{item-id}:/{file-name}:/content",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.docLink" : "result.get(\"@microsoft.graph.downloadUrl\").asText()"
+        },
         "templateParams" : {
           "item-id" : "in.uploadDir.id// \"01TR67A42UZQBIR4MWCRFLWKZ7XC62II3U\"",
           "group-id" : "in.groupId",
           "file-name" : "in.upload.getName()"
         },
-        "bodyInputType" : "ENTITY",
+        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
         "bodyMediaType" : "application/octet-stream"
       },
       "visual" : {

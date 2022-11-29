@@ -10,3 +10,4 @@ spItems java.util.List<com.microsoft.graph.sharepoint.MicrosoftGraphDriveItem> #
 ivyProcessDir com.microsoft.graph.sharepoint.MicrosoftGraphDriveItem #field
 groupId String #field
 uploadDir com.microsoft.graph.sharepoint.MicrosoftGraphDriveItem #field
+docLink String #field

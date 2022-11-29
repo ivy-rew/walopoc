@@ -27,7 +27,7 @@
       "type" : "SubProcessCall",
       "name" : "ApprovalHierarchy",
       "config" : {
-        "processCall" : "ApprovalHierarchy:hierarchy(Integer,String)",
+        "processCall" : "ApprovalHierarchy:hierarchy(Number,String)",
         "output" : {
           "map" : {
             "out" : "in",
@@ -36,7 +36,7 @@
         },
         "call" : {
           "params" : [
-            { "name" : "amount", "type" : "Integer" },
+            { "name" : "amount", "type" : "Number" },
             { "name" : "procurementStructureId", "type" : "String" }
           ],
           "map" : {
