@@ -126,7 +126,8 @@
                 "",
                 "//FilesUtil.setFileRef(result.fileOperationMessage.files.get(0));",
                 "//ivy.case.documents().add(\"Report.pdf\").write().withContentFrom(result.fileOperationMessage.getFiles().get(0)).read().asIvyFile();",
-                "ivy.case.documents().add(\"AuditTrail.pdf\").write().withContentFrom(result.fileOperationMessage.files.get(0)).read().asIvyFile();"
+                "out.misc.ivyFile=ivy.case.documents().add(\"AuditTrail.pdf\").write().withContentFrom(result.fileOperationMessage.files.get(0)).read().asIvyFile();",
+                "out.misc.javaFile=out.misc.ivyFile.getJavaFile();"
               ]
             }
           },
@@ -175,22 +176,26 @@
           "visual" : {
             "at" : { "x" : 640, "y" : 160 }
           },
-          "parentConnector" : "f14"
+          "parentConnector" : "f23"
         } ],
       "visual" : {
         "at" : { "x" : 824, "y" : 288 }
       },
-      "connect" : { "id" : "f14", "to" : "f13" }
+      "connect" : { "id" : "f23", "to" : "f22" }
     }, {
       "id" : "f0",
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
         "callSignature" : "start",
+        "startCategory" : "Lead",
         "case" : {
           "name" : "Lead Prozess",
           "category" : "Lead"
         },
+        "startCustomFields" : [
+          { "name" : "processImage", "value" : "<%=ivy.cms.cr(\"/process/processImage\")%>" }
+        ],
         "outLink" : "start.ivp",
         "startName" : "<%=ivy.cms.co(\"/process/ProcessName\")%>"
       },
@@ -299,7 +304,7 @@
       "id" : "f13",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 960, "y" : 288 }
+        "at" : { "x" : 1112, "y" : 288 }
       }
     }, {
       "id" : "f2",
@@ -391,6 +396,29 @@
         "at" : { "x" : 152, "y" : 152 }
       },
       "connect" : { "id" : "f21", "to" : "f6" }
+    }, {
+      "id" : "f22",
+      "type" : "SubProcessCall",
+      "name" : "Upload Protokoll",
+      "config" : {
+        "processCall" : "msFiles:uploadProtocol(java.io.File)",
+        "call" : {
+          "params" : [
+            { "name" : "doc", "type" : "java.io.File" }
+          ],
+          "map" : {
+            "param.doc" : "in.misc.javaFile"
+          }
+        },
+        "output" : {
+          "code" : "ivy.case.createNote(ivy.session, \"Audit Protocol has been uploaded to sharepoint. Link: \"+result.dlLink);"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 984, "y" : 288 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f14", "to" : "f13" }
     } ],
   "layout" : {
     "lanes" : [ {

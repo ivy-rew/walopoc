@@ -188,6 +188,8 @@
             "in.actApproval=in.leadProcessData.businessObject.approvalHier.get(in.levelIndex);",
             "ivy.log.info(\"Levels for Approval \"+in. leadProcessData.businessObject.approvalHier.size());",
             "",
+            "ivy.case.createNote(ivy.session, \"Approval hierarchy has been retrieved: \"+in.leadProcessData.businessObject.approvalHier.size()+\" Levels\");",
+            "",
             "//Set some basic escalation values",
             "in.taskDeadline = ivy.cal.getWorkDayIn(3).getDurationFromNow();",
             "in.taskPriority=WorkflowPriority.LOW;",

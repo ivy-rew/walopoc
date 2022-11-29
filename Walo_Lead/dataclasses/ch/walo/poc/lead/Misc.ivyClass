@@ -18,3 +18,7 @@ params PERSISTENT #fieldModifier
 leadInit ch.walo.poc.lead.api.LeadService.LeadInit #field
 leadInit 'for remote start via signal' #fieldComment
 leadInit PERSISTENT #fieldModifier
+javaFile java.io.File #field
+javaFile PERSISTENT #fieldModifier
+ivyFile File #field
+ivyFile PERSISTENT #fieldModifier

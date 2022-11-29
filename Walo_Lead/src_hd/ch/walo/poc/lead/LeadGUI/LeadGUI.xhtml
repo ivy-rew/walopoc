@@ -1,12 +1,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
   xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
   xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
-  xmlns:pe="http://primefaces.org/ui/extensions">
+  xmlns:pe="http://primefaces.org/ui/extensions"
+  xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions">
 <h:body>
   <ui:composition template="/layouts/frame-10-full-width.xhtml">
     <ui:define name="title">LeadGUI</ui:define>
     <ui:define name="content">
-    
+ 
+  <script>
+        // Follow one of these formats to set process steps:
+        //window.processSteps = ["Create Investment Request", "Approve Investment Request"];
+        //window.processSteps = "Create Investment Request,Approve Investment Request";
+
+        // If process steps are set in HTML dialog logic or java code, convert it to one of above formats by jstl (following code) or java code
+        // Include this namespace xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions" to the "html" tag
+        // Use this code if process steps are a java String list
+        window.processSteps = "#{fn:join(data.leadProcessData.misc.steps.toArray(), ',')}";
+        // Use this code if process steps are a java String array
+        //window.processSteps = "{fn:join(data.steps, ',')}";
+
+        // Current process step could be a number or String:
+        window.currentProcessStep = #{data.leadProcessData.misc.stepindex};
+        //window.currentProcessStep = {data.currentProcessStep};
+        //window.currentProcessStep = "{data.currentProcessStep}";
+        //window.processChainDirection = "VERTICAL";
+        window.processChainShape = "LINE";
+        window.announcementInvisible = false;
+</script>
+ 
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?&amp;sensor=false"></script>
     <style>
  iframe {
   min-height: 400px;
@@ -24,6 +47,8 @@
       <h:form id="form">
         <p:messages />
  
+ 
+<!--  <p:outputLabel value="#{data.leadProcessData.misc.stepindex}"></p:outputLabel> -->
          <p:wizard >
      
 
@@ -36,18 +61,17 @@
                     <p:messages/>
 			         <p:panelGrid rendered="#{data.bvisSearch}" columns="4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
 			          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
-					
-<!--                			 <p:autoComplete id="acMinLength" minQueryLength="3" var="proj" value="#{data.leadProcessData.businessObject.projectConnect}"  -->
-<!--                                 completeMethod="#{logic.searchProjectsAC}" effect="fade" scrollHeight="250" itemLabel="#{proj.projectName}"  itemValue="#{proj}" > -->
-<!--                           <p:ajax listener="#{logic.projectSelected}" process="@this"  update="form"></p:ajax>        -->
-<!--                          </p:autoComplete>						 -->
+			
                           <p:outputLabel value="#{ivy.cms.co('/Labels/Suche')}"></p:outputLabel>
                			 <p:autoComplete id="acMinLength" minQueryLength="3"  value="#{data.selectedProjectIdConnector}"  
                                completeMethod="#{logic.searchProjectsACId}" effect="fade" scrollHeight="250"   > 
                            <p:ajax listener="#{logic.projectSelected}" process="@this"  update="form"></p:ajax>        
-                          </p:autoComplete>		
+                          </p:autoComplete>	
+                     
                            <br></br>
-                           <p:commandButton id="createProject" actionListener="#{logic.addProject}" value="Neues Projekt anlegen" update="form" icon="fa-solid fa-plus-square" /> 
+<!--                            <p:commandButton id="createProject" actionListener="#{logic.addProject}" value="Neues Projekt anlegen" update="form" icon="fa-solid fa-plus-square" /> -->
+                           
+                           <p:commandButton id="createProject"  value="Neues Projekt anlegen" process="@this" update="@this" icon="fa-solid fa-plus-square" />  
                            
                           							
 
@@ -65,9 +89,10 @@
 
 
           <p:outputLabel for="leadProcessDataBusinessObjectProjectBudget" value="Budget" />
+         
 <!--           <p:inputText id="leadProcessDataBusinessObjectProjectBudget" value="#{data.leadProcessData.businessObject.project.budget}"></p:inputText> -->
 
-                <p:inputNumber id="leadProcessDataBusinessObjectProjectBudget" value="#{data.leadProcessData.businessObject.project.budget}" symbol=" CHF"
+                <p:inputNumber  id="leadProcessDataBusinessObjectProjectBudget" value="#{data.leadProcessData.businessObject.project.budget}" symbol=" CHF" 
                                 symbolPosition="s" decimalSeparator="," thousandSeparator="." /> 
  
  
@@ -75,8 +100,13 @@
  
           
           <p:outputLabel for="leadProcessDataBusinessObjectProjectGeschaeftsBereich" value="Geschaefts Bereich" />
-          <p:inputText id="leadProcessDataBusinessObjectProjectGeschaeftsBereich" value="#{data.leadProcessData.businessObject.project.geschaeftsBereich}"></p:inputText>
+<!--           <p:inputText id="leadProcessDataBusinessObjectProjectGeschaeftsBereich" value="#{data.leadProcessData.businessObject.project.geschaeftsBereich}"></p:inputText> -->
+          <p:selectOneMenu id="leadProcessDataBusinessObjectProjectGeschaeftsBereich" value="#{data.leadProcessData.businessObject.project.geschaeftsBereich}" filter="true" filterMatchMode="contains" >
+            <f:selectItem itemLabel="Auswählen" itemValue="" />
+            <f:selectItem itemLabel="WB Zürich - 102" itemValue="WB Zürich - 102" />
+            <f:selectItem itemLabel="WB Ostschweiz -115" itemValue="WB Ostschweiz -115" />
           
+        </p:selectOneMenu>
 
           <p:outputLabel for="leadProcessDataBusinessObjectProjectProjectStart" value="Project Start" />
           <p:datePicker id="leadProcessDataBusinessObjectProjectProjectStart" value="#{data.leadProcessData.businessObject.project.projectStart}" pattern="dd.MM.yyyy">
@@ -117,6 +147,7 @@
 
 					</p:panelGrid>
           </p:panel>
+          <p:spacer></p:spacer>
           <p:panel header="Details">
         <p:panelGrid columns="4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
           columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
@@ -125,39 +156,46 @@
         <p:inputText id="codeName" value="#{data.leadProcessData.businessObject.customer.customerConnect.codeName}"></p:inputText>
         
         </p:panelGrid>
- 
-         <p:panelGrid columns="4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
-          columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
+
+
+           
+       <h:panelGroup>
+<!--           <p:panelGrid columns="4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid"  -->
+<!--           columnClasses="ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3"> -->
+                
+       
+         <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+          columnClasses="ui-g-12 ui-md-6 ui-lg-6, ui-g-12 ui-md-6 ui-lg-6, ui-g-12 ui-md-6 ui-lg-3, ui-g-12 ui-md-6 ui-lg-3">
           
 <!--           #{data.leadProcessData.businessObject.customer.customerConnect.addressData[0].codeName} -->
          <p:repeat var="address" value="#{data.leadProcessData.businessObject.customer.customerConnect.addressData}">
-        
-         <h:panelGroup>
+<!--          <h:panelGroup> -->
          <p:panel header="Addresse ">
-          <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
-          columnClasses="ui-g-12 ui-md-6 ui-lg-6, ui-g-12 ui-md-6 ui-lg-6, ui-g-12 ui-md-6 ui-lg-2, ui-g-12 ui-md-6 ui-lg-4">
-      
-         <p:outputLabel value="Email"></p:outputLabel>
-         <p:outputLabel value="#{address.email}" ></p:outputLabel>
-         <p:outputLabel value="Line 1"></p:outputLabel>
-         <p:outputLabel value="#{address.line1}" ></p:outputLabel>
-         <p:outputLabel value="Line 2"></p:outputLabel>
-         <p:outputLabel value="#{address.additionalLine}" ></p:outputLabel>
-         <p:outputLabel value="City"></p:outputLabel>
-         <p:outputLabel value="#{address.city}"></p:outputLabel>
-         </p:panelGrid>
-         </p:panel>
-         </h:panelGroup>
          
+	          <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
+	          columnClasses="ui-g-12 ui-md-6 ui-lg-6, ui-g-12 ui-md-6 ui-lg-6, ui-g-12 ui-md-6 ui-lg-2, ui-g-12 ui-md-6 ui-lg-4">
+	      
+	         <p:outputLabel value="Email"></p:outputLabel>
+	         <p:outputLabel value="#{address.email}" ></p:outputLabel>
+	         <p:outputLabel value="Line 1"></p:outputLabel>
+	         <p:outputLabel value="#{address.line1}" ></p:outputLabel>
+	         <p:outputLabel value="Line 2"></p:outputLabel>
+	         <p:outputLabel value="#{address.additionalLine}" ></p:outputLabel>
+	         <p:outputLabel value="City"></p:outputLabel>
+	         <p:outputLabel value="#{address.city}"></p:outputLabel>
+	         </p:panelGrid>
+	         
+	         <p:gmap center="47.4054, 8.3998" zoom="15" type="HYBRID" style="width:100%;height:400px"/>
+	         
+         </p:panel>  
+   
          </p:repeat>
- 
- 
- 
-           
-<!-- 			<ic:ch.walo.poc.lead.component.Address addressDatum="#{data.leadProcessData.businessObject.customer.customerConnect.addressData[0]}" /> -->
 
 		</p:panelGrid>
-          
+		</h:panelGroup>
+		
+	
+
                  
     </p:panel>
  		  
@@ -200,8 +238,8 @@
  
  	      <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
 			          columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
-			          		  
- 		  <p:inputText value="#{data.inputRegex}" validatorMessage="Reg Ex (Email) wurde nicht erfüllt!" >
+		  <p:outputLabel for="emailregex" value="Email"  ></p:outputLabel>	          		  
+ 		  <p:inputText id="emailregex"   value="#{data.inputRegex}" validatorMessage="Reg Ex (Email) wurde nicht erfüllt!" >
  		  <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
  		  </p:inputText>
  		  
@@ -212,7 +250,8 @@
 
 		<pe:masterDetail id="masterDetail" selectLevelListener="#{logic.handleNavigation}" showAllBreadcrumbItems="true">
 		    <f:facet name="header">
-        	<p:messages showDetail="false" showSummary="true"/>
+<!--         	<p:messages showDetail="false" showSummary="true"/> -->
+        	<p:growl showDetail="false" showSummary="true"></p:growl>
     		</f:facet>
 
 			    <pe:masterDetailLevel level="1"  >
@@ -345,7 +384,8 @@
  		  <p:spacer></p:spacer>
     <p:fieldset legend="Approval" rendered="#{data.bvisApproval}">
     
-					<ic:ch.walo.poc.lead.component.Approver approver="#{data.leadProcessData.businessObject.approvalHier[data.approvalLevelIndex]}"  />
+    
+	<ic:ch.walo.poc.lead.component.Approver approver="#{data.leadProcessData.businessObject.approvalHier[data.approvalLevelIndex]}"  />
 
 	</p:fieldset>		        
         
