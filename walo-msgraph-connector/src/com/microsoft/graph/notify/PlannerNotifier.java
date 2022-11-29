@@ -9,6 +9,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 
 import com.microsoft.graph.MsGraph;
+import com.microsoft.graph.planer.MicrosoftGraphPlannerAssignments;
 import com.microsoft.graph.planer.MicrosoftGraphPlannerTask;
 import com.microsoft.graph.planer.MicrosoftGraphPlannerTaskDetails;
 
@@ -44,7 +45,7 @@ public class PlannerNotifier extends NewTaskAssignmentListener {
   public static void test() {
     ch.ivyteam.ivy.security.internal.User usr = (User) ISession.current().getSessionUser();
     //usr.setExternalId("fdf686ff-05a1-4c1d-89f3-b89f1f7d51eb");
-    var heinz = "db1f0166-4dfe-449a-a2fe-d0a0dfe16b38";
+    var heinz = "db1f0166-4dfe-449a-a2fe-d0a0dfe16b38"; // myid
     usr.setExternalId(heinz);
   }
 
@@ -56,7 +57,14 @@ public class PlannerNotifier extends NewTaskAssignmentListener {
        plannerTask.setTitle(newTask.getName());
        var detail = new MicrosoftGraphPlannerTaskDetails();
        detail.setDescription(toHtml(newTask));
+       plannerTask.setAssignments(null);
        plannerTask.setDetails(detail);
+
+       var assignments = new MicrosoftGraphPlannerAssignments();
+       var member = new com.microsoft.graph.planer.MsGraphAssins.PlanerAssignment();
+       //assignments.put("f626c06e-b450-4eeb-8062-534984fbac20", member);
+       assignments.put(azureUserId, member);
+       plannerTask.setAssignments(assignments);
 
        var created =  new MsGraph().client().path("/planner/tasks").request()
          .post(Entity.entity(plannerTask, MediaType.APPLICATION_JSON));
