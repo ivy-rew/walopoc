@@ -1,13 +1,15 @@
 package com.microsoft.graph.notify;
 
-import static java.util.function.Predicate.not;
-
 import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.microsoft.graph.MsGraph;
 import com.microsoft.graph.planer.MicrosoftGraphPlannerAssignments;
 import com.microsoft.graph.planer.MicrosoftGraphPlannerTask;
@@ -38,7 +40,7 @@ public class PlannerNotifier extends NewTaskAssignmentListener {
     ISecurityMember activator = newTask.getActivator();
     getUsers(activator).map(IUser::getExternalId)
       .filter(Objects::nonNull)
-      .filter(not(String::isBlank))
+      .filter(Predicate.not(String::isBlank))
       .forEach(userId -> notify(userId, newTask));
   }
 
@@ -51,28 +53,55 @@ public class PlannerNotifier extends NewTaskAssignmentListener {
 
   private void notify(String azureUserId, ITask newTask) {
     try {
-       var plannerTask = new MicrosoftGraphPlannerTask();
-       plannerTask.setPlanId("DZbuRHazR0yFxcyB8DyRKJgAGF33");
-       plannerTask.setBucketId("YF8ekbxvAkmAoXX4hfGlpJgANIh4");
-       plannerTask.setTitle(newTask.getName());
-       var detail = new MicrosoftGraphPlannerTaskDetails();
-       detail.setDescription(toHtml(newTask));
-       plannerTask.setAssignments(null);
-       plannerTask.setDetails(detail);
-
-       var assignments = new MicrosoftGraphPlannerAssignments();
-       var member = new com.microsoft.graph.planer.MsGraphAssins.PlanerAssignment();
-       //assignments.put("f626c06e-b450-4eeb-8062-534984fbac20", member);
-       assignments.put(azureUserId, member);
-       plannerTask.setAssignments(assignments);
+       var plannerTask = toPayload(azureUserId, newTask);
+       var rawTask = rawPayload(azureUserId, newTask);
 
        var created =  new MsGraph().client().path("/planner/tasks").request()
-         .post(Entity.entity(plannerTask, MediaType.APPLICATION_JSON));
+         .post(Entity.entity(rawTask, MediaType.APPLICATION_JSON));
 
        Ivy.log().info("task "+created);
     } catch (Exception ex) {
       Ivy.log().error("Failed to notify user "+azureUserId+" on new task "+newTask, ex);
     }
+  }
+
+  private JsonNode rawPayload(String azureUserId, ITask newTask) {
+    ObjectNode pTask = JsonNodeFactory.instance.objectNode();
+    pTask.set("planId", pTask.textNode("DZbuRHazR0yFxcyB8DyRKJgAGF33"));
+    pTask.set("bucketId", pTask.textNode("YF8ekbxvAkmAoXX4hfGlpJgANIh4"));
+    pTask.set("title", pTask.textNode(newTask.getName()));
+    pTask.set("assignments", rawAssign(azureUserId, newTask));
+    var detail = JsonNodeFactory.instance.objectNode();
+    detail.set("description", pTask.textNode(toHtml(newTask)));
+    pTask.set("details", detail);
+    return pTask;
+  }
+
+  private JsonNode rawAssign(String azureUserId, ITask newTask) {
+    var assign = JsonNodeFactory.instance.objectNode();
+    var inner = JsonNodeFactory.instance.objectNode();
+    inner.set("@odata.type", inner.textNode("#microsoft.graph.plannerAssignment"));
+    inner.set("orderHint", inner.textNode(" !"));
+    assign.set(azureUserId, inner);
+    return assign;
+  }
+
+  private MicrosoftGraphPlannerTask toPayload(String azureUserId, ITask newTask) {
+    var plannerTask = new MicrosoftGraphPlannerTask();
+     plannerTask.setPlanId("DZbuRHazR0yFxcyB8DyRKJgAGF33");
+     plannerTask.setBucketId("YF8ekbxvAkmAoXX4hfGlpJgANIh4");
+     plannerTask.setTitle(newTask.getName());
+     var detail = new MicrosoftGraphPlannerTaskDetails();
+     detail.setDescription(toHtml(newTask));
+     plannerTask.setAssignments(null);
+     plannerTask.setDetails(detail);
+
+     var assignments = new MicrosoftGraphPlannerAssignments();
+     var member = new com.microsoft.graph.planer.MsGraphAssins.PlanerAssignment();
+     //assignments.put("f626c06e-b450-4eeb-8062-534984fbac20", member);
+     assignments.put(azureUserId, member);
+     plannerTask.setAssignments(assignments);
+    return plannerTask;
   }
 
   private void callSub(ITask newTask) {

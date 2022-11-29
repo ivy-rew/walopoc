@@ -158,7 +158,8 @@
           "name" : "the test Case"
         },
         "task" : {
-          "name" : "fancy Task"
+          "name" : "fancy Task from ivy",
+          "description" : "more description"
         }
       },
       "visual" : {
