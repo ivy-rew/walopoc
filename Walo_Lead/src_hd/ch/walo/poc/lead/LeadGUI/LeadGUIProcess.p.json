@@ -39,7 +39,7 @@
       "id" : "f1",
       "type" : "HtmlDialogEnd",
       "visual" : {
-        "at" : { "x" : 352, "y" : 64 }
+        "at" : { "x" : 672, "y" : 64 }
       }
     }, {
       "id" : "f3",
@@ -550,7 +550,87 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }
       },
+      "connect" : { "id" : "f17", "to" : "f15" }
+    }, {
+      "id" : "f13",
+      "type" : "SubProcessCall",
+      "name" : "msFiles",
+      "config" : {
+        "processCall" : "msFiles:vorfaelle()",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.listVorgaengeMS" : "in.listVorgaengeMS"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 544, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
       "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f15",
+      "type" : "Script",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.microsoft.graph.MicrosoftGraphListItem;",
+            "MicrosoftGraphListItem test= new MicrosoftGraphListItem();",
+            "test.description=\"Test 1\";",
+            "",
+            "in.listVorgaengeMS.add(test);",
+            "",
+            "in.listVorgaengeMS.add(test);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 384, "y" : 64 }
+      },
+      "connect" : { "id" : "f18", "to" : "f1" }
+    }, {
+      "id" : "f14",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "handleNavigation(SelectLevelEvent)",
+      "config" : {
+        "callSignature" : "handleNavigation",
+        "input" : {
+          "params" : [
+            { "name" : "selectLevelEvent", "type" : "org.primefaces.extensions.component.masterdetail.SelectLevelEvent" }
+          ],
+          "code" : [
+            "ivy.log.info(param.selectLevelEvent.getCurrentLevel());",
+            "if(param.selectLevelEvent.getCurrentLevel()==1) {",
+            "  out.levelToGoTo=2;",
+            "}",
+            "else",
+            "{",
+            "  out.levelToGoTo=1;",
+            "}"
+          ]
+        },
+        "result" : {
+          "params" : [
+            { "name" : "goToLevel", "type" : "Integer" }
+          ],
+          "code" : [
+            "",
+            "result.goToLevel=in.levelToGoTo;"
+          ]
+        },
+        "guid" : "184C0B12C9CA7DBA"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 1280 }
+      },
+      "connect" : { "id" : "f20", "to" : "f19" }
+    }, {
+      "id" : "f19",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 1280 }
+      }
     } ],
   "layout" : {
     "colors" : {

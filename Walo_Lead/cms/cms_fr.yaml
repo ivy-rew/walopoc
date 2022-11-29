@@ -1,0 +1,16 @@
+Dialogs:
+  ch:
+    walo:
+      poc:
+        lead:
+          LeadGUI:
+            Modell: "Modèle\r\n"
+Labels:
+  FormControls: "Contrôles de formulaires\r\n"
+  Kunde: "Client\r\n"
+  Projekt: Projet
+  Suche: Recherche
+process:
+  Tasks:
+    approvalNotificationTemplate: "Vous avez un nouveau validation pour le lead projet : {0} et client : {1}. \r\nCliquez sur le lien suivant pour modifier le partage :\r\n{2}\r\n"
+    approvalTaskName: 'Nouveau validation pour le lead projet '

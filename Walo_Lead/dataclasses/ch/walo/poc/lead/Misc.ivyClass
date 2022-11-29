@@ -12,3 +12,6 @@ tableRecords List<Recordset> #field
 tableRecords PERSISTENT #fieldModifier
 templateFileFromCMS File #field
 templateFileFromCMS PERSISTENT #fieldModifier
+params List<java.lang.Object> #field
+params 'to fill up CMS Templates' #fieldComment
+params PERSISTENT #fieldModifier

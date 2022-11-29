@@ -1,0 +1,16 @@
+Dialogs:
+  ch:
+    walo:
+      poc:
+        lead:
+          LeadGUI:
+            Modell: "Modello\r\n"
+Labels:
+  FormControls: "Controlli del modulo\r\n"
+  Kunde: "Cliente\r\n"
+  Projekt: Progetto
+  Suche: Ricerca
+process:
+  Tasks:
+    approvalNotificationTemplate: "È stata ottenuta una nuova approvazione per il progetto principale: {0}  e per il cliente: {1}. \r\nFare clic sul seguente link per modificare l'approvazione:  {2}\r\n\r\n"
+    approvalTaskName: Nuova approvazione per il progetto principale

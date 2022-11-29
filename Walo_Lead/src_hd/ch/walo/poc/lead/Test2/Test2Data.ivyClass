@@ -1,4 +1,0 @@
-Test2Data #class
-ch.walo.poc.lead.Test2 #namespace
-leadProcessData ch.walo.poc.lead.LeadProcessData #field
-leadProcessData PERSISTENT #fieldModifier

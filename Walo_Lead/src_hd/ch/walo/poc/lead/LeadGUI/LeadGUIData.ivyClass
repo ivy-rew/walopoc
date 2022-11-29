@@ -31,3 +31,9 @@ actualApprover PERSISTENT #fieldModifier
 approvalLevelIndex Number #field
 approvalLevelIndex 'To show correct approval' #fieldComment
 approvalLevelIndex PERSISTENT #fieldModifier
+inputRegex String #field
+inputRegex PERSISTENT #fieldModifier
+listVorgaengeMS List<com.microsoft.graph.MicrosoftGraphListItem> #field
+listVorgaengeMS PERSISTENT #fieldModifier
+levelToGoTo Integer #field
+levelToGoTo PERSISTENT #fieldModifier

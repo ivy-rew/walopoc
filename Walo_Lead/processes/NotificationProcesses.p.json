@@ -69,5 +69,69 @@
       "visual" : {
         "at" : { "x" : 472, "y" : 192 }
       }
+    }, {
+      "id" : "f8",
+      "type" : "SignalStartEvent",
+      "name" : "newApprovalTask",
+      "config" : {
+        "signalCode" : "newApprovalTask"
+      },
+      "visual" : {
+        "at" : { "x" : 88, "y" : 360 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      },
+      "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f9",
+      "type" : "Script",
+      "name" : "ToDO - get Language of User!",
+      "config" : {
+        "output" : {
+          "code" : [
+            "in.misc.params.add(\"Param1\");",
+            "in.misc.params.add(\"Param2\");",
+            "in.misc.params.add(\"Param3\");"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 232, "y" : 360 }
+      },
+      "connect" : { "id" : "f12", "to" : "f11" }
+    }, {
+      "id" : "f11",
+      "type" : "EMail",
+      "name" : "Send task mail",
+      "config" : {
+        "headers" : {
+          "emailSubject" : "New Task Mail",
+          "emailTo" : "demouser@demo.com"
+        },
+        "message" : "<%=ivy.cms.co(\"/process/Tasks/approvalNotificationTemplate\",in.misc.params)%>"
+      },
+      "visual" : {
+        "at" : { "x" : 424, "y" : 360 }
+      },
+      "connect" : { "id" : "f14", "to" : "f13" }
+    }, {
+      "id" : "f13",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 616, "y" : 360 }
+      }
+    }, {
+      "id" : "f15",
+      "type" : "RequestStart",
+      "name" : "start2.ivp",
+      "config" : {
+        "callSignature" : "start2",
+        "outLink" : "start2.ivp",
+        "showInStartList" : false,
+        "startName" : "Dev Start"
+      },
+      "visual" : {
+        "at" : { "x" : 232, "y" : 464 }
+      },
+      "connect" : { "id" : "f16", "to" : "f9" }
     } ]
 }

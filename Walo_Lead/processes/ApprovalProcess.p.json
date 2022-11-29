@@ -72,7 +72,7 @@
           }
         },
         "task" : {
-          "name" : "Approval Task (Level <%=in.anzegeLevel%>)",
+          "name" : "<%=ivy.cms.co(\"/process/Tasks/approvalTaskName\")%> <%=in.leadProcessData.businessObject.project.projectConnect.projectName%>   (Level <%=in.anzegeLevel%>)",
           "description" : [
             "<%=in.actApproval.name%>",
             "<%=in.actApproval.mail%>"

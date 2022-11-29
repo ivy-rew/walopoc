@@ -25,6 +25,12 @@
       <version>10.0.1-SNAPSHOT</version>
       <type>iar</type>
     </dependency>
+    <dependency>
+      <groupId>com.axonivy.connector.office365</groupId>
+      <artifactId>walo-msgraph-connector</artifactId>
+      <version>10.0.0-SNAPSHOT</version>
+      <type>iar</type>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
