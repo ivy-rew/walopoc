@@ -15,3 +15,6 @@ templateFileFromCMS PERSISTENT #fieldModifier
 params List<java.lang.Object> #field
 params 'to fill up CMS Templates' #fieldComment
 params PERSISTENT #fieldModifier
+leadInit ch.walo.poc.lead.api.LeadService.LeadInit #field
+leadInit 'for remote start via signal' #fieldComment
+leadInit PERSISTENT #fieldModifier

@@ -25,7 +25,7 @@
         <p:messages />
  
          <p:wizard >
-
+     
 
 
          
@@ -166,8 +166,9 @@
    
  
   		  <p:tab id="model" title="#{ivy.cms.co('/Dialogs/ch/walo/poc/lead/LeadGUI/Modell')}">
- 		  
- 		  <iframe scrolling="no" src="https://fqteamsplattformhosting.z6.web.core.windows.net/" title="Demo"></iframe>
+ 		  <p:spacer></p:spacer>
+ 		  <h3>A nice new model!</h3>
+ 		  <iframe frameBorder="0" scrolling="no" src="https://fqteamsplattformhosting.z6.web.core.windows.net/" title="Demo"></iframe>
  		   
  		  </p:tab>   
 
@@ -221,13 +222,32 @@
 		            </h:outputFormat>
 		        </f:facet>
 
-					<p:dataTable border="1" var="row" value="#{data.listVorgaengeMS}">
+					<p:dataTable id="vorgaengetable" widgetVar="vorgangTable" border="1" var="row" value="#{data.listVorgaengeMS}"
+					paginator="true" paginatorPosition="both"
+						 rowsPerPageTemplate="5,10,{ShowAll|'All'}"	>
 
-		            <p:column headerText="Description">
-		                <p:commandLink value="#{row.description}">
+	
+
+
+					
+					 <p:column>
+					 <i class="fa fa-file"></i>
+					 </p:column>
+
+						<p:column headerText="CreatedDateTime" sortBy="#{row.createdDateTime}" filterBy="#{row.createdDateTime}" filterMatchMode="contains"  >
+<!-- 							<h:outputText value="#{row.createdDateTime}"></h:outputText> -->
+						    <p:commandLink value="#{row.createdDateTime}">
 		                    <pe:selectDetailLevel contextValue="#{row}"/>
 		                </p:commandLink>
-		            </p:column>	
+						
+						
+						</p:column>
+						
+<!-- 		            <p:column headerText="Description"> -->
+<!-- 		                <p:commandLink value="#{row.description}"> -->
+<!-- 		                    <pe:selectDetailLevel contextValue="#{row}"/> -->
+<!-- 		                </p:commandLink> -->
+<!-- 		            </p:column>	 -->
 
 						<p:column headerText="Analytics">
 							<h:outputText value="#{row.analytics}"></h:outputText>
@@ -241,9 +261,7 @@
 						<p:column headerText="CreatedByUser">
 							<h:outputText value="#{row.createdByUser}"></h:outputText>
 						</p:column>
-						<p:column headerText="CreatedDateTime">
-							<h:outputText value="#{row.createdDateTime}"></h:outputText>
-						</p:column>
+
 
 						<p:column headerText="DocumentSetVersions">
 							<h:outputText value="#{row.documentSetVersions}"></h:outputText>

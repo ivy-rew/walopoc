@@ -178,7 +178,7 @@
           "parentConnector" : "f14"
         } ],
       "visual" : {
-        "at" : { "x" : 816, "y" : 112 }
+        "at" : { "x" : 824, "y" : 288 }
       },
       "connect" : { "id" : "f14", "to" : "f13" }
     }, {
@@ -195,9 +195,9 @@
         "startName" : "<%=ivy.cms.co(\"/process/ProcessName\")%>"
       },
       "visual" : {
-        "at" : { "x" : 32, "y" : 112 }
+        "at" : { "x" : 80, "y" : 288 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : { "id" : "f4", "to" : "f2" }
     }, {
       "id" : "f3",
       "type" : "DialogCall",
@@ -225,7 +225,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 184, "y" : 112 }
+        "at" : { "x" : 352, "y" : 288 }
       },
       "connect" : { "id" : "f1", "to" : "f9" }
     }, {
@@ -243,7 +243,7 @@
         "showInStartList" : false
       },
       "visual" : {
-        "at" : { "x" : 352, "y" : 192 }
+        "at" : { "x" : 520, "y" : 376 }
       },
       "connect" : { "id" : "f10", "to" : "f9" }
     }, {
@@ -273,7 +273,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 352, "y" : 112 }
+        "at" : { "x" : 520, "y" : 288 }
       },
       "connect" : { "id" : "f12", "to" : "f11" }
     }, {
@@ -292,14 +292,75 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 504, "y" : 112 }
+        "at" : { "x" : 672, "y" : 288 }
       },
       "connect" : { "id" : "f7", "to" : "S10" }
     }, {
       "id" : "f13",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 1072, "y" : 112 }
+        "at" : { "x" : 960, "y" : 288 }
       }
-    } ]
+    }, {
+      "id" : "f2",
+      "type" : "RestClientCall",
+      "name" : "Login",
+      "config" : {
+        "path" : "/me",
+        "clientId" : "f628d7ad-5d13-4eeb-9820-ca0e7f0ae2eb",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "resultType" : "com.microsoft.graph.sharepoint.MicrosoftGraphUser"
+      },
+      "visual" : {
+        "at" : { "x" : 192, "y" : 288 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f5", "to" : "f3" }
+    }, {
+      "id" : "f6",
+      "type" : "SignalStartEvent",
+      "name" : "createLead",
+      "config" : {
+        "signalCode" : "createLead",
+        "output" : {
+          "code" : [
+            "import ch.walo.poc.lead.api.LeadService.LeadInit;",
+            "out.misc.leadInit=signal.getSignalData() as LeadInit;"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 128, "y" : 72 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      },
+      "connect" : { "id" : "f16", "to" : "f15" }
+    }, {
+      "id" : "f15",
+      "type" : "SubProcessCall",
+      "name" : "get Project",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 72 }
+      },
+      "connect" : { "id" : "f18", "to" : "f17" }
+    }, {
+      "id" : "f17",
+      "type" : "SubProcessCall",
+      "name" : "get Customer",
+      "visual" : {
+        "at" : { "x" : 520, "y" : 72 }
+      },
+      "connect" : { "id" : "f19", "to" : "f9" }
+    } ],
+  "layout" : {
+    "lanes" : [ {
+        "name" : "Walo Lead",
+        "offset" : 16,
+        "size" : 416,
+        "lanes" : [ {
+            "name" : "External",
+            "size" : 144
+          } ]
+      } ]
+  }
 }

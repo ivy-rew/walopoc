@@ -550,7 +550,7 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }
       },
-      "connect" : { "id" : "f17", "to" : "f15" }
+      "connect" : { "id" : "f21", "to" : "f13" }
     }, {
       "id" : "f13",
       "type" : "SubProcessCall",
@@ -560,7 +560,7 @@
         "output" : {
           "map" : {
             "out" : "in",
-            "out.listVorgaengeMS" : "in.listVorgaengeMS"
+            "out.listVorgaengeMS" : "result.items"
           }
         }
       },
@@ -575,7 +575,7 @@
       "config" : {
         "output" : {
           "code" : [
-            "import com.microsoft.graph.MicrosoftGraphListItem;",
+            "import com.microsoft.graph.sharepoint.MicrosoftGraphListItem;",
             "MicrosoftGraphListItem test= new MicrosoftGraphListItem();",
             "test.description=\"Test 1\";",
             "",
@@ -586,7 +586,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 384, "y" : 64 }
+        "at" : { "x" : 544, "y" : 152 }
       },
       "connect" : { "id" : "f18", "to" : "f1" }
     }, {

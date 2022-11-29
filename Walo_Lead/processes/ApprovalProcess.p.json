@@ -21,7 +21,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 24, "y" : 248 }
+        "at" : { "x" : 72, "y" : 248 }
       },
       "connect" : { "id" : "f17", "to" : "f16" }
     }, {
@@ -85,7 +85,17 @@
             "responsible" : {
               "deleteTask" : true
             }
-          }
+          },
+          "code" : [
+            "import ch.walo.poc.lead.SignalWrapperEmailApproval;",
+            "",
+            "SignalWrapperEmailApproval signalData;",
+            "signalData.approver=in.actApproval;",
+            "signalData.leadProcessData=in.leadProcessData;",
+            "",
+            "//Send Signal for Task notification",
+            "ivy.wf.signals().send(new ch.ivyteam.ivy.process.model.value.SignalCode(\"newApprovalTask\"), signalData);"
+          ]
         },
         "call" : {
           "params" : [
