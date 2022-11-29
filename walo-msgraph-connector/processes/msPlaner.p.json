@@ -18,10 +18,12 @@
           "map" : {
             "result.tasks" : "in.tasks"
           }
-        }
+        },
+        "tags" : "connector"
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 64 }
+        "at" : { "x" : 96, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png?small"
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {
@@ -80,10 +82,12 @@
           "map" : {
             "result.plannerTask" : "in.plannerTask"
           }
-        }
+        },
+        "tags" : "connector"
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 168 }
+        "at" : { "x" : 96, "y" : 168 },
+        "icon" : "res:/webContent/icons/microsoft.png?small"
       },
       "connect" : { "id" : "f7", "to" : "f6" }
     }, {
@@ -148,10 +152,12 @@
           "map" : {
             "result.details" : "in.taskDetails"
           }
-        }
+        },
+        "tags" : "connector"
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 264 }
+        "at" : { "x" : 96, "y" : 264 },
+        "icon" : "res:/webContent/icons/microsoft.png?small"
       },
       "connect" : { "id" : "f12", "to" : "f11" }
     }, {

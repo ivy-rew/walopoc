@@ -36,7 +36,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 216, "y" : 64 }
+        "at" : { "x" : 216, "y" : 64 },
+        "icon" : "res:/webContent/icons/microsoft.png"
       },
       "connect" : { "id" : "f4", "to" : "f1" }
     }, {
@@ -71,7 +72,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 216, "y" : 168 }
+        "at" : { "x" : 216, "y" : 168 },
+        "icon" : "res:/webContent/icons/microsoft.png"
       },
       "connect" : { "id" : "f9", "to" : "f8" }
     }, {
@@ -108,7 +110,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 216, "y" : 264 }
+        "at" : { "x" : 216, "y" : 264 },
+        "icon" : "res:/webContent/icons/microsoft.png"
       },
       "connect" : { "id" : "f14", "to" : "f13" }
     }, {
@@ -131,8 +134,72 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 216, "y" : 376 }
+        "at" : { "x" : 216, "y" : 376 },
+        "icon" : "res:/webContent/icons/microsoft.png"
       },
       "connect" : { "id" : "f12", "to" : "f11" }
+    }, {
+      "id" : "f17",
+      "type" : "RequestStart",
+      "name" : "testTask.ivp",
+      "config" : {
+        "callSignature" : "testTask",
+        "outLink" : "testTask.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 496, "y" : 168 }
+      },
+      "connect" : { "id" : "f25", "to" : "f24" }
+    }, {
+      "id" : "f18",
+      "type" : "TaskSwitchEvent",
+      "config" : {
+        "case" : {
+          "name" : "the test Case"
+        },
+        "task" : {
+          "name" : "fancy Task"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 912, "y" : 168 }
+      },
+      "connect" : { "id" : "f21", "to" : "f20" }
+    }, {
+      "id" : "f20",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 1104, "y" : 168 }
+      }
+    }, {
+      "id" : "f22",
+      "type" : "Script",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.microsoft.graph.notify.PlannerNotifier;",
+            "PlannerNotifier.test();"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 784, "y" : 168 }
+      },
+      "connect" : { "id" : "f19", "to" : "f18" }
+    }, {
+      "id" : "f24",
+      "type" : "RestClientCall",
+      "config" : {
+        "path" : "/me",
+        "clientId" : "a5083585-1c54-480b-a5fa-24211ffd91c7",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "resultType" : "com.microsoft.graph.planer.MicrosoftGraphUser"
+      },
+      "visual" : {
+        "at" : { "x" : 624, "y" : 168 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f23", "to" : "f22" }
     } ]
 }

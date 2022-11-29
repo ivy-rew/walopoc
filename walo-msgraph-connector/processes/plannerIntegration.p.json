@@ -1,0 +1,23 @@
+{
+  "format" : "10.0.0",
+  "id" : "184C2CEBF6080BD4",
+  "config" : {
+    "data" : "msgraph.connector.Data"
+  },
+  "elements" : [ {
+      "id" : "f3",
+      "type" : "ProgramStart",
+      "name" : [
+        "notification",
+        "install",
+        "hook"
+      ],
+      "config" : {
+        "outerBean" : "com.microsoft.graph.notify.SetupGraphNotifications"
+      },
+      "visual" : {
+        "at" : { "x" : 88, "y" : 80 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    } ]
+}
