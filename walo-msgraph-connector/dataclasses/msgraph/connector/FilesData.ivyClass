@@ -6,3 +6,7 @@ siteId String #field
 siteId GUID #fieldComment
 items java.util.List<com.microsoft.graph.MicrosoftGraphDriveItem> #field
 listItems java.util.List<com.microsoft.graph.sharepoint.MicrosoftGraphListItem> #field
+spItems java.util.List<com.microsoft.graph.sharepoint.MicrosoftGraphDriveItem> #field
+ivyProcessDir com.microsoft.graph.sharepoint.MicrosoftGraphDriveItem #field
+groupId String #field
+uploadDir com.microsoft.graph.sharepoint.MicrosoftGraphDriveItem #field

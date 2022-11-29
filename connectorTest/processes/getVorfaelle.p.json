@@ -51,5 +51,49 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 176 }
       }
+    }, {
+      "id" : "f6",
+      "type" : "RequestStart",
+      "name" : "uploadCaseDoc.ivp",
+      "config" : {
+        "callSignature" : "uploadCaseDoc",
+        "case" : {
+          "name" : "MY Cool Sharepoint Case"
+        },
+        "outLink" : "uploadCaseDoc.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 272 }
+      },
+      "connect" : { "id" : "f8", "to" : "f7" }
+    }, {
+      "id" : "f7",
+      "type" : "SubProcessCall",
+      "name" : "msFiles",
+      "config" : {
+        "call" : {
+          "params" : [
+            { "name" : "doc", "type" : "java.io.File" }
+          ],
+          "code" : [
+            "File myText = new File(\"mytest.txt\", true);",
+            "myText.write(\"this is my static test data\");",
+            "",
+            "param.doc = myText.getJavaFile();"
+          ]
+        },
+        "processCall" : "msFiles:uploadProtocol(java.io.File)"
+      },
+      "visual" : {
+        "at" : { "x" : 232, "y" : 272 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f9",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 400, "y" : 272 }
+      }
     } ]
 }

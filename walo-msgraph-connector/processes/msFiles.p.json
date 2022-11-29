@@ -250,5 +250,127 @@
       "visual" : {
         "at" : { "x" : 488, "y" : 400 }
       }
+    }, {
+      "id" : "f22",
+      "type" : "CallSubStart",
+      "name" : "uploadProtocol(File)",
+      "config" : {
+        "callSignature" : "uploadProtocol",
+        "input" : {
+          "params" : [
+            { "name" : "doc", "type" : "java.io.File" }
+          ],
+          "map" : {
+            "out.groupId" : "\"5b0a7d4c-d507-47bf-8e38-f681832f1c73\"",
+            "out.upload" : "param.doc"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 104, "y" : 520 },
+        "icon" : "res:/webContent/icons/microsoft.png?small"
+      },
+      "connect" : { "id" : "f24", "to" : "f23" }
+    }, {
+      "id" : "f23",
+      "type" : "RestClientCall",
+      "name" : "load children",
+      "config" : {
+        "path" : "/groups/{group-id}/drive/{drive-id}/children",
+        "clientId" : "f628d7ad-5d13-4eeb-9820-ca0e7f0ae2eb",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.spItems" : "result.value"
+        },
+        "templateParams" : {
+          "group-id" : "in.groupId",
+          "drive-id" : "\"root\""
+        },
+        "resultType" : "com.microsoft.graph.sharepoint.MicrosoftGraphDriveItemCollectionResponse",
+        "responseCode" : [
+          "import com.microsoft.graph.sharepoint.MicrosoftGraphDriveItem;",
+          "for(MicrosoftGraphDriveItem it : out.spItems) {",
+          "  if (it.webUrl.contains(\"AxonIvy\")) {",
+          "    out.ivyProcessDir = it;",
+          "  }",
+          "}"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 296, "y" : 520 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f28", "to" : "f27" }
+    }, {
+      "id" : "f25",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 744, "y" : 520 }
+      }
+    }, {
+      "id" : "f27",
+      "type" : "RestClientCall",
+      "name" : [
+        "create",
+        "dir"
+      ],
+      "config" : {
+        "bodyRaw" : [
+          "{",
+          "  \"name\": \"<%=ivy.case.getName()%><%=ivy.case.getId()%>\",",
+          "  \"folder\": { },",
+          "  \"@microsoft.graph.conflictBehavior\": \"rename\"",
+          "}"
+        ],
+        "path" : "/groups/{group-id}/drive/items/{driveItem-id}/children",
+        "clientId" : "f628d7ad-5d13-4eeb-9820-ca0e7f0ae2eb",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "POST",
+        "queryParams" : {
+          "filter" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.uploadDir" : "result"
+        },
+        "templateParams" : {
+          "driveItem-id" : "in.ivyProcessDir.id",
+          "group-id" : "in.groupId",
+          "drive-id" : "\"root\""
+        },
+        "resultType" : "com.microsoft.graph.sharepoint.MicrosoftGraphDriveItem",
+        "bodyInputType" : "RAW"
+      },
+      "visual" : {
+        "at" : { "x" : 456, "y" : 520 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f29", "to" : "f26" }
+    }, {
+      "id" : "f26",
+      "type" : "RestClientCall",
+      "name" : "upload",
+      "config" : {
+        "path" : "groups/{group-id}/drive/items/{item-id}:/{file-name}:/content",
+        "bodyObjectMapping" : {
+          "param" : "in.upload"
+        },
+        "clientId" : "f628d7ad-5d13-4eeb-9820-ca0e7f0ae2eb",
+        "method" : "PUT",
+        "bodyObjectType" : "java.io.File",
+        "templateParams" : {
+          "item-id" : "in.uploadDir.id// \"01TR67A42UZQBIR4MWCRFLWKZ7XC62II3U\"",
+          "group-id" : "in.groupId",
+          "file-name" : "in.upload.getName()"
+        },
+        "bodyInputType" : "ENTITY",
+        "bodyMediaType" : "application/octet-stream"
+      },
+      "visual" : {
+        "at" : { "x" : 624, "y" : 520 },
+        "icon" : "res:/webContent/icons/microsoft.png"
+      },
+      "connect" : { "id" : "f30", "to" : "f25" }
     } ]
 }
